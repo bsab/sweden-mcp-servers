@@ -1,23 +1,25 @@
 # Verification record
 
 **Review date: 2026-09-14.** This is a dated evidence record, not a certificate of
-availability, safety, accuracy or maintenance. There are **18 catalog entries in
+availability, safety, accuracy or maintenance. There are **26 catalog entries in
 nine categories**, each backed by a public implementation. One entry (Sweden Legal
 MCP) contains two separately launched servers; the catalog count is a count of entries,
 not processes, tools or upstream APIs.
 
 ## Current assessment and runtime follow-up
 
-All 18 entries now have separate, evidence-based assessments under the unchanged
+All 26 entries have separate, evidence-based assessments under the unchanged
 six-criterion **documentation readiness** rubric v1. Criterion statuses, original notes
 and pinned public sources are in each entry's `quality.criteria`; generated scores are
 not runtime pass rates, security ratings or certificates.
 
-The later [runtime smoke report](RUNTIME.md) records actual installation, launch,
-initialization, discovery and selected read-only tool attempts, including failures,
-credential blockers and dependency adjustments. It supersedes the initial source-only
-runtime scope below, not the source evidence or access cautions. Catalog unit tests
-remain distinct from tests of third-party implementations.
+The [runtime smoke report](RUNTIME.md) records actual installation, launch,
+initialization, discovery and selected read-only tool attempts for the original
+18-entry catalog, including failures, credential blockers and dependency adjustments.
+It supersedes those entries' initial source-only runtime scope below, not the source
+evidence or access cautions. The later [curated-list additions](#curated-list-additions)
+are **source/documentation-reviewed only; no runtime tests were attempted for them**.
+Catalog unit tests remain distinct from tests of third-party implementations.
 
 `last_verified` refers to metadata consultation only. Stars were read from the public
 GitHub repository API and can change independently of the pinned source commit.
@@ -321,7 +323,7 @@ They were unassessed at initial inclusion, before the follow-up rubric review.
 
 ### Overlaps and selection boundaries
 
-Ten added entries do **not** mean ten entirely new Swedish data providers. The pinned
+The first ten additions do **not** mean ten entirely new Swedish data providers. The pinned
 MCP Sweden aggregator already contains [SCB v1](https://github.com/Namraks-Labs/mcp-sweden/blob/ed10cc3dce260830349c3aab3c3ae0891774e890/src/mcp_sweden/data/scb/__init__.py),
 [Kolada v2](https://github.com/Namraks-Labs/mcp-sweden/blob/ed10cc3dce260830349c3aab3c3ae0891774e890/src/mcp_sweden/data/kolada/__init__.py)
 and [Skolverket](https://github.com/Namraks-Labs/mcp-sweden/blob/ed10cc3dce260830349c3aab3c3ae0891774e890/src/mcp_sweden/data/skolverket/__init__.py)
@@ -330,7 +332,196 @@ Kolada v3. BolagsAPI partly overlaps the company-information domain of the aggre
 [Bolagsverket client](https://github.com/Namraks-Labs/mcp-sweden/blob/ed10cc3dce260830349c3aab3c3ae0891774e890/src/mcp_sweden/data/bolagsverket/client.py),
 but is a **different provider/API**, not an official Bolagsverket MCP server.
 
-## Remote runtime attempts
+## Curated-list additions
+
+The subsequently supplied list contains nine projects, but
+[Riksdag & Regering MCP](servers/riksdag-regering-mcp.json) is already cataloged.
+It is preserved, not duplicated. The other eight are distinct implementations,
+including alternatives for providers already covered elsewhere.
+
+**Review date: 2026-09-14. Runtime status for all eight additions: `not_attempted`.**
+This batch inspected public metadata, pinned documentation, implementation and license
+sources only. No upstream installation, server launch, MCP endpoint connection, login
+or tool execution was performed. Documentation Ready scores use the same rubric as the
+existing entries and do not inherit runtime passes from another implementation.
+
+### SCB MCP — TypeScript PxWebAPI v2 alternative
+
+- Repository: [isakskogstad/SCB-MCP](https://github.com/isakskogstad/SCB-MCP).
+  Pin: [`4f071256ed39ff3b20c820c79ed9fc75aa2888cb`](https://github.com/isakskogstad/SCB-MCP/tree/4f071256ed39ff3b20c820c79ed9fc75aa2888cb).
+  TypeScript, 7 stars; [catalog entry and assessment](servers/scb-mcp.json).
+- [README](https://github.com/isakskogstad/SCB-MCP/blob/4f071256ed39ff3b20c820c79ed9fc75aa2888cb/README.md)
+  documents source cloning, `npm install`, `npm run build` and stdio through
+  `node <absolute-path>/dist/index.js`; the
+  [manifest](https://github.com/isakskogstad/SCB-MCP/blob/4f071256ed39ff3b20c820c79ed9fc75aa2888cb/package.json)
+  declares Node 18+ and version 2.5.3. `npm start` selects different HTTP source,
+  so it is not substituted for the documented stdio launch. No hosted endpoint is cataloged.
+- [Actual registrations](https://github.com/isakskogstad/SCB-MCP/blob/4f071256ed39ff3b20c820c79ed9fc75aa2888cb/src/index.ts)
+  include `scb_search_tables`, `scb_get_table_data`, `scb_find_region_code` and
+  `scb_preview_data`. README function-style examples are conceptual; the MCP names
+  have `scb_` prefixes, not the dotted shorthand used there.
+- The [client](https://github.com/isakskogstad/SCB-MCP/blob/4f071256ed39ff3b20c820c79ed9fc75aa2888cb/src/api-client.ts)
+  targets SCB API v2 and configures no API key. Table-specific codes, selection sizes
+  and rate limits still apply. This differs from both the existing Python SCB v2
+  implementation and the aggregator's SCB v1 component; shared data is not duplicate code.
+- **License null:** package metadata says MIT, but the pinned tree contains no
+  applicable full license terms. Upstream compatibility and production-readiness
+  claims are not independent runtime evidence.
+
+### Kolada MCP (aerugo) — Python municipal indicators and semantic search
+
+- Repository: [aerugo/kolada-mcp](https://github.com/aerugo/kolada-mcp).
+  Pin: [`3b7d6aef5feb59be52e17dacc2626dba45e40b04`](https://github.com/aerugo/kolada-mcp/tree/3b7d6aef5feb59be52e17dacc2626dba45e40b04).
+  Python, 16 stars; [catalog entry and assessment](servers/kolada-mcp-python.json).
+- [README](https://github.com/aerugo/kolada-mcp/blob/3b7d6aef5feb59be52e17dacc2626dba45e40b04/README.md)
+  gives source installation via `pip install -e .` followed by `kolada-mcp` or
+  `python -m kolada_mcp`, defaulting to stdio. The
+  [manifest](https://github.com/aerugo/kolada-mcp/blob/3b7d6aef5feb59be52e17dacc2626dba45e40b04/pyproject.toml)
+  requires Python 3.11+ and declares version 1.0.0. Its extensive Python/model dependencies
+  are not contradicted by the README's narrower claim of no external infrastructure.
+- [Registered tools](https://github.com/aerugo/kolada-mcp/blob/3b7d6aef5feb59be52e17dacc2626dba45e40b04/src/kolada_mcp/server.py)
+  cover KPI discovery, semantic search, municipality filtering, data retrieval and
+  cross-municipality comparison. Startup fetches KPI/municipality catalogs and loads
+  embeddings; error fallbacks can leave empty data or unavailable semantic search.
+- [Settings](https://github.com/aerugo/kolada-mcp/blob/3b7d6aef5feb59be52e17dacc2626dba45e40b04/src/kolada_mcp/config.py)
+  target **Kolada API v2**, with `KBLab/sentence-bert-swedish-cased` and a package-local
+  embedding cache. No API credential is configured. First-run model downloads,
+  CPU/memory and writable caches are additional prerequisites, not runtime-tested here.
+  The [model loader](https://github.com/aerugo/kolada-mcp/blob/3b7d6aef5feb59be52e17dacc2626dba45e40b04/src/kolada_mcp/services/embeddings.py)
+  is source evidence for those requirements.
+- Only stdio is cataloged. The optional HTTP
+  [bootstrap](https://github.com/aerugo/kolada-mcp/blob/3b7d6aef5feb59be52e17dacc2626dba45e40b04/src/kolada_mcp/__main__.py)
+  was inspected, not validated for interoperability. This is separate from the
+  existing isakskogstad TypeScript Kolada API v3 server.
+- **License null:** README/manifest declare Apache-2.0, but applicable full terms are
+  absent from the pinned tree. The package's Beta status and limited operational
+  guidance are reflected in the documentation assessment.
+
+### Apiverket MCP — curated gateway, not unrestricted agency access
+
+- [vinvuk/apiverket-mcp](https://github.com/vinvuk/apiverket-mcp), pin
+  [`945a0103add6d5017d367f29a1560827dc8369d7`](https://github.com/vinvuk/apiverket-mcp/tree/945a0103add6d5017d367f29a1560827dc8369d7).
+  TypeScript, 2 stars, verified MIT; [entry and assessment](servers/apiverket-mcp.json).
+- The [README](https://github.com/vinvuk/apiverket-mcp/blob/945a0103add6d5017d367f29a1560827dc8369d7/README.md)
+  documents Node 18+, `npx apiverket-mcp-server` and local stdio client configurations.
+  Explicitly set `GOVDATA_API_URL` and `GOVDATA_API_KEY`: the
+  [client](https://github.com/vinvuk/apiverket-mcp/blob/945a0103add6d5017d367f29a1560827dc8369d7/src/api-client.ts)
+  defaults to localhost rather than the hosted default claimed by the README.
+- [Three registered tools](https://github.com/vinvuk/apiverket-mcp/blob/945a0103add6d5017d367f29a1560827dc8369d7/src/index.ts)
+  discover a built-in endpoint catalog, make permitted GET queries and inspect account
+  quotas. The REST API base is **not** an MCP endpoint. Several domains overlap existing
+  entries, but this is a separate gateway implementation.
+- The published sandbox identifier does **not** establish live production data.
+  Real data needs an Apiverket live key; access, prices and quotas were not verified.
+  Company board/officer/owner/UBO subresources are unsupported; responses may be truncated
+  and reads consume quota. No key, account or endpoint was accessed.
+
+### Storstockholms Lokaltrafik (SL) MCP Server — journeys and departures
+
+- [henrrrik/sl-mcp-server](https://github.com/henrrrik/sl-mcp-server), pin
+  [`6f70dea44b078c2d02363f4c14f2291c2c743be9`](https://github.com/henrrrik/sl-mcp-server/tree/6f70dea44b078c2d02363f4c14f2291c2c743be9).
+  Go, 1 star, verified MIT; [entry and assessment](servers/sl-mcp-server.json).
+- The [README](https://github.com/henrrrik/sl-mcp-server/blob/6f70dea44b078c2d02363f4c14f2291c2c743be9/README.md)
+  documents a hosted SSE connection and self-hosting with `go build -o sl-mcp-server`,
+  setting `PORT` and launching that binary. The
+  [module](https://github.com/henrrrik/sl-mcp-server/blob/6f70dea44b078c2d02363f4c14f2291c2c743be9/go.mod)
+  specifies Go 1.26.1. The README explicitly says no API key is needed.
+- [Eleven registrations](https://github.com/henrrrik/sl-mcp-server/blob/6f70dea44b078c2d02363f4c14f2291c2c743be9/server.go)
+  include genuine journey planning, departures, disruptions and stop discovery.
+  [Journey code](https://github.com/henrrrik/sl-mcp-server/blob/6f70dea44b078c2d02363f4c14f2291c2c743be9/tools/journeyplanner.go)
+  calls SL's trip API; this capability is not inferred from a transit category label.
+- [Transport source](https://github.com/henrrrik/sl-mcp-server/blob/6f70dea44b078c2d02363f4c14f2291c2c743be9/main.go)
+  uses **legacy SSE**. The advertised `/sse` service was not contacted and is deliberately
+  omitted from `mcp_endpoint`, whose scheduled checker assumes Streamable HTTP.
+- Results have documented caps; long IDs require strings, disruption text is Swedish,
+  facility alerts are opt-in and nearest stops cannot be filtered by mode. No ticket
+  purchase or booking tools were found. Hosting availability and cost are unverified.
+
+### SMHI Weather Forecast MCP Server — educational forecast and observation project
+
+- [ribomation/smhi-weather-forecast-mcp-server](https://github.com/ribomation/smhi-weather-forecast-mcp-server), pin
+  [`5f23510e8ba939a919210103905964e2a2e73905`](https://github.com/ribomation/smhi-weather-forecast-mcp-server/tree/5f23510e8ba939a919210103905964e2a2e73905).
+  TypeScript, 0 stars; [entry and assessment](servers/smhi-weather-forecast-mcp.json).
+- The [README](https://github.com/ribomation/smhi-weather-forecast-mcp-server/blob/5f23510e8ba939a919210103905964e2a2e73905/README.md)
+  documents Node 18+, npm install/build/start and Claude Desktop stdio configuration.
+  The [manifest](https://github.com/ribomation/smhi-weather-forecast-mcp-server/blob/5f23510e8ba939a919210103905964e2a2e73905/package.json)
+  starts `dist/smhi-weather-forcast-mcp-server.js`; the `forcast` spelling is intentional
+  in these instructions because it matches the actual build output.
+- [Source registrations](https://github.com/ribomation/smhi-weather-forecast-mcp-server/blob/5f23510e8ba939a919210103905964e2a2e73905/src/server.ts)
+  cover forecasts, observations, stations and parameters. The
+  [API client](https://github.com/ribomation/smhi-weather-forecast-mcp-server/blob/5f23510e8ba939a919210103905964e2a2e73905/src/services/smhi-api.ts)
+  uses unauthenticated SMHI calls. SSE is a future-plan item, not the cataloged transport.
+- The author labels this an educational experiment and warns of spring-2026 API changes.
+  Source retains older forecast/observation paths; current availability and corrected
+  archive formats were not checked. This is neither a confirmed shutdown nor a working
+  endpoint claim. **License null:** README says MIT without applicable full terms.
+
+### Annual Report MCP Server — approved company-data access and local indexing
+
+- [Pomilo-AI/annual_report_mcp_server](https://github.com/Pomilo-AI/annual_report_mcp_server), pin
+  [`6b903a268d0bf2936334129f3e471a86ffad4512`](https://github.com/Pomilo-AI/annual_report_mcp_server/tree/6b903a268d0bf2936334129f3e471a86ffad4512).
+  Python, 2 stars; [entry and assessment](servers/annual-report-mcp-server.json).
+- The [README](https://github.com/Pomilo-AI/annual_report_mcp_server/blob/6b903a268d0bf2936334129f3e471a86ffad4512/README.md)
+  gives dependency installation and Claude Desktop MCP CLI launch instructions, but
+  includes a placeholder clone URL, a hyphenated filename that differs from the actual
+  underscored module, and an unprepared venv/uv fallback. Python version and transport
+  are not explicit; no transport or complete-installation claim is invented.
+- [Three FastMCP tools](https://github.com/Pomilo-AI/annual_report_mcp_server/blob/6b903a268d0bf2936334129f3e471a86ffad4512/annual_report_mcp_server.py)
+  query a matching digitally filed report, fetch organization data and search company
+  names. Report processing requires a ZIP containing XHTML; this is **not all company
+  filings**. Company-name lookup returns Tavily search results, not a validated ID alone.
+- Approved Bolagsverket access requires `BV_CLIENT_ID` and `BV_CLIENT_SECRET`, alongside
+  `OPENAI_API_KEY` and `TAVILY_API_KEY`. Eligibility, commercial prices and quotas are
+  unverified. This is a separate provider path from the BolagsAPI entry.
+- The demo downloads reports and persists local LlamaIndex indexes, and uses OpenAI
+  rather than being an offline/no-write reader. The author warns against production use.
+  No personal/company account data was accessed. **License null:** MIT declaration only.
+
+### Swedish Law MCP (archived) — local legal corpus and replacement gateway
+
+- [Ansvar-Systems/Swedish-law-mcp](https://github.com/Ansvar-Systems/Swedish-law-mcp), pin
+  [`281dea10e09572db722672ae25280faf5cce19ee`](https://github.com/Ansvar-Systems/Swedish-law-mcp/tree/281dea10e09572db722672ae25280faf5cce19ee).
+  TypeScript, 0 stars, verified Apache-2.0; [entry and assessment](servers/swedish-law-mcp.json).
+- **GitHub marks the repository archived.** It was deferred during initial catalog
+  selection and is now included on explicit request with that caveat in its name,
+  description and tags. Historical daily-update claims are not maintenance guarantees.
+- [README](https://github.com/Ansvar-Systems/Swedish-law-mcp/blob/281dea10e09572db722672ae25280faf5cce19ee/README.md)
+  and [setup guide](https://github.com/Ansvar-Systems/Swedish-law-mcp/blob/281dea10e09572db722672ae25280faf5cce19ee/CONTRIBUTING.md)
+  provide Node 18+, npm 9+, clone/install/build/start and corpus ingestion/rebuild commands.
+  The tracked database is an empty file: **a usable corpus must be rebuilt or supplied**,
+  despite older prebuilt-database wording. `SWEDISH_LAW_DB_PATH` selects a local database.
+- The [registry](https://github.com/Ansvar-Systems/Swedish-law-mcp/blob/281dea10e09572db722672ae25280faf5cce19ee/src/tools/registry.ts)
+  implements statutes, provisions, citations, EU references and dataset-dependent case-law
+  and preparatory-work tools. [Coverage notes](https://github.com/Ansvar-Systems/Swedish-law-mcp/blob/281dea10e09572db722672ae25280faf5cce19ee/TOOLS.md)
+  do not promise a comprehensive live court archive. EU-reference validation is not a
+  substantive legal-compliance opinion; version tools need additional corpus data/settings.
+- Local source supports stdio and reads SQLite without mutation; separate ingestion/build
+  commands would write corpus files. The replacement hosted service requires an account,
+  OAuth and suitable tier access. No account-gated endpoint is cataloged, and no entitlement,
+  price, current legal accuracy or hosted availability was verified.
+
+### Begagnad MCP — second-hand searches, not transaction or tracking automation
+
+- [bjesus/begagnad-mcp](https://github.com/bjesus/begagnad-mcp), pin
+  [`cc45e8cb23b5f36e5d4b1ccb831cd561717270b5`](https://github.com/bjesus/begagnad-mcp/tree/cc45e8cb23b5f36e5d4b1ccb831cd561717270b5).
+  TypeScript, 8 stars; [entry and assessment](servers/begagnad-mcp.json).
+- [README](https://github.com/bjesus/begagnad-mcp/blob/cc45e8cb23b5f36e5d4b1ccb831cd561717270b5/README.md)
+  documents a public-instance `mcp-remote` Claude Desktop configuration, local npm
+  install/start and Cloudflare login/deployment. Source verifies legacy SSE for that
+  advertised route; it was not contacted or put into the Streamable HTTP checker.
+- [Five tools](https://github.com/bjesus/begagnad-mcp/blob/cc45e8cb23b5f36e5d4b1ccb831cd561717270b5/src/index.ts)
+  search and retrieve Blocket items through **blocket-api.se**, and Tradera items through
+  its API. The intermediary's affiliation and terms were not established. There are
+  **no purchase, bidding, seller-messaging, saved-search or change-tracking tools**,
+  nor dedicated price/location filter parameters.
+- Tradera requires `TRADERA_APP_ID` and `TRADERA_APP_KEY`; public-instance credentials,
+  Cloudflare/Tradera eligibility, prices and quotas are unknown. Combined search fails
+  if either provider fails. Tools do not mutate marketplace listings, but the Cloudflare
+  agent uses service state, so no blanket no-write claim is made.
+- **License null:** README/manifest say MIT, without full applicable license terms.
+  No deployment, login, endpoint connection or marketplace query was performed.
+
+## Remote runtime attempts (historical initial pass)
 
 Tests were made on **2026-09-14 at approximately 09:58 UTC**, using Python's standard
 HTTP client with certificate verification, a 25-second timeout, no credentials and
@@ -389,10 +580,6 @@ health fields or fabricated runtime scores are stored in entry JSON.
 - [alexatnordnet/mcp-scb-server](https://github.com/alexatnordnet/mcp-scb-server/tree/ad3d6b6b6b7bbcc36a612827b5455ed9ad937186):
   a genuine MCP implementation, deferred because documented generation references
   missing `scripts/fix-imports.js` and a Kubb dependency absent from the inspected package.
-- [Ansvar-Systems/Swedish-law-mcp](https://github.com/Ansvar-Systems/Swedish-law-mcp/tree/281dea10e09572db722672ae25280faf5cce19ee):
-  archived at review time. Current docs direct users to an OAuth gateway and do not
-  redistribute the prebuilt corpus; an old deployment URL was not treated as anonymous
-  working access. Exclusion is not a claim that the underlying implementation is fake.
 - Business/company coverage now includes BolagsAPI, with the provider distinction
   explained above. Coverage remains incomplete: roadmap-only references in other
   projects were not counted as implemented integrations. This is a curated selection,
@@ -406,11 +593,12 @@ health fields or fabricated runtime scores are stored in entry JSON.
 
 ## Licensing boundaries
 
-Catalog infrastructure and original descriptions are MIT-licensed. **Twelve entries have
-verified code-license files; six use `null`** because applicable terms were not established.
-The expansion adds eight verified licenses (seven MIT and one Apache-2.0) and two
-unverified licenses (Naturvårdsverket MCP and Traktamente MCP), preserving the original
-eight entries and their license status.
+Catalog infrastructure and original descriptions are MIT-licensed. **Fifteen entries have
+verified code-license files; eleven use `null`** because applicable terms were not established.
+The initial 18-entry catalog had twelve verified and six unverified licenses. The curated
+list adds three verified licenses (Apiverket and SL: MIT; Swedish Law: Apache-2.0) and
+five unverified licenses (SCB MCP, aerugo's Kolada, ribomation's SMHI, Annual Report and
+Begagnad), preserving all existing license values.
 A README/package license declaration is noted above but is not silently converted into
 verified terms. GitHub's automatic repository license detection is not decisive: for
 Riksdag & Regering the relevant license is in the `mcp` subdirectory.

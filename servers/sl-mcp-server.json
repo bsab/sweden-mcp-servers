@@ -1,0 +1,67 @@
+{
+  "name": "Storstockholms Lokaltrafik (SL) MCP Server",
+  "repository_url": "https://github.com/henrrrik/sl-mcp-server",
+  "site_url": "https://github.com/henrrrik/sl-mcp-server/blob/6f70dea44b078c2d02363f4c14f2291c2c743be9/README.md",
+  "author": "henrrrik",
+  "language": "Go",
+  "license": "MIT",
+  "stars": 1,
+  "category": "transport",
+  "description": "Read-only Stockholm transit tools for journey planning, departures, disruptions and stop discovery using SL's open APIs. No API key; legacy SSE transport, not Streamable HTTP.",
+  "tags": ["sweden", "stockholm", "sl", "public-transport", "journey-planning", "departures"],
+  "transport": "sse",
+  "last_verified": "2026-09-14",
+  "tools": ["trips", "departures", "deviations", "resolve", "nearest_stops", "stop_finder", "sites", "lines", "stop_points", "transport_authorities", "system_info"],
+  "quality": {
+    "rubric_version": 1,
+    "reviewed_at": "2026-09-14",
+    "status": "assessed",
+    "criteria": {
+      "installation": {
+        "status": "complete",
+        "evidence": ["https://github.com/henrrrik/sl-mcp-server/blob/6f70dea44b078c2d02363f4c14f2291c2c743be9/README.md#L252-L277"],
+        "notes": "The hosted SSE route has a concrete Claude Desktop configuration; self-hosting also has build and startup commands. Hosted access avoids a local server installation. These are documentation instructions, not a verified client connection."
+      },
+      "configuration": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/henrrrik/sl-mcp-server/blob/6f70dea44b078c2d02363f4c14f2291c2c743be9/README.md#L252-L277",
+          "https://github.com/henrrrik/sl-mcp-server/blob/6f70dea44b078c2d02363f4c14f2291c2c743be9/go.mod",
+          "https://github.com/henrrrik/sl-mcp-server/blob/6f70dea44b078c2d02363f4c14f2291c2c743be9/CLAUDE.md#L35-L38"
+        ],
+        "notes": "The hosted route explicitly needs no API key and supplies the client URL. For self-hosting, the Go module declares Go 1.26.1 and dependencies; the README sets PORT and deployment notes document its 5000 default. No credentials were requested or used."
+      },
+      "tools": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/henrrrik/sl-mcp-server/blob/6f70dea44b078c2d02363f4c14f2291c2c743be9/README.md#L8-L250",
+          "https://github.com/henrrrik/sl-mcp-server/blob/6f70dea44b078c2d02363f4c14f2291c2c743be9/CHANGELOG.md#L5-L34",
+          "https://github.com/henrrrik/sl-mcp-server/blob/6f70dea44b078c2d02363f4c14f2291c2c743be9/server.go"
+        ],
+        "notes": "Eleven tools are described and registered, including genuine journey planning. Parameter tables and response examples are supplemented by concrete changelog calls such as lines(transport_mode=\"METRO\") and deviations(transport_mode=\"METRO\"). CLAUDE.md's older nine-tool count is not used."
+      },
+      "compatibility": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/henrrrik/sl-mcp-server/blob/6f70dea44b078c2d02363f4c14f2291c2c743be9/README.md#L252-L270",
+          "https://github.com/henrrrik/sl-mcp-server/blob/6f70dea44b078c2d02363f4c14f2291c2c743be9/main.go"
+        ],
+        "notes": "SSE is explicitly named and a Claude Desktop URL configuration is shown; main.go creates an SSE server. The documented hosted /sse URL is intentionally not an mcp_endpoint because this catalog's checker supports unauthenticated Streamable HTTP, not legacy SSE."
+      },
+      "license": {
+        "status": "complete",
+        "evidence": ["https://github.com/henrrrik/sl-mcp-server/blob/6f70dea44b078c2d02363f4c14f2291c2c743be9/LICENSE"],
+        "notes": "The pinned root LICENSE contains the full MIT terms for Henrik Sjokvist's server code, including notice retention and the warranty disclaimer. It does not establish separate transit-data terms."
+      },
+      "limitations": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/henrrrik/sl-mcp-server/blob/6f70dea44b078c2d02363f4c14f2291c2c743be9/README.md#L26-L50",
+          "https://github.com/henrrrik/sl-mcp-server/blob/6f70dea44b078c2d02363f4c14f2291c2c743be9/README.md#L129-L159",
+          "https://github.com/henrrrik/sl-mcp-server/blob/6f70dea44b078c2d02363f4c14f2291c2c743be9/README.md#L191-L215"
+        ],
+        "notes": "Documentation bounds trips to three, requires string handling for long IDs, identifies Swedish-only disruption messages and excludes facility alerts unless requested. nearest_stops lacks transport-mode filtering. These constrain use despite the broad transit feature set."
+      }
+    }
+  }
+}

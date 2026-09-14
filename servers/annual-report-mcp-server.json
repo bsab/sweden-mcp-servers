@@ -1,0 +1,75 @@
+{
+  "name": "Annual Report MCP Server",
+  "repository_url": "https://github.com/Pomilo-AI/annual_report_mcp_server",
+  "site_url": "https://github.com/Pomilo-AI/annual_report_mcp_server/blob/6b903a268d0bf2936334129f3e471a86ffad4512/README.md",
+  "author": "Pomilo-AI",
+  "language": "Python",
+  "license": null,
+  "stars": 2,
+  "category": "government-public-finance",
+  "description": "Demo for company lookup and questions over digitally filed annual reports via Bolagsverket, Tavily and OpenAI; requires approved API access and writes local indexes.",
+  "tags": [
+    "sweden",
+    "annual-reports",
+    "companies",
+    "bolagsverket",
+    "api-key"
+  ],
+  "last_verified": "2026-09-14",
+  "tools": [
+    "query_annual_report",
+    "fetch_org_data",
+    "get_org_no"
+  ],
+  "quality": {
+    "rubric_version": 1,
+    "reviewed_at": "2026-09-14",
+    "status": "assessed",
+    "criteria": {
+      "installation": {
+        "status": "partial",
+        "evidence": [
+          "https://github.com/Pomilo-AI/annual_report_mcp_server/blob/6b903a268d0bf2936334129f3e471a86ffad4512/README.md#L20-L63"
+        ],
+        "notes": "Dependency installation and a Claude Desktop launch example are provided, but cloning uses a placeholder, the first install command names a hyphenated file rather than the repository's underscored filename, and the fallback assumes an existing virtual environment and uv installation."
+      },
+      "configuration": {
+        "status": "partial",
+        "evidence": [
+          "https://github.com/Pomilo-AI/annual_report_mcp_server/blob/6b903a268d0bf2936334129f3e471a86ffad4512/README.md#L7-L11",
+          "https://github.com/Pomilo-AI/annual_report_mcp_server/blob/6b903a268d0bf2936334129f3e471a86ffad4512/README.md#L33-L73"
+        ],
+        "notes": "The README lists dependencies and OPENAI_API_KEY, BV_CLIENT_ID, BV_CLIENT_SECRET and TAVILY_API_KEY. Bolagsverket access requires an application. A supported Python version and environment/uv setup are not documented; the Tavily free-use statement and API prices were not independently verified."
+      },
+      "tools": {
+        "status": "partial",
+        "evidence": [
+          "https://github.com/Pomilo-AI/annual_report_mcp_server/blob/6b903a268d0bf2936334129f3e471a86ffad4512/README.md#L3-L18"
+        ],
+        "notes": "Organization lookup, annual-report analysis and company-name search are described, but the README gives no concrete MCP request or user prompt. Source inspection establishes the three exported names; code docstrings alone do not satisfy the documentation-example requirement."
+      },
+      "compatibility": {
+        "status": "partial",
+        "evidence": [
+          "https://github.com/Pomilo-AI/annual_report_mcp_server/blob/6b903a268d0bf2936334129f3e471a86ffad4512/README.md#L41-L63"
+        ],
+        "notes": "Claude Desktop has a named JSON launch example using the MCP CLI, but the transport is not explicitly stated. The listing does not infer a transport guarantee from the command syntax."
+      },
+      "license": {
+        "status": "partial",
+        "evidence": [
+          "https://github.com/Pomilo-AI/annual_report_mcp_server/blob/6b903a268d0bf2936334129f3e471a86ffad4512/README.md#L75-L77"
+        ],
+        "notes": "The README declares MIT, but the pinned repository contains no LICENSE file or applicable full license terms. The catalog license therefore remains null."
+      },
+      "limitations": {
+        "status": "partial",
+        "evidence": [
+          "https://github.com/Pomilo-AI/annual_report_mcp_server/blob/6b903a268d0bf2936334129f3e471a86ffad4512/README.md#L3-L11",
+          "https://github.com/Pomilo-AI/annual_report_mcp_server/blob/6b903a268d0bf2936334129f3e471a86ffad4512/README.md#L49-L63"
+        ],
+        "notes": "The author calls this a non-production demo with inadequate downloaded-data handling and mentions possible dependency/PATH problems. No concrete data-retention limit, coverage boundary or operational impact is explained; the setup fallback does not establish a fully documented workaround."
+      }
+    }
+  }
+}

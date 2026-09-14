@@ -1,0 +1,91 @@
+{
+  "name": "Swedish Law MCP (archived)",
+  "repository_url": "https://github.com/Ansvar-Systems/Swedish-law-mcp",
+  "site_url": "https://github.com/Ansvar-Systems/Swedish-law-mcp/blob/281dea10e09572db722672ae25280faf5cce19ee/README.md",
+  "author": "Ansvar-Systems",
+  "language": "TypeScript",
+  "license": "Apache-2.0",
+  "stars": 0,
+  "category": "legal-tech",
+  "description": "Archived Swedish statute, citation and EU-reference server. Requires a rebuilt local database; case-law coverage depends on the dataset. Hosted access has moved to an account-based gateway.",
+  "tags": [
+    "sweden",
+    "law",
+    "statutes",
+    "citations",
+    "eu-law",
+    "archived"
+  ],
+  "transport": "stdio",
+  "last_verified": "2026-09-14",
+  "tools": [
+    "search_legislation",
+    "get_provision",
+    "search_case_law",
+    "get_preparatory_works",
+    "validate_citation",
+    "check_currency",
+    "get_eu_basis",
+    "about"
+  ],
+  "quality": {
+    "rubric_version": 1,
+    "reviewed_at": "2026-09-14",
+    "status": "assessed",
+    "criteria": {
+      "installation": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/Ansvar-Systems/Swedish-law-mcp/blob/281dea10e09572db722672ae25280faf5cce19ee/README.md#L6-L43",
+          "https://github.com/Ansvar-Systems/Swedish-law-mcp/blob/281dea10e09572db722672ae25280faf5cce19ee/README.md#L322-L351"
+        ],
+        "notes": "The README supplies clone, dependency-install, build and startup commands, plus statute ingestion and SQLite rebuild commands. Its current introduction says the pre-built corpus is not distributed, so rebuilding is required for local use. It also supplies concrete named-client connection steps for the replacement OAuth gateway; neither route was executed."
+      },
+      "configuration": {
+        "status": "partial",
+        "evidence": [
+          "https://github.com/Ansvar-Systems/Swedish-law-mcp/blob/281dea10e09572db722672ae25280faf5cce19ee/CONTRIBUTING.md#L5-L42",
+          "https://github.com/Ansvar-Systems/Swedish-law-mcp/blob/281dea10e09572db722672ae25280faf5cce19ee/README.md#L29-L43",
+          "https://github.com/Ansvar-Systems/Swedish-law-mcp/blob/281dea10e09572db722672ae25280faf5cce19ee/TOOLS.md#tier-boundary"
+        ],
+        "notes": "Node.js 18+, npm 9+ and Git are documented, as are corpus rebuilding and the gateway account/tier requirement. Local database-path configuration and a clear no-key statement for local operation are missing from the setup guide; legacy pre-built/free-build wording conflicts with the current corpus-distribution notice."
+      },
+      "tools": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/Ansvar-Systems/Swedish-law-mcp/blob/281dea10e09572db722672ae25280faf5cce19ee/README.md#L94-L106",
+          "https://github.com/Ansvar-Systems/Swedish-law-mcp/blob/281dea10e09572db722672ae25280faf5cce19ee/TOOLS.md",
+          "https://github.com/Ansvar-Systems/Swedish-law-mcp/blob/281dea10e09572db722672ae25280faf5cce19ee/docs/EU_INTEGRATION_GUIDE.md#L77-L96"
+        ],
+        "notes": "Tool descriptions and parameter summaries accompany concrete research prompts and an EU-basis request for SFS 2018:218. Case-law and preparatory-work coverage are explicitly dataset-dependent, and EU compliance means reference checking rather than a substantive legal opinion. The representative names were checked against the shared registry."
+      },
+      "compatibility": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/Ansvar-Systems/Swedish-law-mcp/blob/281dea10e09572db722672ae25280faf5cce19ee/README.md#L6-L29",
+          "https://github.com/Ansvar-Systems/Swedish-law-mcp/blob/281dea10e09572db722672ae25280faf5cce19ee/smithery.yaml",
+          "https://ansvar.eu/docs/quickstart"
+        ],
+        "notes": "The current README explicitly configures HTTP for Claude Code and provides named desktop-client connections to the replacement gateway; the linked quickstart explains OAuth. The repository also declares stdio in its launch configuration. The catalog records the source server's stdio transport and deliberately omits the account-gated gateway endpoint."
+      },
+      "license": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/Ansvar-Systems/Swedish-law-mcp/blob/281dea10e09572db722672ae25280faf5cce19ee/README.md#L404-L412",
+          "https://github.com/Ansvar-Systems/Swedish-law-mcp/blob/281dea10e09572db722672ae25280faf5cce19ee/LICENSE"
+        ],
+        "notes": "The README identifies Apache-2.0 and the pinned LICENSE contains the full terms with an Ansvar Systems copyright notice. This covers server code, not entitlement to hosted tiers or unrestricted redistribution of every upstream dataset."
+      },
+      "limitations": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/Ansvar-Systems/Swedish-law-mcp/blob/281dea10e09572db722672ae25280faf5cce19ee/TOOLS.md#tier-boundary",
+          "https://github.com/Ansvar-Systems/Swedish-law-mcp/blob/281dea10e09572db722672ae25280faf5cce19ee/README.md#L278-L294",
+          "https://github.com/Ansvar-Systems/Swedish-law-mcp/blob/281dea10e09572db722672ae25280faf5cce19ee/DISCLAIMER.md#L66-L109",
+          "https://github.com/Ansvar-Systems/Swedish-law-mcp/blob/281dea10e09572db722672ae25280faf5cce19ee/PRIVACY.md#L9-L19"
+        ],
+        "notes": "Documentation explains limited case-law/preparatory-work coverage, missing EU full text and possible stale data, and directs users to verify primary sources and anonymize sensitive queries. GitHub currently marks this repository archived: do not treat its daily-update claims as a maintenance guarantee. The hosted gateway is a separate account- and tier-dependent service."
+      }
+    }
+  }
+}

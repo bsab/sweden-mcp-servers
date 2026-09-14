@@ -1,0 +1,52 @@
+{
+  "name": "Kolada MCP (aerugo)",
+  "repository_url": "https://github.com/aerugo/kolada-mcp",
+  "site_url": "https://github.com/aerugo/kolada-mcp/blob/3b7d6aef5feb59be52e17dacc2626dba45e40b04/README.md",
+  "author": "aerugo",
+  "language": "Python",
+  "license": null,
+  "stars": 16,
+  "category": "data-statistics",
+  "description": "Queries Kolada API v2 municipal indicators with comparison, filtering and Swedish BERT semantic search. A Python alternative that loads KPI data and model embeddings during startup.",
+  "tags": ["sweden", "kolada", "municipalities", "statistics", "indicators", "semantic-search"],
+  "transport": "stdio",
+  "last_verified": "2026-09-14",
+  "tools": ["search_kpis", "get_kpi_metadata", "fetch_kolada_data", "analyze_kpi_across_municipalities", "compare_kpis", "list_municipalities"],
+  "quality": {
+    "rubric_version": 1,
+    "reviewed_at": "2026-09-14",
+    "status": "assessed",
+    "criteria": {
+      "installation": {
+        "status": "complete",
+        "evidence": ["https://github.com/aerugo/kolada-mcp/blob/3b7d6aef5feb59be52e17dacc2626dba45e40b04/README.md"],
+        "notes": "For a source checkout, the README supplies pip install -e . and both kolada-mcp and python -m kolada_mcp startup commands. It also shows optional venv preparation and a Docker alternative; this score concerns the documented local source route, not successful installation."
+      },
+      "configuration": {
+        "status": "partial",
+        "evidence": ["https://github.com/aerugo/kolada-mcp/blob/3b7d6aef5feb59be52e17dacc2626dba45e40b04/README.md", "https://github.com/aerugo/kolada-mcp/blob/3b7d6aef5feb59be52e17dacc2626dba45e40b04/pyproject.toml", "https://github.com/aerugo/kolada-mcp/blob/3b7d6aef5feb59be52e17dacc2626dba45e40b04/src/kolada_mcp/config.py"],
+        "notes": "Python 3.11+, transport, port and logging are documented. The instructions omit model-download/cache requirements, the additional source settings and an explicit credential statement; 'no external dependencies' refers to infrastructure such as Redis, not the substantial Python/model dependencies in the manifest."
+      },
+      "tools": {
+        "status": "partial",
+        "evidence": ["https://github.com/aerugo/kolada-mcp/blob/3b7d6aef5feb59be52e17dacc2626dba45e40b04/README.md"],
+        "notes": "A nine-tool table explains semantic KPI search, data retrieval, municipality filtering and comparisons. The README does not provide a concrete MCP tool request or user prompt; installation commands and broad natural-language-query claims are not usage examples."
+      },
+      "compatibility": {
+        "status": "complete",
+        "evidence": ["https://github.com/aerugo/kolada-mcp/blob/3b7d6aef5feb59be52e17dacc2626dba45e40b04/README.md"],
+        "notes": "The README explicitly identifies stdio as the default and supplies a Claude Desktop mcpServers configuration. Its separate HTTP command is not used to assert a verified Streamable HTTP deployment or interoperability."
+      },
+      "license": {
+        "status": "partial",
+        "evidence": ["https://github.com/aerugo/kolada-mcp/blob/3b7d6aef5feb59be52e17dacc2626dba45e40b04/README.md", "https://github.com/aerugo/kolada-mcp/blob/3b7d6aef5feb59be52e17dacc2626dba45e40b04/pyproject.toml", "https://github.com/aerugo/kolada-mcp/tree/3b7d6aef5feb59be52e17dacc2626dba45e40b04"],
+        "notes": "README and package metadata declare Apache-2.0, but no full applicable license text is present in the pinned tree. The code-license field therefore remains null rather than treating the declaration as verified terms."
+      },
+      "limitations": {
+        "status": "partial",
+        "evidence": ["https://github.com/aerugo/kolada-mcp/blob/3b7d6aef5feb59be52e17dacc2626dba45e40b04/pyproject.toml", "https://github.com/aerugo/kolada-mcp/blob/3b7d6aef5feb59be52e17dacc2626dba45e40b04/README.md"],
+        "notes": "The package has a Beta development-status classifier, but the user documentation does not explain concrete coverage, cold-start resource, model-cache or upstream-failure limitations and workarounds. Only the generic maturity indication receives credit."
+      }
+    }
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "name": "SMHI Weather Forecast MCP Server",
+  "repository_url": "https://github.com/ribomation/smhi-weather-forecast-mcp-server",
+  "site_url": "https://github.com/ribomation/smhi-weather-forecast-mcp-server/blob/5f23510e8ba939a919210103905964e2a2e73905/README.md",
+  "author": "ribomation",
+  "language": "TypeScript",
+  "license": null,
+  "stars": 0,
+  "category": "design-other",
+  "description": "Experimental local SMHI tools for point forecasts, station observations and station/parameter discovery. The README warns of API retirement; current data availability is unverified.",
+  "tags": ["sweden", "smhi", "weather", "forecasts", "observations", "experimental"],
+  "transport": "stdio",
+  "last_verified": "2026-09-14",
+  "tools": ["get-weather-forecast", "get-weather-observations", "list-weather-stations", "list-weather-parameters"],
+  "quality": {
+    "rubric_version": 1,
+    "reviewed_at": "2026-09-14",
+    "status": "assessed",
+    "criteria": {
+      "installation": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/ribomation/smhi-weather-forecast-mcp-server/blob/5f23510e8ba939a919210103905964e2a2e73905/README.md#L21-L68",
+          "https://github.com/ribomation/smhi-weather-forecast-mcp-server/blob/5f23510e8ba939a919210103905964e2a2e73905/README.md#L156-L178",
+          "https://github.com/ribomation/smhi-weather-forecast-mcp-server/blob/5f23510e8ba939a919210103905964e2a2e73905/package.json"
+        ],
+        "notes": "Clone, npm install, build and npm start are documented, with Claude Desktop launch configuration. The package start script resolves the built file under dist; its filename deliberately spells 'forcast', matching the client example. Installation and startup were not attempted."
+      },
+      "configuration": {
+        "status": "partial",
+        "evidence": [
+          "https://github.com/ribomation/smhi-weather-forecast-mcp-server/blob/5f23510e8ba939a919210103905964e2a2e73905/README.md#L21-L72",
+          "https://github.com/ribomation/smhi-weather-forecast-mcp-server/blob/5f23510e8ba939a919210103905964e2a2e73905/package.json",
+          "https://github.com/ribomation/smhi-weather-forecast-mcp-server/blob/5f23510e8ba939a919210103905964e2a2e73905/src/services/smhi-api.ts"
+        ],
+        "notes": "Node.js 18+, npm, dependency installation and client paths are explained. There is no explicit credentials/no-key statement in the usage documentation. The implementation makes unauthenticated SMHI requests, but source inference alone does not complete that documentation requirement."
+      },
+      "tools": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/ribomation/smhi-weather-forecast-mcp-server/blob/5f23510e8ba939a919210103905964e2a2e73905/README.md#L74-L141",
+          "https://github.com/ribomation/smhi-weather-forecast-mcp-server/blob/5f23510e8ba939a919210103905964e2a2e73905/README.md#L191-L214",
+          "https://github.com/ribomation/smhi-weather-forecast-mcp-server/blob/5f23510e8ba939a919210103905964e2a2e73905/src/server.ts"
+        ],
+        "notes": "Four tools have parameter descriptions and examples, plus prompts for Stockholm forecasts and Abisko temperature readings. Source registers observation retrieval and station/parameter discovery as well as forecasts; station and parameter totals advertised in the README were not independently measured."
+      },
+      "compatibility": {
+        "status": "complete",
+        "evidence": ["https://github.com/ribomation/smhi-weather-forecast-mcp-server/blob/5f23510e8ba939a919210103905964e2a2e73905/README.md#L46-L72"],
+        "notes": "The README explicitly names stdio and supplies Claude Desktop JSON with macOS and Windows configuration-file locations. SSE is only a future idea in the draft plan, not an implemented or documented public endpoint."
+      },
+      "license": {
+        "status": "partial",
+        "evidence": [
+          "https://github.com/ribomation/smhi-weather-forecast-mcp-server/blob/5f23510e8ba939a919210103905964e2a2e73905/README.md#L216-L218",
+          "https://github.com/ribomation/smhi-weather-forecast-mcp-server/tree/5f23510e8ba939a919210103905964e2a2e73905"
+        ],
+        "notes": "The README declares MIT, but the pinned repository contains no applicable license text. Dependency licenses do not cover this server, so metadata license remains null and only partial declaration credit is awarded."
+      },
+      "limitations": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/ribomation/smhi-weather-forecast-mcp-server/blob/5f23510e8ba939a919210103905964e2a2e73905/README.md#L5-L12",
+          "https://github.com/ribomation/smhi-weather-forecast-mcp-server/blob/5f23510e8ba939a919210103905964e2a2e73905/README.md#L187-L189",
+          "https://github.com/ribomation/smhi-weather-forecast-mcp-server/blob/5f23510e8ba939a919210103905964e2a2e73905/src/services/smhi-api.ts"
+        ],
+        "notes": "Beyond an educational-experiment disclaimer, the README warns that its APIs may be deprecated during spring 2026 and directs users to SMHI updates. Source still defaults to pmp3g forecast v2 and observation v1.0; continued support is unverified, not implied by this documentation score."
+      }
+    }
+  }
+}
