@@ -28,14 +28,56 @@
   "quality": {
     "rubric_version": 1,
     "reviewed_at": "2026-09-14",
-    "status": "unassessed",
-    "reason": "Source review only; no runtime test or full rubric assessment. Python 3.12+ and stdio are supported in the inspected source; no API key is configured. Source activity dates to April 2025 and README local examples incorrectly reference kolada-mcp. SWEA/SWESTR and HTTP/SSE claims are not established by the registered monetary-policy tools.",
-    "evidence": [
-      "https://github.com/aerugo/swemo-mcp/blob/602b2c383af97d86f519e0e4894641f895a291ce/README.md",
-      "https://github.com/aerugo/swemo-mcp/blob/602b2c383af97d86f519e0e4894641f895a291ce/src/swemo_mcp/server.py",
-      "https://github.com/aerugo/swemo-mcp/blob/602b2c383af97d86f519e0e4894641f895a291ce/src/swemo_mcp/services/monetary_policy_api.py",
-      "https://github.com/aerugo/swemo-mcp/blob/602b2c383af97d86f519e0e4894641f895a291ce/pyproject.toml",
-      "https://github.com/aerugo/swemo-mcp/blob/602b2c383af97d86f519e0e4894641f895a291ce/LICENSE"
-    ]
+    "status": "assessed",
+    "criteria": {
+      "installation": {
+        "status": "partial",
+        "evidence": [
+          "https://github.com/aerugo/swemo-mcp/blob/602b2c383af97d86f519e0e4894641f895a291ce/README.md#L146-L206",
+          "https://github.com/aerugo/swemo-mcp/blob/602b2c383af97d86f519e0e4894641f895a291ce/README.md#L228-L241"
+        ],
+        "notes": "The README proposes uv sync without a clone/location sequence; its local Claude configuration actually runs kolada-mcp from a Kolada path, its uvx command is hardcoded to the author's machine, and its Docker client/build tags differ. These leave setup corrections for the reader."
+      },
+      "configuration": {
+        "status": "partial",
+        "evidence": [
+          "https://github.com/aerugo/swemo-mcp/blob/602b2c383af97d86f519e0e4894641f895a291ce/README.md#L146-L162",
+          "https://github.com/aerugo/swemo-mcp/blob/602b2c383af97d86f519e0e4894641f895a291ce/README.md#L168-L190"
+        ],
+        "notes": "Python >=3.12, uv >=0.2.0 and dependency synchronization are stated. Required environment/credential requirements or an explicit no-key statement are absent; an empty env object and an open-API description do not fully document prerequisites."
+      },
+      "tools": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/aerugo/swemo-mcp/blob/602b2c383af97d86f519e0e4894641f895a291ce/README.md#L31-L46",
+          "https://github.com/aerugo/swemo-mcp/blob/602b2c383af97d86f519e0e4894641f895a291ce/README.md#L125-L142"
+        ],
+        "notes": "The monetary-policy tool catalogue describes GDP, unemployment and CPI, while the introduction gives concrete inflation-history and next-year GDP questions and the catalogue explains policy_round selection. Library-only examples are not the sole usage evidence; SWEA/SWESTR coverage is not inferred."
+      },
+      "compatibility": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/aerugo/swemo-mcp/blob/602b2c383af97d86f519e0e4894641f895a291ce/README.md#L99-L118",
+          "https://github.com/aerugo/swemo-mcp/blob/602b2c383af97d86f519e0e4894641f895a291ce/README.md#L164-L206"
+        ],
+        "notes": "The README explicitly labels stdio and provides a named Claude Desktop uvx connection snippet. The local Kolada copy/paste error remains an installation caveat. HTTP/SSE labels in the diagram alone are not treated as established operational support."
+      },
+      "license": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/aerugo/swemo-mcp/blob/602b2c383af97d86f519e0e4894641f895a291ce/README.md#L276-L293",
+          "https://github.com/aerugo/swemo-mcp/blob/602b2c383af97d86f519e0e4894641f895a291ce/LICENSE"
+        ],
+        "notes": "The README applies Apache-2.0 and the pinned root LICENSE contains the full terms. Riksbank data-use terms and the project's unofficial status remain separate from the code license."
+      },
+      "limitations": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/aerugo/swemo-mcp/blob/602b2c383af97d86f519e0e4894641f895a291ce/README.md#L73-L95",
+          "https://github.com/aerugo/swemo-mcp/blob/602b2c383af97d86f519e0e4894641f895a291ce/README.md#L138-L142"
+        ],
+        "notes": "The vintage explanation distinguishes a pinned policy round's observation cutoff from revised realized history and tells readers to request latest for final observations plus the newest forecasts. This documents a concrete interpretation/coverage pitfall and how to avoid it."
+      }
+    }
   }
 }

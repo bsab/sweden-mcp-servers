@@ -49,7 +49,8 @@ server entries or Git history.
 |-----|--------|
 | Search and filter projects | [Web catalog](https://bsab.github.io/sweden-mcp-servers/) |
 | Reuse the machine-readable catalog | [catalog.json](https://bsab.github.io/sweden-mcp-servers/catalog.json) |
-| Understand what was actually verified | [Verification record](VERIFICATION.md) |
+| Compare runtime outcomes, failures and blockers | [Runtime smoke report](RUNTIME.md) |
+| Inspect source evidence and access requirements | [Verification record](VERIFICATION.md) |
 | Suggest a missing project | [New server form](https://github.com/bsab/sweden-mcp-servers/issues/new?template=new-server.yml) |
 | Correct metadata or broken links | [Report an issue](https://github.com/bsab/sweden-mcp-servers/issues/new?template=report.yml) |
 | Contribute source entries | [Contribution guide](CONTRIBUTING.md) |
@@ -71,18 +72,27 @@ the authoritative data provider.
 by default but can enable writes. Their account/API costs, and BolagsAPI pricing and
 quotas, have not been verified. ICA MCP uses an **unofficial private API**, requires
 login, can modify personal shopping lists, and may conflict with ICA's service terms.
-These integrations were not installed, connected or runtime-tested. Consult the
+Runtime attempts deliberately stop before authentication or private account access;
+protocol discovery or a local ping does **not** prove an integration works with its
+provider. Consult the [runtime outcomes](RUNTIME.md) and
 [project-specific restrictions](VERIFICATION.md#additional-source-only-entries) first.
 
 ## Catalog
 
 Entries are checked against canonical public documentation and implementation sources.
 `last_verified` is the metadata consultation date, **not** proof that a server runs.
-The [verification record](VERIFICATION.md) separates runtime results from source inspection
-and explains credentials, licensing and coverage limitations.
+The [verification record](VERIFICATION.md) explains source evidence, credentials,
+licensing and coverage limitations. The separate [runtime smoke report](RUNTIME.md)
+records actual protocol/tool attempts, including failures and blocked paths.
+The **2026-09-14 runtime snapshot** covers all 18 entries: **9 live-data passes**,
+**5 credential blockers**, **1 network/TLS blocker**, **2 tool failures** and
+**1 protocol failure**. A pass covers only the sampled read-only operation and configuration.
 
 The **🎯 Ready score /100** measures documented readiness, not popularity, security or
-runtime reliability. **Unassessed does not mean zero.** Where assessed, scores link to
+runtime reliability. All 18 current entries were assessed on **2026-09-14** using the
+[unchanged six-criterion rubric](CONTRIBUTING.md#rubric-v1). A high score can coexist
+with a failed runtime attempt or missing credentials. **Unassessed does not mean zero.**
+Where assessed, scores link to
 the criteria and evidence; entries sort by descending score, then name, with unassessed
 entries last. Bold names, if present, are editorial selections, not certification.
 
@@ -102,24 +112,24 @@ entries last. Bold names, if present, are editorial selections, not certificatio
   </thead>
   <tbody>
   <tr>
-    <td><a href="https://github.com/isakskogstad/Kolada-MCP">Kolada MCP</a></td>
-    <td align="right"><a href="servers/kolada-mcp.json" title="Documentation review: 2026-09-14; criteria and sources">Unassessed</a></td>
-    <td align="right">12</td>
-    <td>TS</td>
-    <td>Retrieves and compares municipality and regional indicators through Kolada API v3. A dedicated stdio alternative to MCP Sweden’s Kolada v2 integration.</td>
-    <td align="center">—</td>
-  </tr>
-  <tr>
     <td><a href="https://github.com/Namraks-Labs/mcp-sweden">MCP Sweden</a></td>
-    <td align="right"><a href="servers/mcp-sweden.json" title="Documentation review: 2026-09-14; criteria and sources">Unassessed</a></td>
+    <td align="right"><a href="servers/mcp-sweden.json" title="Documentation review: 2026-09-14; criteria and sources">85/100</a></td>
     <td align="right">1</td>
     <td>Python</td>
     <td>Combines Swedish data tools for SCB statistics, parliament, municipal indicators, education, radio and Stockholm public transport.</td>
     <td align="center"><a href="https://sweden.mcp.namraks.com/mcp" target="_blank" rel="noopener noreferrer" title="Open MCP endpoint: MCP Sweden"><kbd>Connect</kbd></a></td>
   </tr>
   <tr>
+    <td><a href="https://github.com/isakskogstad/Kolada-MCP">Kolada MCP</a></td>
+    <td align="right"><a href="servers/kolada-mcp.json" title="Documentation review: 2026-09-14; criteria and sources">80/100</a></td>
+    <td align="right">12</td>
+    <td>TS</td>
+    <td>Retrieves and compares municipality and regional indicators through Kolada API v3. A dedicated stdio alternative to MCP Sweden’s Kolada v2 integration.</td>
+    <td align="center">—</td>
+  </tr>
+  <tr>
     <td><a href="https://github.com/ashwinvis/scb-opendata-mcp">SCB Open Data MCP</a></td>
-    <td align="right"><a href="servers/scb-opendata-mcp.json" title="Documentation review: 2026-09-14; criteria and sources">Unassessed</a></td>
+    <td align="right"><a href="servers/scb-opendata-mcp.json" title="Documentation review: 2026-09-14; criteria and sources">77.5/100</a></td>
     <td align="right">1</td>
     <td>Python</td>
     <td>Exposes Swedish national statistics from SCB through PxWebApi v2. A dedicated local alternative to the SCB v1 integration in MCP Sweden; no API key is configured.</td>
@@ -144,7 +154,7 @@ entries last. Bold names, if present, are editorial selections, not certificatio
   <tbody>
   <tr>
     <td><a href="https://github.com/furrytailapps/mcp-lantmateriet">Lantmäteriet MCP</a></td>
-    <td align="right"><a href="servers/mcp-lantmateriet.json" title="Documentation review: 2026-09-14; criteria and sources">Unassessed</a></td>
+    <td align="right"><a href="servers/mcp-lantmateriet.json" title="Documentation review: 2026-09-14; criteria and sources">50/100</a></td>
     <td align="right">0</td>
     <td>JS</td>
     <td>Provides Lantmäteriet property searches, terrain elevation, map URLs and STAC discovery for Swedish imagery and elevation datasets.</td>
@@ -152,7 +162,7 @@ entries last. Bold names, if present, are editorial selections, not certificatio
   </tr>
   <tr>
     <td><a href="https://github.com/furrytailapps/mcp-nvv">Naturvårdsverket MCP</a></td>
-    <td align="right"><a href="servers/mcp-nvv.json" title="Documentation review: 2026-09-14; criteria and sources">Unassessed</a></td>
+    <td align="right"><a href="servers/mcp-nvv.json" title="Documentation review: 2026-09-14; criteria and sources">40/100</a></td>
     <td align="right">0</td>
     <td>TS</td>
     <td>Searches Swedish nature reserves, national parks, Natura 2000 and Ramsar areas through Naturvårdsverket geodata. The documented hosted endpoint has not been runtime-tested.</td>
@@ -177,7 +187,7 @@ entries last. Bold names, if present, are editorial selections, not certificatio
   <tbody>
   <tr>
     <td><a href="https://github.com/AvoccadoTech/legal-mcp-sweden">Sweden Legal MCP (Lifos and Rättspraxis)</a></td>
-    <td align="right"><a href="servers/legal-mcp-sweden.json" title="Documentation review: 2026-09-14; criteria and sources">Unassessed</a></td>
+    <td align="right"><a href="servers/legal-mcp-sweden.json" title="Documentation review: 2026-09-14; criteria and sources">92.5/100</a></td>
     <td align="right">0</td>
     <td>Python</td>
     <td>Two local MCP servers monitor Migrationsverket legal-position updates and maintain a searchable watchlist over published Swedish case law.</td>
@@ -202,7 +212,7 @@ entries last. Bold names, if present, are editorial selections, not certificatio
   <tbody>
   <tr>
     <td><a href="https://github.com/isakskogstad/Riksdag-Regering-MCP">Riksdag &amp; Regering MCP</a></td>
-    <td align="right"><a href="servers/riksdag-regering-mcp.json" title="Documentation review: 2026-09-14; criteria and sources">Unassessed</a></td>
+    <td align="right"><a href="servers/riksdag-regering-mcp.json" title="Documentation review: 2026-09-14; criteria and sources">95/100</a></td>
     <td align="right">31</td>
     <td>TS</td>
     <td>Searches Swedish parliamentary documents, members, debates and votes, plus Government Offices material exposed through g0v.se.</td>
@@ -210,7 +220,7 @@ entries last. Bold names, if present, are editorial selections, not certificatio
   </tr>
   <tr>
     <td><a href="https://github.com/aerugo/swemo-mcp">Swemo MCP — Riksbank</a></td>
-    <td align="right"><a href="servers/swemo-mcp.json" title="Documentation review: 2026-09-14; criteria and sources">Unassessed</a></td>
+    <td align="right"><a href="servers/swemo-mcp.json" title="Documentation review: 2026-09-14; criteria and sources">75/100</a></td>
     <td align="right">2</td>
     <td>Python</td>
     <td>Queries Riksbank monetary-policy forecasts and series for inflation, GDP, unemployment and the policy rate. Local stdio integration with dated setup documentation.</td>
@@ -218,7 +228,7 @@ entries last. Bold names, if present, are editorial selections, not certificatio
   </tr>
   <tr>
     <td><a href="https://github.com/johnie/traktamente-mcp">Traktamente MCP</a></td>
-    <td align="right"><a href="servers/traktamente-mcp.json" title="Documentation review: 2026-09-14; criteria and sources">Unassessed</a></td>
+    <td align="right"><a href="servers/traktamente-mcp.json" title="Documentation review: 2026-09-14; criteria and sources">75/100</a></td>
     <td align="right">1</td>
     <td>TS</td>
     <td>Retrieves Swedish foreign-travel daily allowance rates from Skatteverket’s EntryScape data. Supports country searches; local execution requires Bun.</td>
@@ -243,27 +253,27 @@ entries last. Bold names, if present, are editorial selections, not certificatio
   <tbody>
   <tr>
     <td><a href="https://github.com/isakskogstad/Skolverket-MCP">Skolverket MCP</a></td>
-    <td align="right"><a href="servers/skolverket-mcp.json" title="Documentation review: 2026-09-14; criteria and sources">Unassessed</a></td>
+    <td align="right"><a href="servers/skolverket-mcp.json" title="Documentation review: 2026-09-14; criteria and sources">85/100</a></td>
     <td align="right">10</td>
     <td>TS</td>
     <td>Queries Swedish schools, curricula, subjects and education through Skolverket APIs. Runs locally from source; the former hosted service and npm package are unavailable.</td>
     <td align="center">—</td>
   </tr>
   <tr>
-    <td><a href="https://github.com/furrytailapps/mcp-smhi">SMHI MCP</a></td>
-    <td align="right"><a href="servers/mcp-smhi.json" title="Documentation review: 2026-09-14; criteria and sources">Unassessed</a></td>
-    <td align="right">0</td>
-    <td>TS</td>
-    <td>Exposes SMHI forecasts, weather and hydrological observations, warnings, radar and lightning through a hosted MCP interface.</td>
-    <td align="center"><a href="https://mcp-smhi.vercel.app/mcp" target="_blank" rel="noopener noreferrer" title="Open MCP endpoint: SMHI MCP"><kbd>Connect</kbd></a></td>
-  </tr>
-  <tr>
     <td><a href="https://github.com/robobobby/mcp-swedish-weather">Swedish Weather MCP</a></td>
-    <td align="right"><a href="servers/mcp-swedish-weather.json" title="Documentation review: 2026-09-14; criteria and sources">Unassessed</a></td>
+    <td align="right"><a href="servers/mcp-swedish-weather.json" title="Documentation review: 2026-09-14; criteria and sources">52.5/100</a></td>
     <td align="right">0</td>
     <td>JS</td>
     <td>A small local MCP server returning SMHI forecast-derived current conditions and forecasts for Swedish cities or coordinates.</td>
     <td align="center">—</td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/furrytailapps/mcp-smhi">SMHI MCP</a></td>
+    <td align="right"><a href="servers/mcp-smhi.json" title="Documentation review: 2026-09-14; criteria and sources">40/100</a></td>
+    <td align="right">0</td>
+    <td>TS</td>
+    <td>Exposes SMHI forecasts, weather and hydrological observations, warnings, radar and lightning through a hosted MCP interface.</td>
+    <td align="center"><a href="https://mcp-smhi.vercel.app/mcp" target="_blank" rel="noopener noreferrer" title="Open MCP endpoint: SMHI MCP"><kbd>Connect</kbd></a></td>
   </tr>
   </tbody>
 </table>
@@ -284,7 +294,7 @@ entries last. Bold names, if present, are editorial selections, not certificatio
   <tbody>
   <tr>
     <td><a href="https://github.com/DanielErikssonCoder/arbetsformedlingen-mcp-server">Arbetsförmedlingen MCP Server</a></td>
-    <td align="right"><a href="servers/arbetsformedlingen-mcp-server.json" title="Documentation review: 2026-09-14; criteria and sources">Unassessed</a></td>
+    <td align="right"><a href="servers/arbetsformedlingen-mcp-server.json" title="Documentation review: 2026-09-14; criteria and sources">90/100</a></td>
     <td align="right">1</td>
     <td>TS</td>
     <td>Connects to Arbetsförmedlingen and JobTech APIs for current and historical jobs, job events, occupation taxonomy and education matching.</td>
@@ -309,7 +319,7 @@ entries last. Bold names, if present, are editorial selections, not certificatio
   <tbody>
   <tr>
     <td><a href="https://github.com/hniska/trafikverket-mcp">Trafikverket MCP</a></td>
-    <td align="right"><a href="servers/trafikverket-mcp.json" title="Documentation review: 2026-09-14; criteria and sources">Unassessed</a></td>
+    <td align="right"><a href="servers/trafikverket-mcp.json" title="Documentation review: 2026-09-14; criteria and sources">95/100</a></td>
     <td align="right">0</td>
     <td>TS</td>
     <td>Queries Trafikverket road weather, traffic cameras, incidents, traffic flow and road conditions using a locally configured API key.</td>
@@ -333,19 +343,19 @@ entries last. Bold names, if present, are editorial selections, not certificatio
   </thead>
   <tbody>
   <tr>
-    <td><a href="https://github.com/straycatse/bokio-mcp">Bokio MCP</a></td>
-    <td align="right"><a href="servers/bokio-mcp.json" title="Documentation review: 2026-09-14; criteria and sources">Unassessed</a></td>
-    <td align="right">0</td>
-    <td>TS</td>
-    <td>Connects to one Bokio company for invoices, bookkeeping and SIE exports. Requires credentials; read-only by default, with writes available through explicit opt-in.</td>
-    <td align="center">—</td>
-  </tr>
-  <tr>
     <td><a href="https://github.com/erp-mafia/fortnox-mcp">Fortnox MCP</a></td>
-    <td align="right"><a href="servers/fortnox-mcp.json" title="Documentation review: 2026-09-14; criteria and sources">Unassessed</a></td>
+    <td align="right"><a href="servers/fortnox-mcp.json" title="Documentation review: 2026-09-14; criteria and sources">90/100</a></td>
     <td align="right">39</td>
     <td>TS</td>
     <td>Reads Fortnox accounting data and can create or bookkeep invoices. Requires an authorized Fortnox account; includes write-enabled tools.</td>
+    <td align="center">—</td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/straycatse/bokio-mcp">Bokio MCP</a></td>
+    <td align="right"><a href="servers/bokio-mcp.json" title="Documentation review: 2026-09-14; criteria and sources">82.5/100</a></td>
+    <td align="right">0</td>
+    <td>TS</td>
+    <td>Connects to one Bokio company for invoices, bookkeeping and SIE exports. Requires credentials; read-only by default, with writes available through explicit opt-in.</td>
     <td align="center">—</td>
   </tr>
   </tbody>
@@ -367,7 +377,7 @@ entries last. Bold names, if present, are editorial selections, not certificatio
   <tbody>
   <tr>
     <td><a href="https://github.com/HugoAndFriends/BolagsAPI-mcp-server">BolagsAPI MCP Server</a></td>
-    <td align="right"><a href="servers/bolagsapi-mcp-server.json" title="Documentation review: 2026-09-14; criteria and sources">Unassessed</a></td>
+    <td align="right"><a href="servers/bolagsapi-mcp-server.json" title="Documentation review: 2026-09-14; criteria and sources">100/100</a></td>
     <td align="right">0</td>
     <td>TS</td>
     <td>Looks up Swedish companies, financial statements and company history through BolagsAPI. Requires a provider API key; not an official Bolagsverket server.</td>
@@ -375,7 +385,7 @@ entries last. Bold names, if present, are editorial selections, not certificatio
   </tr>
   <tr>
     <td><a href="https://github.com/kanylbullen/ica-mcp">ICA MCP (unofficial)</a></td>
-    <td align="right"><a href="servers/ica-mcp.json" title="Documentation review: 2026-09-14; criteria and sources">Unassessed</a></td>
+    <td align="right"><a href="servers/ica-mcp.json" title="Documentation review: 2026-09-14; criteria and sources">100/100</a></td>
     <td align="right">2</td>
     <td>Python</td>
     <td>Uses ICA’s unofficial private API for shopping lists, recipes, offers and products. Requires login, can modify lists, and carries service-terms and availability risks.</td>

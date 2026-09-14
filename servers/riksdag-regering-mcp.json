@@ -54,13 +54,58 @@
   "quality": {
     "rubric_version": 1,
     "reviewed_at": "2026-09-14",
-    "status": "unassessed",
-    "reason": "Source and metadata review only; no full rubric assessment or local execution. Stdio registration is verified, but the custom optional HTTP transport was not established as standards-compatible. Government Offices material is accessed through third-party g0v.se.",
-    "evidence": [
-      "https://github.com/isakskogstad/Riksdag-Regering-MCP/blob/32ceae410346fdb5ca215cdd94b2261038fce906/README.md",
-      "https://github.com/isakskogstad/Riksdag-Regering-MCP/blob/32ceae410346fdb5ca215cdd94b2261038fce906/mcp/src/core/mcpServer.ts",
-      "https://github.com/isakskogstad/Riksdag-Regering-MCP/blob/32ceae410346fdb5ca215cdd94b2261038fce906/mcp/src/index.ts",
-      "https://github.com/isakskogstad/Riksdag-Regering-MCP/blob/32ceae410346fdb5ca215cdd94b2261038fce906/mcp/LICENSE"
-    ]
+    "status": "assessed",
+    "criteria": {
+      "installation": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/isakskogstad/Riksdag-Regering-MCP/blob/32ceae410346fdb5ca215cdd94b2261038fce906/README.md#L34-L81",
+          "https://github.com/isakskogstad/Riksdag-Regering-MCP/blob/32ceae410346fdb5ca215cdd94b2261038fce906/mcp/INSTALL_GUIDE.md#L3-L31"
+        ],
+        "notes": "The root quick start supplies an npm-based Claude Desktop launch, and the installation guide supplies clone, dependency installation, build and direct stdio startup commands."
+      },
+      "configuration": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/isakskogstad/Riksdag-Regering-MCP/blob/32ceae410346fdb5ca215cdd94b2261038fce906/mcp/INSTALL_GUIDE.md#L3-L5",
+          "https://github.com/isakskogstad/Riksdag-Regering-MCP/blob/32ceae410346fdb5ca215cdd94b2261038fce906/mcp/README.md#L1-L49"
+        ],
+        "notes": "Node.js 20+ and npm/pnpm are specified. The server README says no external database is used and enumerates optional PORT, API_KEY and RIKSDAG_USER_AGENT settings; access is to the public Riksdag API and third-party g0v.se, not an official Government Offices API."
+      },
+      "tools": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/isakskogstad/Riksdag-Regering-MCP/blob/32ceae410346fdb5ca215cdd94b2261038fce906/README.md#L15-L31",
+          "https://github.com/isakskogstad/Riksdag-Regering-MCP/blob/32ceae410346fdb5ca215cdd94b2261038fce906/mcp/USAGE_GUIDE.md#L13-L58",
+          "https://github.com/isakskogstad/Riksdag-Regering-MCP/blob/32ceae410346fdb5ca215cdd94b2261038fce906/mcp/USAGE_GUIDE.md#L293-L311"
+        ],
+        "notes": "The root README describes parliamentary and government capabilities; the usage guide gives explicit MCP requests such as search_ledamoter with parti S and search_dokument with titel klimat, plus multi-tool research workflows."
+      },
+      "compatibility": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/isakskogstad/Riksdag-Regering-MCP/blob/32ceae410346fdb5ca215cdd94b2261038fce906/mcp/README.md#L14-L25",
+          "https://github.com/isakskogstad/Riksdag-Regering-MCP/blob/32ceae410346fdb5ca215cdd94b2261038fce906/mcp/INSTALL_GUIDE.md#L21-L31"
+        ],
+        "notes": "The server README explicitly calls its Claude Desktop configuration STDIO mode, and the installation guide names the stdio entry point. Optional custom HTTP documentation is not taken as proof of interoperable remote transport."
+      },
+      "license": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/isakskogstad/Riksdag-Regering-MCP/blob/32ceae410346fdb5ca215cdd94b2261038fce906/mcp/LICENSE",
+          "https://github.com/isakskogstad/Riksdag-Regering-MCP/blob/32ceae410346fdb5ca215cdd94b2261038fce906/README.md#L120-L122"
+        ],
+        "notes": "Full MIT terms applying to the MCP package are accessible in mcp/LICENSE. This is the applicable file despite the root README linking a root-level LICENSE."
+      },
+      "limitations": {
+        "status": "absent",
+        "evidence": [
+          "https://github.com/isakskogstad/Riksdag-Regering-MCP/blob/32ceae410346fdb5ca215cdd94b2261038fce906/README.md",
+          "https://github.com/isakskogstad/Riksdag-Regering-MCP/blob/32ceae410346fdb5ca215cdd94b2261038fce906/mcp/INSTALL_GUIDE.md",
+          "https://github.com/isakskogstad/Riksdag-Regering-MCP/blob/32ceae410346fdb5ca215cdd94b2261038fce906/mcp/USAGE_GUIDE.md"
+        ],
+        "notes": "The consulted README, installation and usage guides describe live sources and search tips but do not explain a concrete coverage gap, rate ceiling or unsupported operation and its consequences. The g0v.se intermediary remains an access caveat, not an invented documented limitation."
+      }
+    }
   }
 }

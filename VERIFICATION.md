@@ -6,27 +6,43 @@ nine categories**, each backed by a public implementation. One entry (Sweden Leg
 MCP) contains two separately launched servers; the catalog count is a count of entries,
 not processes, tools or upstream APIs.
 
-## What was checked
+## Current assessment and runtime follow-up
+
+All 18 entries now have separate, evidence-based assessments under the unchanged
+six-criterion **documentation readiness** rubric v1. Criterion statuses, original notes
+and pinned public sources are in each entry's `quality.criteria`; generated scores are
+not runtime pass rates, security ratings or certificates.
+
+The later [runtime smoke report](RUNTIME.md) records actual installation, launch,
+initialization, discovery and selected read-only tool attempts, including failures,
+credential blockers and dependency adjustments. It supersedes the initial source-only
+runtime scope below, not the source evidence or access cautions. Catalog unit tests
+remain distinct from tests of third-party implementations.
+
+`last_verified` refers to metadata consultation only. Stars were read from the public
+GitHub repository API and can change independently of the pinned source commit.
+
+## Initial review scope (historical, before the runtime follow-up)
 
 - Public GitHub repository identity, default branch, commit, primary language and stars.
 - Actual MCP registration/transport code, documented configuration and exact tool names.
 - Applicable code-license text where available, distinct from data-provider terms.
-- Pinned documentation and source links in each entry's `quality.evidence`.
+- Pinned documentation and source evidence; initially all entries were unassessed.
 - Three documented remote endpoints were attempted without credentials. **None completed
-  initialization from the review environment; no `tools/list` or `tools/call` succeeded.**
-- The ten additions reviewed later on the same date were **source/documentation-only**:
-  no endpoint requests, initialization, login or tool calls were attempted for them.
-  Historical failures below apply only to the three original endpoints, not the additions.
-- No third-party package was installed or launched, and no local MCP server was executed.
-  Repository build/test results concern this catalog, not the listed implementations.
+  initialization in that initial pass; no `tools/list` or `tools/call` succeeded then.**
+- The ten additions were initially **source/documentation-only**: no endpoint requests,
+  initialization, login or tool calls had yet been attempted for them.
+- No third-party package had been installed or launched during the initial review.
 
-All entries remain **unassessed** for rubric v1: this metadata/source review is not a
-complete six-criterion readiness assessment. Reasons and sources are visible in the
-README's score links, the web catalog and the source JSON. `last_verified` refers to
-metadata consultation only. Stars were read from the public GitHub repository API;
-they can change independently of the pinned source commit.
+The initial three failures are preserved below as dated history; they do not describe
+the subsequent local runtime results for all 18 entries.
 
 ## Source snapshots and operational limitations
+
+These source-review observations preserve the initial review context. Statements
+about work not yet executed refer to that stage; the later [runtime report](RUNTIME.md)
+is authoritative for actual launch/tool attempts and outcomes. Source, license,
+authentication and scope caveats below continue to apply.
 
 ### MCP Sweden — statistics and multiple Swedish services
 
@@ -145,12 +161,14 @@ they can change independently of the pinned source commit.
 
 ## Additional source-only entries
 
-The following **ten additions** were reviewed on **2026-09-14**, without installing
-packages, connecting MCP clients, contacting hosted endpoints or accessing accounts.
+The following **ten additions** were initially reviewed on **2026-09-14**, without
+installing packages, connecting MCP clients, contacting hosted endpoints or accessing
+accounts. These paragraphs preserve that source-only review; later documentation
+assessments are in the entry JSON and actual attempts are in [RUNTIME.md](RUNTIME.md).
 All ten repositories were public, non-forks and non-archived in the metadata snapshot.
 Each entry links its pinned documentation, actual MCP registrations and license evidence.
 Tool arrays are representative source-confirmed names, not exhaustive live inventories.
-None has received a complete rubric assessment or a runtime success designation.
+They were unassessed at initial inclusion, before the follow-up rubric review.
 
 ### Fortnox MCP — accounting with write-enabled tools
 
@@ -327,8 +345,9 @@ HTTP client with certificate verification, a 25-second timeout, no credentials a
 These results **do not establish whether the remote deployments work from another
 network**, nor whether they enforce authentication. The network block was not bypassed.
 No deployment version was obtained. Pinned GitHub revisions above describe reviewed
-source, not necessarily what a hosted endpoint is running. Local stdio entries were
-not installed or executed; Trafikverket additionally requires an API key.
+source, not necessarily what a hosted endpoint is running. Local stdio entries had
+not been installed or executed in this initial pass; their later attempts are recorded
+in [RUNTIME.md](RUNTIME.md). Trafikverket additionally requires an API key.
 
 ### Exact procedure and safe follow-up
 
@@ -348,10 +367,11 @@ maintainer working on a permitted network should:
 2. Send `{"jsonrpc":"2.0","method":"notifications/initialized"}`.
 3. Send `{"jsonrpc":"2.0","id":2,"method":"tools/list","params":{}}` and follow any
    pagination. Inspect the actual advertised input schemas rather than guessing them.
-4. Call one benign read-only tool with valid bounded arguments: for example the
-   advertised root `list_features`, an SMHI descriptive/forecast query, or `lm_map_url`
-   for a public area. Confirm both JSON-RPC success and that the tool has not returned
-   `isError: true`; inspect the content before claiming useful data was returned.
+4. Call one benign read-only tool with valid bounded arguments that actually retrieves
+   public provider data. Confirm both JSON-RPC success and that the tool has not returned
+   `isError: true`; inspect the content for masked upstream failures before claiming
+   live data was returned. Static `lm_map_url` generation or a local ping alone is not
+   a live-provider pass.
 5. Record the exact arguments, timestamp, server version, result summary and limitations.
    One successful call proves only that sampled operation at that time, not the whole server.
 

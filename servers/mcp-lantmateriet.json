@@ -27,14 +27,62 @@
   "quality": {
     "rubric_version": 1,
     "reviewed_at": "2026-09-14",
-    "status": "unassessed",
-    "reason": "Source and metadata review only; no full rubric assessment. The runtime attempt was blocked by a network-policy page. Property/elevation require upstream credentials; docs disagree on the hosted hostname and no project LICENSE was found.",
-    "evidence": [
-      "https://github.com/furrytailapps/mcp-lantmateriet/blob/22907c5b82978683c57d96d3569c9af2006d49d5/CLAUDE.md",
-      "https://github.com/furrytailapps/mcp-lantmateriet/blob/22907c5b82978683c57d96d3569c9af2006d49d5/src/tools/index.ts",
-      "https://github.com/furrytailapps/mcp-lantmateriet/blob/22907c5b82978683c57d96d3569c9af2006d49d5/src/lib/auth.ts",
-      "https://github.com/furrytailapps/mcp-lantmateriet/blob/22907c5b82978683c57d96d3569c9af2006d49d5/tests/README.md"
-    ]
+    "status": "assessed",
+    "criteria": {
+      "installation": {
+        "status": "partial",
+        "evidence": [
+          "https://github.com/furrytailapps/mcp-lantmateriet/blob/22907c5b82978683c57d96d3569c9af2006d49d5/CLAUDE.md#L7-L9",
+          "https://github.com/furrytailapps/mcp-lantmateriet/blob/22907c5b82978683c57d96d3569c9af2006d49d5/tests/README.md#L5-L13",
+          "https://github.com/furrytailapps/mcp-lantmateriet/blob/22907c5b82978683c57d96d3569c9af2006d49d5/tests/README.md#L66-L74"
+        ],
+        "notes": "Developer docs name a production URL and the test guide gives npm run dev, but no complete installation/client-connection walkthrough. CLAUDE.md and tests/README.md disagree on the hosted hostname; neither is silently substituted."
+      },
+      "configuration": {
+        "status": "partial",
+        "evidence": [
+          "https://github.com/furrytailapps/mcp-lantmateriet/blob/22907c5b82978683c57d96d3569c9af2006d49d5/CLAUDE.md#L18-L26",
+          "https://github.com/furrytailapps/mcp-lantmateriet/blob/22907c5b82978683c57d96d3569c9af2006d49d5/RESEARCH.md#L23-L47"
+        ],
+        "notes": "The documents identify consumer key/secret variables and explain Geotorget registration, API subscriptions and OAuth token refresh. Runtime and dependency prerequisites for local operation are not documented. Public STAC discovery is not a promise of anonymous downloads."
+      },
+      "tools": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/furrytailapps/mcp-lantmateriet/blob/22907c5b82978683c57d96d3569c9af2006d49d5/CLAUDE.md#L11-L16",
+          "https://github.com/furrytailapps/mcp-lantmateriet/blob/22907c5b82978683c57d96d3569c9af2006d49d5/tests/README.md#L35-L64",
+          "https://github.com/furrytailapps/mcp-lantmateriet/blob/22907c5b82978683c57d96d3569c9af2006d49d5/tests/README.md#L76-L107"
+        ],
+        "notes": "CLAUDE.md describes the four geodata tools; the test guide supplies concrete MCP workflows, including finding the property S?ffle Liden 16 before elevation and weather checks. These written examples are assessed, not the guide's claimed test outcomes."
+      },
+      "compatibility": {
+        "status": "absent",
+        "evidence": [
+          "https://github.com/furrytailapps/mcp-lantmateriet/blob/22907c5b82978683c57d96d3569c9af2006d49d5/CLAUDE.md",
+          "https://github.com/furrytailapps/mcp-lantmateriet/blob/22907c5b82978683c57d96d3569c9af2006d49d5/tests/README.md",
+          "https://github.com/furrytailapps/mcp-lantmateriet/blob/22907c5b82978683c57d96d3569c9af2006d49d5/RESEARCH.md"
+        ],
+        "notes": "The consulted project, research and test docs contain endpoint URLs and API protocols but do not explicitly identify the MCP transport or provide a named MCP-client connection configuration. Upstream WMS/WMTS is not an MCP transport."
+      },
+      "license": {
+        "status": "absent",
+        "evidence": [
+          "https://github.com/furrytailapps/mcp-lantmateriet/tree/22907c5b82978683c57d96d3569c9af2006d49d5",
+          "https://github.com/furrytailapps/mcp-lantmateriet/blob/22907c5b82978683c57d96d3569c9af2006d49d5/CLAUDE.md",
+          "https://github.com/furrytailapps/mcp-lantmateriet/blob/22907c5b82978683c57d96d3569c9af2006d49d5/RESEARCH.md#L9-L21",
+          "https://github.com/furrytailapps/mcp-lantmateriet/blob/22907c5b82978683c57d96d3569c9af2006d49d5/RESEARCH.md#L71-L79"
+        ],
+        "notes": "The pinned tree and project documentation contain no applicable server-code license declaration or terms. Research references to free HVD data or CC-BY maps are data-access statements, not a code license."
+      },
+      "limitations": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/furrytailapps/mcp-lantmateriet/blob/22907c5b82978683c57d96d3569c9af2006d49d5/tests/README.md#L111-L130",
+          "https://github.com/furrytailapps/mcp-lantmateriet/blob/22907c5b82978683c57d96d3569c9af2006d49d5/RESEARCH.md#L25-L36"
+        ],
+        "notes": "The test guide explicitly says property/elevation access requires credentials and that simplified test coordinate conversions have limited accuracy. Geotorget registration is documented as the access route; free HVD data does not remove those access prerequisites."
+      }
+    }
   },
   "mcp_endpoint": "https://mcp-lantmateriet.vercel.app/mcp"
 }

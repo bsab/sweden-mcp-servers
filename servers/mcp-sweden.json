@@ -24,14 +24,55 @@
   "quality": {
     "rubric_version": 1,
     "reviewed_at": "2026-09-14",
-    "status": "unassessed",
-    "reason": "Source and metadata review only; no full rubric assessment. Root tool discovery is namespaced and transformed. The advertised host did not resolve during the local runtime attempt; SCB integration uses the retiring PxWebApi v1.",
-    "evidence": [
-      "https://github.com/Namraks-Labs/mcp-sweden/blob/ed10cc3dce260830349c3aab3c3ae0891774e890/README.md",
-      "https://github.com/Namraks-Labs/mcp-sweden/blob/ed10cc3dce260830349c3aab3c3ae0891774e890/src/mcp_sweden/server.py",
-      "https://github.com/Namraks-Labs/mcp-sweden/blob/ed10cc3dce260830349c3aab3c3ae0891774e890/src/mcp_sweden/data/scb/client.py",
-      "https://github.com/Namraks-Labs/mcp-sweden/blob/ed10cc3dce260830349c3aab3c3ae0891774e890/LICENSE"
-    ]
+    "status": "assessed",
+    "criteria": {
+      "installation": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/Namraks-Labs/mcp-sweden/blob/ed10cc3dce260830349c3aab3c3ae0891774e890/README.md#L28-L85"
+        ],
+        "notes": "README gives a full clone/editable-install/start sequence and a Claude Code command for the hosted HTTP endpoint. These are documented connection routes, not evidence that the hosted service is reachable."
+      },
+      "configuration": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/Namraks-Labs/mcp-sweden/blob/ed10cc3dce260830349c3aab3c3ae0891774e890/README.md#L1-L26",
+          "https://github.com/Namraks-Labs/mcp-sweden/blob/ed10cc3dce260830349c3aab3c3ae0891774e890/README.md#L52-L77",
+          "https://github.com/Namraks-Labs/mcp-sweden/blob/ed10cc3dce260830349c3aab3c3ae0891774e890/README.md#L116-L125"
+        ],
+        "notes": "Python 3.10+ is stated, editable installation supplies dependencies, and the README explicitly says upstream APIs need no keys. Its environment table covers timeouts, retries, BM25 discovery and optional HTTP authentication."
+      },
+      "tools": {
+        "status": "partial",
+        "evidence": [
+          "https://github.com/Namraks-Labs/mcp-sweden/blob/ed10cc3dce260830349c3aab3c3ae0891774e890/README.md#L11-L26",
+          "https://github.com/Namraks-Labs/mcp-sweden/blob/ed10cc3dce260830349c3aab3c3ae0891774e890/src/mcp_sweden/server.py#L74-L110"
+        ],
+        "notes": "Ten service domains and their capabilities are described, but there is no concrete data-query prompt or MCP tool-call example. The source mounts namespaces and transforms discovery with BM25; the headline tool total is not a flat tools/list inventory."
+      },
+      "compatibility": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/Namraks-Labs/mcp-sweden/blob/ed10cc3dce260830349c3aab3c3ae0891774e890/README.md#L28-L77"
+        ],
+        "notes": "The README explicitly labels local stdio and HTTP and provides both Claude Desktop JSON and a Claude Code HTTP connection command. No transport is inferred merely from the process command."
+      },
+      "license": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/Namraks-Labs/mcp-sweden/blob/ed10cc3dce260830349c3aab3c3ae0891774e890/LICENSE"
+        ],
+        "notes": "The pinned root LICENSE contains the full MIT permission, notice-retention and warranty-disclaimer terms for Namraks Labs code. This does not license every upstream dataset."
+      },
+      "limitations": {
+        "status": "absent",
+        "evidence": [
+          "https://github.com/Namraks-Labs/mcp-sweden/blob/ed10cc3dce260830349c3aab3c3ae0891774e890/README.md",
+          "https://github.com/Namraks-Labs/mcp-sweden/blob/ed10cc3dce260830349c3aab3c3ae0891774e890/src/mcp_sweden/data/scb/client.py#L1-L37"
+        ],
+        "notes": "The README does not explain a concrete coverage, rate or unsupported-operation limitation with its effect. Earlier source review flags the retiring SCB PxWebApi v1 integration; the pinned client still targets v1, but that code-only caution earns no documentation credit."
+      }
+    }
   },
   "mcp_endpoint": "https://sweden.mcp.namraks.com/mcp"
 }

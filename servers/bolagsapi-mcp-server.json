@@ -24,14 +24,55 @@
   "quality": {
     "rubric_version": 1,
     "reviewed_at": "2026-09-14",
-    "status": "unassessed",
-    "reason": "Source review only; no runtime test or full rubric assessment. BOLAGSAPI_KEY is required, with prices and quotas unverified. The project identifies as an official BolagsAPI integration, not an official Bolagsverket service. Stdio is cataloged; authenticated Streamable HTTP is also implemented.",
-    "evidence": [
-      "https://github.com/HugoAndFriends/BolagsAPI-mcp-server/blob/f7e21bd14e3c3917045db6de8374641d839e9ec0/README.md",
-      "https://github.com/HugoAndFriends/BolagsAPI-mcp-server/blob/f7e21bd14e3c3917045db6de8374641d839e9ec0/src/server.ts",
-      "https://github.com/HugoAndFriends/BolagsAPI-mcp-server/blob/f7e21bd14e3c3917045db6de8374641d839e9ec0/src/tools/company.ts",
-      "https://github.com/HugoAndFriends/BolagsAPI-mcp-server/blob/f7e21bd14e3c3917045db6de8374641d839e9ec0/src/api-client.ts",
-      "https://github.com/HugoAndFriends/BolagsAPI-mcp-server/blob/f7e21bd14e3c3917045db6de8374641d839e9ec0/LICENSE"
-    ]
+    "status": "assessed",
+    "criteria": {
+      "installation": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/HugoAndFriends/BolagsAPI-mcp-server/blob/f7e21bd14e3c3917045db6de8374641d839e9ec0/README.md#L12-L87"
+        ],
+        "notes": "Global npm installation or npx execution is shown, with a complete Claude Desktop launch configuration carrying the required API key and alternatives for Cursor and Continue."
+      },
+      "configuration": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/HugoAndFriends/BolagsAPI-mcp-server/blob/f7e21bd14e3c3917045db6de8374641d839e9ec0/README.md#L1-L10",
+          "https://github.com/HugoAndFriends/BolagsAPI-mcp-server/blob/f7e21bd14e3c3917045db6de8374641d839e9ec0/README.md#L24-L27",
+          "https://github.com/HugoAndFriends/BolagsAPI-mcp-server/blob/f7e21bd14e3c3917045db6de8374641d839e9ec0/README.md#L116-L148"
+        ],
+        "notes": "Node.js 18+ and a key obtained from the BolagsAPI dashboard are explicit prerequisites; required BOLAGSAPI_KEY and optional base URL/HTTP bindings are documented. The provider is BolagsAPI, not Bolagsverket; account prices and provider quotas are not established here."
+      },
+      "tools": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/HugoAndFriends/BolagsAPI-mcp-server/blob/f7e21bd14e3c3917045db6de8374641d839e9ec0/README.md#L90-L114",
+          "https://github.com/HugoAndFriends/BolagsAPI-mcp-server/blob/f7e21bd14e3c3917045db6de8374641d839e9ec0/README.md#L151-L163"
+        ],
+        "notes": "Company lookup, search, financial and compliance tools have descriptions, and concrete Claude prompts include Spotify's organization number, AI companies in Stockholm and sanctions checks."
+      },
+      "compatibility": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/HugoAndFriends/BolagsAPI-mcp-server/blob/f7e21bd14e3c3917045db6de8374641d839e9ec0/README.md#L29-L87",
+          "https://github.com/HugoAndFriends/BolagsAPI-mcp-server/blob/f7e21bd14e3c3917045db6de8374641d839e9ec0/README.md#L123-L148"
+        ],
+        "notes": "The Continue configuration explicitly sets transport type stdio, alongside named Claude Desktop and Cursor examples; remote HTTP startup and authentication are also described."
+      },
+      "license": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/HugoAndFriends/BolagsAPI-mcp-server/blob/f7e21bd14e3c3917045db6de8374641d839e9ec0/LICENSE"
+        ],
+        "notes": "Complete MIT terms attributed to Hugo and Friends are available in the pinned LICENSE. They apply to the integration code, not to government affiliation or unrestricted commercial data access."
+      },
+      "limitations": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/HugoAndFriends/BolagsAPI-mcp-server/blob/f7e21bd14e3c3917045db6de8374641d839e9ec0/README.md#L123-L148",
+          "https://github.com/HugoAndFriends/BolagsAPI-mcp-server/blob/f7e21bd14e3c3917045db6de8374641d839e9ec0/README.md#L182-L187"
+        ],
+        "notes": "The HTTP security section explicitly caps traffic at 100 requests per minute per IP, so a client cannot assume unlimited request throughput. Remote requests require bearer authentication and the default bind address is localhost."
+      }
+    }
   }
 }

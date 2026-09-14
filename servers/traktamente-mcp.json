@@ -25,17 +25,60 @@
   "quality": {
     "rubric_version": 1,
     "reviewed_at": "2026-09-14",
-    "status": "unassessed",
-    "reason": "Source review only; no runtime test or full rubric assessment. Hosted Streamable HTTP is documented but untested. Local stdio requires Bun despite npx examples. No API key is configured. README and manifest declare MIT, but the referenced LICENSE file is absent, so license is null rather than verified MIT.",
-    "evidence": [
-      "https://github.com/johnie/traktamente-mcp/blob/63a283b52fd47e6d43290f31a5307b0b53f5ca96/README.md",
-      "https://github.com/johnie/traktamente-mcp/blob/63a283b52fd47e6d43290f31a5307b0b53f5ca96/src/server.ts",
-      "https://github.com/johnie/traktamente-mcp/blob/63a283b52fd47e6d43290f31a5307b0b53f5ca96/src/constants.ts",
-      "https://github.com/johnie/traktamente-mcp/blob/63a283b52fd47e6d43290f31a5307b0b53f5ca96/src/transports/stdio.ts",
-      "https://github.com/johnie/traktamente-mcp/blob/63a283b52fd47e6d43290f31a5307b0b53f5ca96/src/utils/hono-app.ts",
-      "https://github.com/johnie/traktamente-mcp/blob/63a283b52fd47e6d43290f31a5307b0b53f5ca96/package.json",
-      "https://github.com/johnie/traktamente-mcp/tree/63a283b52fd47e6d43290f31a5307b0b53f5ca96"
-    ]
+    "status": "assessed",
+    "criteria": {
+      "installation": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/johnie/traktamente-mcp/blob/63a283b52fd47e6d43290f31a5307b0b53f5ca96/README.md#L51-L74",
+          "https://github.com/johnie/traktamente-mcp/blob/63a283b52fd47e6d43290f31a5307b0b53f5ca96/README.md#L146-L164",
+          "https://github.com/johnie/traktamente-mcp/blob/63a283b52fd47e6d43290f31a5307b0b53f5ca96/CLAUDE.md#L9-L17"
+        ],
+        "notes": "The README gives a complete hosted Streamable HTTP connection command for Claude Code and a source clone/Bun-install/start sequence. Local npx snippets should not be taken to mean Node alone is sufficient: the developer guide explicitly requires Bun."
+      },
+      "configuration": {
+        "status": "partial",
+        "evidence": [
+          "https://github.com/johnie/traktamente-mcp/blob/63a283b52fd47e6d43290f31a5307b0b53f5ca96/README.md#L146-L164",
+          "https://github.com/johnie/traktamente-mcp/blob/63a283b52fd47e6d43290f31a5307b0b53f5ca96/CLAUDE.md#L9-L17",
+          "https://github.com/johnie/traktamente-mcp/blob/63a283b52fd47e6d43290f31a5307b0b53f5ca96/CLAUDE.md#L83-L88"
+        ],
+        "notes": "Bun >=1.0.0, dependency installation and transport selection are documented, but required credentials/environment variables or an explicit no-credentials statement are not fully specified. Developer guidance explicitly says Bun, not Node.js."
+      },
+      "tools": {
+        "status": "partial",
+        "evidence": [
+          "https://github.com/johnie/traktamente-mcp/blob/63a283b52fd47e6d43290f31a5307b0b53f5ca96/README.md#L123-L144",
+          "https://github.com/johnie/traktamente-mcp/blob/63a283b52fd47e6d43290f31a5307b0b53f5ca96/CLAUDE.md#L119-L148"
+        ],
+        "notes": "Tool purposes and parameter schemas are detailed, but no concrete MCP query or prompt is shown. README names are outdated relative to the prefixed traktamente_get_rates/list_countries/search names in CLAUDE.md; the assessment does not present the old names as the current inventory."
+      },
+      "compatibility": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/johnie/traktamente-mcp/blob/63a283b52fd47e6d43290f31a5307b0b53f5ca96/README.md#L51-L74",
+          "https://github.com/johnie/traktamente-mcp/blob/63a283b52fd47e6d43290f31a5307b0b53f5ca96/CLAUDE.md#L83-L108",
+          "https://github.com/johnie/traktamente-mcp/blob/63a283b52fd47e6d43290f31a5307b0b53f5ca96/CLAUDE.md#L156-L187"
+        ],
+        "notes": "Streamable HTTP is explicitly named alongside a Claude Code HTTP registration command. Developer documentation also labels stdio and provides a Bun-based Claude Desktop configuration for local use."
+      },
+      "license": {
+        "status": "partial",
+        "evidence": [
+          "https://github.com/johnie/traktamente-mcp/blob/63a283b52fd47e6d43290f31a5307b0b53f5ca96/README.md#L200-L202",
+          "https://github.com/johnie/traktamente-mcp/tree/63a283b52fd47e6d43290f31a5307b0b53f5ca96"
+        ],
+        "notes": "README declares MIT, but there is no applicable LICENSE file in the pinned tree. This is partial license documentation, not verified MIT terms; the catalog license remains null."
+      },
+      "limitations": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/johnie/traktamente-mcp/blob/63a283b52fd47e6d43290f31a5307b0b53f5ca96/CLAUDE.md#L123-L148",
+          "https://github.com/johnie/traktamente-mcp/blob/63a283b52fd47e6d43290f31a5307b0b53f5ca96/README.md#L176-L181"
+        ],
+        "notes": "CLAUDE.md documents 1-500 result limits and automatic truncation at 25,000 characters, with pagination metadata including hasMore and nextOffset. The README also identifies international-travel coverage and Swedish country/field names."
+      }
+    }
   },
   "mcp_endpoint": "https://traktamente.app/mcp"
 }

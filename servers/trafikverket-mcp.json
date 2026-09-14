@@ -32,13 +32,54 @@
   "quality": {
     "rubric_version": 1,
     "reviewed_at": "2026-09-14",
-    "status": "unassessed",
-    "reason": "Source and metadata review only; no full rubric assessment. Ten stdio tools require a Trafikverket API key and were not executed. README/package metadata declares MIT, but no applicable LICENSE file was available to verify its terms.",
-    "evidence": [
-      "https://github.com/hniska/trafikverket-mcp/blob/cade177741af8b5a4b2e924f00549d57a72c0484/README.md",
-      "https://github.com/hniska/trafikverket-mcp/blob/cade177741af8b5a4b2e924f00549d57a72c0484/src/server.ts",
-      "https://github.com/hniska/trafikverket-mcp/blob/cade177741af8b5a4b2e924f00549d57a72c0484/src/index.ts",
-      "https://github.com/hniska/trafikverket-mcp/blob/cade177741af8b5a4b2e924f00549d57a72c0484/package.json"
-    ]
+    "status": "assessed",
+    "criteria": {
+      "installation": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/hniska/trafikverket-mcp/blob/cade177741af8b5a4b2e924f00549d57a72c0484/README.md#L134-L191"
+        ],
+        "notes": "The README provides clone, npm install and build commands, followed by an absolute-path node launch in Claude configuration and an explicit client restart step."
+      },
+      "configuration": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/hniska/trafikverket-mcp/blob/cade177741af8b5a4b2e924f00549d57a72c0484/README.md#L136-L190"
+        ],
+        "notes": "Node.js 18+ and a Trafikverket API key are explicit prerequisites. The registration link and TRAFIKVERKET_API_KEY placement are shown for both compiled and development launches; possessing a key was not a condition for awarding this documentation score."
+      },
+      "tools": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/hniska/trafikverket-mcp/blob/cade177741af8b5a4b2e924f00549d57a72c0484/README.md#L15-L116",
+          "https://github.com/hniska/trafikverket-mcp/blob/cade177741af8b5a4b2e924f00549d57a72c0484/README.md#L193-L210"
+        ],
+        "notes": "Ten tools have parameter and result descriptions, and the usage section supplies concrete prompts for Kiruna weather, E4 cameras and traffic incidents."
+      },
+      "compatibility": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/hniska/trafikverket-mcp/blob/cade177741af8b5a4b2e924f00549d57a72c0484/README.md#L155-L190",
+          "https://github.com/hniska/trafikverket-mcp/blob/cade177741af8b5a4b2e924f00549d57a72c0484/README.md#L226-L257"
+        ],
+        "notes": "Claude Desktop/Claude Code configurations are provided, and the architecture explicitly states JSON-RPC over STDIO. This is stronger evidence than inferring transport from node arguments."
+      },
+      "license": {
+        "status": "partial",
+        "evidence": [
+          "https://github.com/hniska/trafikverket-mcp/blob/cade177741af8b5a4b2e924f00549d57a72c0484/README.md#L273-L275",
+          "https://github.com/hniska/trafikverket-mcp/tree/cade177741af8b5a4b2e924f00549d57a72c0484"
+        ],
+        "notes": "The README declares MIT, but the pinned project tree contains no applicable LICENSE text. The catalog license remains null; the declaration earns partial documentation credit only."
+      },
+      "limitations": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/hniska/trafikverket-mcp/blob/cade177741af8b5a4b2e924f00549d57a72c0484/README.md#L28-L65",
+          "https://github.com/hniska/trafikverket-mcp/blob/cade177741af8b5a4b2e924f00549d57a72c0484/README.md#L259-L265"
+        ],
+        "notes": "The tool tables document result caps, including at most 100 historical observations and bounded camera/station queries, so a single request is not an unlimited data export. The error section also explains missing records, invalid keys and the 10-second timeout."
+      }
+    }
   }
 }

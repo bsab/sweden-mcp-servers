@@ -31,13 +31,56 @@
   "quality": {
     "rubric_version": 1,
     "reviewed_at": "2026-09-14",
-    "status": "unassessed",
-    "reason": "Source review only; no runtime test or full rubric assessment. Unofficial private API; README warns of possible conflicts with ICA terms. Requires personnummer/password login and Swedish egress according to the project; BankID-only accounts are unsupported. Tokens are cached locally and tools can modify personal lists. No login, personal data access or write operation was attempted.",
-    "evidence": [
-      "https://github.com/kanylbullen/ica-mcp/blob/1d9b9940890eabce348e30539c5d6a2ec7ecd80f/README.md",
-      "https://github.com/kanylbullen/ica-mcp/blob/1d9b9940890eabce348e30539c5d6a2ec7ecd80f/ica_mcp/server.py",
-      "https://github.com/kanylbullen/ica-mcp/blob/1d9b9940890eabce348e30539c5d6a2ec7ecd80f/pyproject.toml",
-      "https://github.com/kanylbullen/ica-mcp/blob/1d9b9940890eabce348e30539c5d6a2ec7ecd80f/LICENSE"
-    ]
+    "status": "assessed",
+    "criteria": {
+      "installation": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/kanylbullen/ica-mcp/blob/1d9b9940890eabce348e30539c5d6a2ec7ecd80f/README.md#L56-L150"
+        ],
+        "notes": "The README supplies uv installation and shell/PATH steps, a pip/venv fallback, one-time login, Claude Code registration and a manual serve configuration. It includes recovery instructions for missing PATH entries and expired sessions."
+      },
+      "configuration": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/kanylbullen/ica-mcp/blob/1d9b9940890eabce348e30539c5d6a2ec7ecd80f/README.md#L47-L54",
+          "https://github.com/kanylbullen/ica-mcp/blob/1d9b9940890eabce348e30539c5d6a2ec7ecd80f/README.md#L99-L150"
+        ],
+        "notes": "Python 3.10+, Swedish network egress and an ICA account supporting personnummer/password login are explicit. Cache locations, token refresh, optional ICA_USER/ICA_PASS and ICA_STATE_FILE are explained; this is not anonymous or BankID-only access."
+      },
+      "tools": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/kanylbullen/ica-mcp/blob/1d9b9940890eabce348e30539c5d6a2ec7ecd80f/README.md#L5-L45",
+          "https://github.com/kanylbullen/ica-mcp/blob/1d9b9940890eabce348e30539c5d6a2ec7ecd80f/README.md#L171-L184"
+        ],
+        "notes": "The README lists shopping, recipe, offer and product tools and supplies concrete natural-language list-editing prompts. It explicitly warns that tools can modify real account data, including deleting lists."
+      },
+      "compatibility": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/kanylbullen/ica-mcp/blob/1d9b9940890eabce348e30539c5d6a2ec7ecd80f/README.md#L56-L65",
+          "https://github.com/kanylbullen/ica-mcp/blob/1d9b9940890eabce348e30539c5d6a2ec7ecd80f/README.md#L115-L145"
+        ],
+        "notes": "The serve subcommand is explicitly described as stdio, and Claude Code registration plus its equivalent manual command are provided. Generic JSON is additionally supplied for other MCP clients."
+      },
+      "license": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/kanylbullen/ica-mcp/blob/1d9b9940890eabce348e30539c5d6a2ec7ecd80f/README.md#L218-L220",
+          "https://github.com/kanylbullen/ica-mcp/blob/1d9b9940890eabce348e30539c5d6a2ec7ecd80f/LICENSE"
+        ],
+        "notes": "The README links a complete MIT LICENSE attributed to kanylbullen. That code license does not grant permission to use ICA's private API or override ICA account/service terms."
+      },
+      "limitations": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/kanylbullen/ica-mcp/blob/1d9b9940890eabce348e30539c5d6a2ec7ecd80f/README.md#L11-L19",
+          "https://github.com/kanylbullen/ica-mcp/blob/1d9b9940890eabce348e30539c5d6a2ec7ecd80f/README.md#L47-L54",
+          "https://github.com/kanylbullen/ica-mcp/blob/1d9b9940890eabce348e30539c5d6a2ec7ecd80f/README.md#L171-L198"
+        ],
+        "notes": "The README explains non-Swedish IP rejection, lack of BankID-only login support, unsupported recipe search and Windows token-cache permission limits. It also prominently warns of unofficial private-API instability, possible terms conflicts and real-account writes."
+      }
+    }
   }
 }

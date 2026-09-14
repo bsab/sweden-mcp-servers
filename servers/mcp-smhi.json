@@ -26,14 +26,52 @@
   "quality": {
     "rubric_version": 1,
     "reviewed_at": "2026-09-14",
-    "status": "unassessed",
-    "reason": "Source and metadata review only; no full rubric assessment. The runtime attempt received a network-policy Access Denied page, not an MCP response. No project LICENSE or end-user installation README was found; developer documentation is available.",
-    "evidence": [
-      "https://github.com/furrytailapps/mcp-smhi/blob/74bcfe15c314eb502c3b9983eab1dbb68c13e9e8/CLAUDE.md",
-      "https://github.com/furrytailapps/mcp-smhi/blob/74bcfe15c314eb502c3b9983eab1dbb68c13e9e8/src/app/%5Btransport%5D/route.ts",
-      "https://github.com/furrytailapps/mcp-smhi/blob/74bcfe15c314eb502c3b9983eab1dbb68c13e9e8/src/tools/index.ts",
-      "https://github.com/furrytailapps/mcp-smhi/blob/74bcfe15c314eb502c3b9983eab1dbb68c13e9e8/package.json"
-    ]
+    "status": "assessed",
+    "criteria": {
+      "installation": {
+        "status": "partial",
+        "evidence": [
+          "https://github.com/furrytailapps/mcp-smhi/blob/74bcfe15c314eb502c3b9983eab1dbb68c13e9e8/CLAUDE.md#L7-L9"
+        ],
+        "notes": "CLAUDE.md advertises a production MCP URL, but supplies neither named-client connection steps nor a local dependency-install/start walkthrough. A URL alone leaves operational setup to the reader."
+      },
+      "configuration": {
+        "status": "partial",
+        "evidence": [
+          "https://github.com/furrytailapps/mcp-smhi/blob/74bcfe15c314eb502c3b9983eab1dbb68c13e9e8/CLAUDE.md#L18-L21"
+        ],
+        "notes": "Developer documentation explicitly says no environment variables are needed because the APIs are public. It does not document the runtime, supported version or local dependencies."
+      },
+      "tools": {
+        "status": "partial",
+        "evidence": [
+          "https://github.com/furrytailapps/mcp-smhi/blob/74bcfe15c314eb502c3b9983eab1dbb68c13e9e8/CLAUDE.md#L11-L16"
+        ],
+        "notes": "Four tools have distinct descriptions covering forecasts, observations, conditions and discovery. No concrete MCP prompt or populated tool-call example is included."
+      },
+      "compatibility": {
+        "status": "absent",
+        "evidence": [
+          "https://github.com/furrytailapps/mcp-smhi/blob/74bcfe15c314eb502c3b9983eab1dbb68c13e9e8/CLAUDE.md"
+        ],
+        "notes": "The only project documentation gives an HTTPS endpoint but neither names an MCP transport nor configures a named client. The URL and handler implementation are not substitutes for explicit transport documentation."
+      },
+      "license": {
+        "status": "absent",
+        "evidence": [
+          "https://github.com/furrytailapps/mcp-smhi/blob/74bcfe15c314eb502c3b9983eab1dbb68c13e9e8/CLAUDE.md",
+          "https://github.com/furrytailapps/mcp-smhi/tree/74bcfe15c314eb502c3b9983eab1dbb68c13e9e8"
+        ],
+        "notes": "No applicable code-license declaration or license text appears in CLAUDE.md or the pinned project tree. Public visibility alone does not establish permission to reuse this server."
+      },
+      "limitations": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/furrytailapps/mcp-smhi/blob/74bcfe15c314eb502c3b9983eab1dbb68c13e9e8/CLAUDE.md#L18-L21"
+        ],
+        "notes": "Location input is restricted to coordinates or municipality/county codes, not place names; the documented workaround is smhi_describe_data to discover those codes."
+      }
+    }
   },
   "mcp_endpoint": "https://mcp-smhi.vercel.app/mcp"
 }

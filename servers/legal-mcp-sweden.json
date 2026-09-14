@@ -41,13 +41,61 @@
   "quality": {
     "rubric_version": 1,
     "reviewed_at": "2026-09-14",
-    "status": "unassessed",
-    "reason": "Source and metadata review only; no full rubric assessment. This repository contains two separately launched stdio servers. Local mirrors and feeds were not tested; Lifos has a five-item rolling window and some tools write local tracking state.",
-    "evidence": [
-      "https://github.com/AvoccadoTech/legal-mcp-sweden/blob/424f01a096157ab9e4f67c378c83c6bb80a96487/README.md",
-      "https://github.com/AvoccadoTech/legal-mcp-sweden/blob/424f01a096157ab9e4f67c378c83c6bb80a96487/src/sweden_legal_mcp/lifos/server.py",
-      "https://github.com/AvoccadoTech/legal-mcp-sweden/blob/424f01a096157ab9e4f67c378c83c6bb80a96487/src/sweden_legal_mcp/rattspraxis/server.py",
-      "https://github.com/AvoccadoTech/legal-mcp-sweden/blob/424f01a096157ab9e4f67c378c83c6bb80a96487/LICENSE"
-    ]
+    "status": "assessed",
+    "criteria": {
+      "installation": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/AvoccadoTech/legal-mcp-sweden/blob/424f01a096157ab9e4f67c378c83c6bb80a96487/README.md#L21-L31",
+          "https://github.com/AvoccadoTech/legal-mcp-sweden/blob/424f01a096157ab9e4f67c378c83c6bb80a96487/README.md#L94-L118",
+          "https://github.com/AvoccadoTech/legal-mcp-sweden/blob/424f01a096157ab9e4f67c378c83c6bb80a96487/README.md#L172-L190"
+        ],
+        "notes": "Clone and editable installation are shown, followed by separate python -m launch configurations for Lifos and Rattspraxis. The initial full Rattspraxis synchronization and later daily deltas are explicit; this is two servers, not one combined process."
+      },
+      "configuration": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/AvoccadoTech/legal-mcp-sweden/blob/424f01a096157ab9e4f67c378c83c6bb80a96487/README.md#L5-L14",
+          "https://github.com/AvoccadoTech/legal-mcp-sweden/blob/424f01a096157ab9e4f67c378c83c6bb80a96487/README.md#L21-L31",
+          "https://github.com/AvoccadoTech/legal-mcp-sweden/blob/424f01a096157ab9e4f67c378c83c6bb80a96487/README.md#L94-L118",
+          "https://github.com/AvoccadoTech/legal-mcp-sweden/blob/424f01a096157ab9e4f67c378c83c6bb80a96487/README.md#L172-L184"
+        ],
+        "notes": "Python 3.11+ and local installation are specified, with an explicit no-account/no-key statement. LIFOS_STATE_DIR, optional LIFOS_KB_PATH and a RATTSPRAXIS_DB directory are configured, and the operator is told to keep state on the firm's own storage."
+      },
+      "tools": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/AvoccadoTech/legal-mcp-sweden/blob/424f01a096157ab9e4f67c378c83c6bb80a96487/README.md#L42-L61",
+          "https://github.com/AvoccadoTech/legal-mcp-sweden/blob/424f01a096157ab9e4f67c378c83c6bb80a96487/README.md#L121-L142",
+          "https://github.com/AvoccadoTech/legal-mcp-sweden/blob/424f01a096157ab9e4f67c378c83c6bb80a96487/README.md#L186-L202"
+        ],
+        "notes": "Both nine-tool families are described, with a concrete Lifos scan/check/stale-position sequence and full-versus-delta court synchronization calls. Tracking, scanning, watch management and synchronization write local state; the integration is not universally read-only."
+      },
+      "compatibility": {
+        "status": "partial",
+        "evidence": [
+          "https://github.com/AvoccadoTech/legal-mcp-sweden/blob/424f01a096157ab9e4f67c378c83c6bb80a96487/README.md#L94-L112",
+          "https://github.com/AvoccadoTech/legal-mcp-sweden/blob/424f01a096157ab9e4f67c378c83c6bb80a96487/README.md#L172-L184"
+        ],
+        "notes": "MCP over stdio is explicitly documented and generic MCP-client JSON is supplied for each process. No named client is given with a connection example, so the complete compatibility condition is not met."
+      },
+      "license": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/AvoccadoTech/legal-mcp-sweden/blob/424f01a096157ab9e4f67c378c83c6bb80a96487/README.md#L235-L239",
+          "https://github.com/AvoccadoTech/legal-mcp-sweden/blob/424f01a096157ab9e4f67c378c83c6bb80a96487/LICENSE"
+        ],
+        "notes": "The README explicitly applies Apache-2.0 and the pinned root LICENSE provides its full redistribution, patent-grant and disclaimer terms for the repository containing both servers."
+      },
+      "limitations": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/AvoccadoTech/legal-mcp-sweden/blob/424f01a096157ab9e4f67c378c83c6bb80a96487/README.md#L76-L91",
+          "https://github.com/AvoccadoTech/legal-mcp-sweden/blob/424f01a096157ab9e4f67c378c83c6bb80a96487/README.md#L145-L170",
+          "https://github.com/AvoccadoTech/legal-mcp-sweden/blob/424f01a096157ab9e4f67c378c83c6bb80a96487/README.md#L186-L216"
+        ],
+        "notes": "The README explains the five-item Lifos window, lack of backfill and daily polling workaround. It also explains incomplete court metadata and coverage, initial mirror synchronization, newest-first delta assumptions and why neither server substitutes for legal judgment."
+      }
+    }
   }
 }

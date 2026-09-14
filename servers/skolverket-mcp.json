@@ -27,14 +27,52 @@
   "quality": {
     "rubric_version": 1,
     "reviewed_at": "2026-09-14",
-    "status": "unassessed",
-    "reason": "Source review only; no runtime test or full rubric assessment. Build locally from source and run dist/index.js with node. The current README removes the retired remote service and unpublished npm package, so neither is advertised here. Standard configuration needs no key; SKOLVERKET_API_KEY is optional. Coverage overlaps MCP Sweden.",
-    "evidence": [
-      "https://github.com/isakskogstad/Skolverket-MCP/blob/5631a7fc7bc6cd0b0e2084981d6ac3886a5cb40e/README.md",
-      "https://github.com/isakskogstad/Skolverket-MCP/blob/5631a7fc7bc6cd0b0e2084981d6ac3886a5cb40e/src/index.ts",
-      "https://github.com/isakskogstad/Skolverket-MCP/blob/5631a7fc7bc6cd0b0e2084981d6ac3886a5cb40e/src/config.ts",
-      "https://github.com/isakskogstad/Skolverket-MCP/blob/5631a7fc7bc6cd0b0e2084981d6ac3886a5cb40e/src/tools/school-units/search.ts",
-      "https://github.com/isakskogstad/Skolverket-MCP/blob/5631a7fc7bc6cd0b0e2084981d6ac3886a5cb40e/LICENSE"
-    ]
+    "status": "assessed",
+    "criteria": {
+      "installation": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/isakskogstad/Skolverket-MCP/blob/5631a7fc7bc6cd0b0e2084981d6ac3886a5cb40e/README.md#L13-L102"
+        ],
+        "notes": "The current README gives clone, npm install, build and absolute-path node client launch steps, including Claude Desktop Developer/Edit Config and restart. It documents source installation, not the retired remote service or unpublished npm package."
+      },
+      "configuration": {
+        "status": "partial",
+        "evidence": [
+          "https://github.com/isakskogstad/Skolverket-MCP/blob/5631a7fc7bc6cd0b0e2084981d6ac3886a5cb40e/README.md#L13-L102",
+          "https://github.com/isakskogstad/Skolverket-MCP/blob/5631a7fc7bc6cd0b0e2084981d6ac3886a5cb40e/src/config.ts#L45-L54"
+        ],
+        "notes": "The setup identifies npm/node commands, but lacks a runtime-version/prerequisite section and explicit credential/environment guidance. Optional SKOLVERKET_API_KEY exists in source; source-only knowledge that normal operation omits it does not earn full documentation credit."
+      },
+      "tools": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/isakskogstad/Skolverket-MCP/blob/5631a7fc7bc6cd0b0e2084981d6ac3886a5cb40e/README.md#L113-L154"
+        ],
+        "notes": "Three API families and tool/resource/prompt capabilities are explained. Concrete MCP prompts ask for active Stockholm upper-secondary schools and comparison of Svenska 1 grading requirements, among other education workflows."
+      },
+      "compatibility": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/isakskogstad/Skolverket-MCP/blob/5631a7fc7bc6cd0b0e2084981d6ac3886a5cb40e/README.md#L13-L102"
+        ],
+        "notes": "The README repeatedly names stdio and gives Claude Desktop, Claude Code, Codex and other client examples. It specifically distinguishes local Developer configuration from remote Connectors."
+      },
+      "license": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/isakskogstad/Skolverket-MCP/blob/5631a7fc7bc6cd0b0e2084981d6ac3886a5cb40e/LICENSE",
+          "https://github.com/isakskogstad/Skolverket-MCP/blob/5631a7fc7bc6cd0b0e2084981d6ac3886a5cb40e/README.md#L3-L9"
+        ],
+        "notes": "The pinned root LICENSE contains complete MIT permission and disclaimer text for the Skolverket Syllabus MCP contributors. The README's free-use wording is not the sole basis for this score."
+      },
+      "limitations": {
+        "status": "absent",
+        "evidence": [
+          "https://github.com/isakskogstad/Skolverket-MCP/blob/5631a7fc7bc6cd0b0e2084981d6ac3886a5cb40e/README.md#L113-L166"
+        ],
+        "notes": "The README describes broad API coverage and examples but provides no concrete unsupported operation, rate restriction or coverage gap with its impact/workaround. Corrected local-install instructions alone do not meet the limitations criterion."
+      }
+    }
   }
 }

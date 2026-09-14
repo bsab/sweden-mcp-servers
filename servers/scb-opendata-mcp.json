@@ -23,13 +23,52 @@
   "quality": {
     "rubric_version": 1,
     "reviewed_at": "2026-09-14",
-    "status": "unassessed",
-    "reason": "Source review only; no runtime test or full rubric assessment. Python 3.11+ is required. Select stdio explicitly because the CLI defaults to HTTP; README HTTP URL examples are inconsistent. This is a distinct PxWebApi v2 implementation, overlapping the existing aggregator rather than adding a new data provider.",
-    "evidence": [
-      "https://github.com/ashwinvis/scb-opendata-mcp/blob/a13e0b5d915322cc0fffc6d77be9ac3f2ef77847/README.md",
-      "https://github.com/ashwinvis/scb-opendata-mcp/blob/a13e0b5d915322cc0fffc6d77be9ac3f2ef77847/src/scb_opendata_mcp/server.py",
-      "https://github.com/ashwinvis/scb-opendata-mcp/blob/a13e0b5d915322cc0fffc6d77be9ac3f2ef77847/src/scb_opendata_mcp/__init__.py",
-      "https://github.com/ashwinvis/scb-opendata-mcp/blob/a13e0b5d915322cc0fffc6d77be9ac3f2ef77847/LICENSE"
-    ]
+    "status": "assessed",
+    "criteria": {
+      "installation": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/ashwinvis/scb-opendata-mcp/blob/a13e0b5d915322cc0fffc6d77be9ac3f2ef77847/README.md#L17-L100"
+        ],
+        "notes": "The README documents pip/source installation, CLI startup and an HTTP client configuration for Mistral Vibe. Other HTTP examples disagree on scheme/path, and local stdio must be selected explicitly because the CLI default is HTTP; a bare CLI command is not advertised here as stdio."
+      },
+      "configuration": {
+        "status": "partial",
+        "evidence": [
+          "https://github.com/ashwinvis/scb-opendata-mcp/blob/a13e0b5d915322cc0fffc6d77be9ac3f2ef77847/README.md#L17-L65"
+        ],
+        "notes": "Python 3.11+ and pip or uv are explicit prerequisites, but no configuration table or explicit statement about required credentials/environment variables is provided. Public-data access is not inferred into a fully documented no-key setup."
+      },
+      "tools": {
+        "status": "partial",
+        "evidence": [
+          "https://github.com/ashwinvis/scb-opendata-mcp/blob/a13e0b5d915322cc0fffc6d77be9ac3f2ef77847/README.md#L103-L123",
+          "https://github.com/ashwinvis/scb-opendata-mcp/blob/a13e0b5d915322cc0fffc6d77be9ac3f2ef77847/README.md#L141-L151"
+        ],
+        "notes": "Tables, filters, codelists and saved-query tools are described by signatures, but no concrete statistical MCP query with real arguments or user prompt appears. The linked upstream REST specification is not itself an MCP usage example."
+      },
+      "compatibility": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/ashwinvis/scb-opendata-mcp/blob/a13e0b5d915322cc0fffc6d77be9ac3f2ef77847/README.md#L60-L100"
+        ],
+        "notes": "The README explicitly mentions stdio and HTTP and supplies named Claude Code, Mistral Vibe and OpenCode configurations. Mistral Vibe shows HTTP with /mcp; the inconsistent URL variants in the other examples remain a documentation caveat, not a tested connection."
+      },
+      "license": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/ashwinvis/scb-opendata-mcp/blob/a13e0b5d915322cc0fffc6d77be9ac3f2ef77847/README.md#L137-L139",
+          "https://github.com/ashwinvis/scb-opendata-mcp/blob/a13e0b5d915322cc0fffc6d77be9ac3f2ef77847/LICENSE"
+        ],
+        "notes": "The README links the full MIT license at the pinned commit, whose copyright names Ashwin V. Mohanan. This is the server code license, distinct from SCB data-use conditions."
+      },
+      "limitations": {
+        "status": "partial",
+        "evidence": [
+          "https://github.com/ashwinvis/scb-opendata-mcp/blob/a13e0b5d915322cc0fffc6d77be9ac3f2ef77847/README.md#L153-L157"
+        ],
+        "notes": "The disclaimer calls the tool unofficial and AI-generated and recommends rigorous verification before serious use, but does not explain a concrete API rate cap, unsupported operation or data-coverage failure with its effect/workaround."
+      }
+    }
   }
 }

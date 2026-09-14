@@ -27,19 +27,59 @@
   "quality": {
     "rubric_version": 1,
     "reviewed_at": "2026-09-14",
-    "status": "unassessed",
-    "reason": "Source review only; no runtime test or full rubric assessment. No LICENSE was found, so license terms remain unverified. The documented HTTP endpoint was not contacted. No key is configured; a local extent-calculation workaround is present for an upstream issue, but current behavior was not exercised.",
-    "evidence": [
-      "https://github.com/furrytailapps/mcp-nvv/blob/c67d45670db96aa1b5f5d8d716a06f34210d43d8/README.md",
-      "https://github.com/furrytailapps/mcp-nvv/blob/c67d45670db96aa1b5f5d8d716a06f34210d43d8/src/app/%5Btransport%5D/route.ts",
-      "https://github.com/furrytailapps/mcp-nvv/blob/c67d45670db96aa1b5f5d8d716a06f34210d43d8/src/tools/index.ts",
-      "https://github.com/furrytailapps/mcp-nvv/blob/c67d45670db96aa1b5f5d8d716a06f34210d43d8/src/tools/lookup.ts",
-      "https://github.com/furrytailapps/mcp-nvv/blob/c67d45670db96aa1b5f5d8d716a06f34210d43d8/src/tools/search.ts",
-      "https://github.com/furrytailapps/mcp-nvv/blob/c67d45670db96aa1b5f5d8d716a06f34210d43d8/src/tools/detail.ts",
-      "https://github.com/furrytailapps/mcp-nvv/blob/c67d45670db96aa1b5f5d8d716a06f34210d43d8/src/tools/extent.ts",
-      "https://github.com/furrytailapps/mcp-nvv/blob/c67d45670db96aa1b5f5d8d716a06f34210d43d8/src/clients/nvv-client.ts",
-      "https://github.com/furrytailapps/mcp-nvv/tree/c67d45670db96aa1b5f5d8d716a06f34210d43d8"
-    ]
+    "status": "assessed",
+    "criteria": {
+      "installation": {
+        "status": "partial",
+        "evidence": [
+          "https://github.com/furrytailapps/mcp-nvv/blob/c67d45670db96aa1b5f5d8d716a06f34210d43d8/README.md#L9-L9",
+          "https://github.com/furrytailapps/mcp-nvv/blob/c67d45670db96aa1b5f5d8d716a06f34210d43d8/README.md#L41-L69"
+        ],
+        "notes": "The README supplies npm install/npm run dev and a production URL, but no end-to-end repository acquisition and MCP-client connection instructions. Its shared test-runner command depends on an external per-user script and is not a client setup guide."
+      },
+      "configuration": {
+        "status": "partial",
+        "evidence": [
+          "https://github.com/furrytailapps/mcp-nvv/blob/c67d45670db96aa1b5f5d8d716a06f34210d43d8/README.md#L41-L49",
+          "https://github.com/furrytailapps/mcp-nvv/blob/c67d45670db96aa1b5f5d8d716a06f34210d43d8/README.md#L63-L69",
+          "https://github.com/furrytailapps/mcp-nvv/blob/c67d45670db96aa1b5f5d8d716a06f34210d43d8/CLAUDE.md#L18-L25"
+        ],
+        "notes": "No environment variables are explicitly needed for the public APIs, and npm development commands are listed. The required local runtime/version and dependency prerequisites are not explained."
+      },
+      "tools": {
+        "status": "partial",
+        "evidence": [
+          "https://github.com/furrytailapps/mcp-nvv/blob/c67d45670db96aa1b5f5d8d716a06f34210d43d8/README.md#L11-L39"
+        ],
+        "notes": "All four tools and a lookup/search/detail/extent sequence are described, but the sequence has no concrete place, IDs, populated MCP call or user prompt. General workflow instructions are not counted as a worked usage example."
+      },
+      "compatibility": {
+        "status": "absent",
+        "evidence": [
+          "https://github.com/furrytailapps/mcp-nvv/blob/c67d45670db96aa1b5f5d8d716a06f34210d43d8/README.md",
+          "https://github.com/furrytailapps/mcp-nvv/blob/c67d45670db96aa1b5f5d8d716a06f34210d43d8/CLAUDE.md"
+        ],
+        "notes": "README and CLAUDE.md name a production HTTPS URL but no explicit MCP transport and no named-client configuration. Neither the endpoint suffix nor use of a test runner establishes documented client compatibility."
+      },
+      "license": {
+        "status": "absent",
+        "evidence": [
+          "https://github.com/furrytailapps/mcp-nvv/blob/c67d45670db96aa1b5f5d8d716a06f34210d43d8/README.md",
+          "https://github.com/furrytailapps/mcp-nvv/blob/c67d45670db96aa1b5f5d8d716a06f34210d43d8/CLAUDE.md",
+          "https://github.com/furrytailapps/mcp-nvv/tree/c67d45670db96aa1b5f5d8d716a06f34210d43d8"
+        ],
+        "notes": "Neither consulted document declares a code license, and the pinned tree contains no applicable LICENSE. Public Naturvardsverket data access does not establish reuse rights for this server code."
+      },
+      "limitations": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/furrytailapps/mcp-nvv/blob/c67d45670db96aa1b5f5d8d716a06f34210d43d8/CLAUDE.md#L11-L25",
+          "https://github.com/furrytailapps/mcp-nvv/blob/c67d45670db96aa1b5f5d8d716a06f34210d43d8/README.md#L20-L39",
+          "https://github.com/furrytailapps/mcp-nvv/blob/c67d45670db96aa1b5f5d8d716a06f34210d43d8/src/clients/nvv-client.ts#L129-L151"
+        ],
+        "notes": "CLAUDE.md explains that Ramsar lacks WFS, so bounding-box search covers only national/Natura 2000 areas; municipality/county-code search spans all three. Only Gallande status is exposed and name searches need lookup first. Separately, the source contains an upstream extent workaround, not documentation evidence for this score."
+      }
+    }
   },
   "mcp_endpoint": "https://mcp-nvv.vercel.app/mcp"
 }

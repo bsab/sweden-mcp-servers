@@ -35,13 +35,56 @@
   "quality": {
     "rubric_version": 1,
     "reviewed_at": "2026-09-14",
-    "status": "unassessed",
-    "reason": "Source and metadata review only; no full rubric assessment. Local installation and upstream JobTech API families were not exercised. Package version 1.0.2 differs from the source serverInfo version 2.0.0; published-package parity remains unverified.",
-    "evidence": [
-      "https://github.com/DanielErikssonCoder/arbetsformedlingen-mcp-server/blob/b94dd02bcd884c16b26c1adb7feee39775ca98dd/README.md",
-      "https://github.com/DanielErikssonCoder/arbetsformedlingen-mcp-server/blob/b94dd02bcd884c16b26c1adb7feee39775ca98dd/src/index.ts",
-      "https://github.com/DanielErikssonCoder/arbetsformedlingen-mcp-server/blob/b94dd02bcd884c16b26c1adb7feee39775ca98dd/src/services/apiClient.ts",
-      "https://github.com/DanielErikssonCoder/arbetsformedlingen-mcp-server/blob/b94dd02bcd884c16b26c1adb7feee39775ca98dd/LICENSE"
-    ]
+    "status": "assessed",
+    "criteria": {
+      "installation": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/DanielErikssonCoder/arbetsformedlingen-mcp-server/blob/b94dd02bcd884c16b26c1adb7feee39775ca98dd/README.md#L11-L27",
+          "https://github.com/DanielErikssonCoder/arbetsformedlingen-mcp-server/blob/b94dd02bcd884c16b26c1adb7feee39775ca98dd/README.md#L95-L109"
+        ],
+        "notes": "The quick start gives an npx-based Claude Desktop configuration and restart step, with direct/global installation alternatives and an HTTP startup command."
+      },
+      "configuration": {
+        "status": "partial",
+        "evidence": [
+          "https://github.com/DanielErikssonCoder/arbetsformedlingen-mcp-server/blob/b94dd02bcd884c16b26c1adb7feee39775ca98dd/README.md#L1-L7",
+          "https://github.com/DanielErikssonCoder/arbetsformedlingen-mcp-server/blob/b94dd02bcd884c16b26c1adb7feee39775ca98dd/README.md#L113-L119",
+          "https://github.com/DanielErikssonCoder/arbetsformedlingen-mcp-server/blob/b94dd02bcd884c16b26c1adb7feee39775ca98dd/package.json#L43-L45"
+        ],
+        "notes": "No API key is explicitly required, and TRANSPORT/PORT defaults are documented. The README omits runtime prerequisites; Node >=18 appears only in package metadata, which does not earn complete documentation credit."
+      },
+      "tools": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/DanielErikssonCoder/arbetsformedlingen-mcp-server/blob/b94dd02bcd884c16b26c1adb7feee39775ca98dd/README.md#L30-L91"
+        ],
+        "notes": "All 13 capabilities are described by JobTech API family, with concrete Claude prompts for Stockholm Python jobs, hourly events and occupation-taxonomy lookup."
+      },
+      "compatibility": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/DanielErikssonCoder/arbetsformedlingen-mcp-server/blob/b94dd02bcd884c16b26c1adb7feee39775ca98dd/README.md#L11-L27",
+          "https://github.com/DanielErikssonCoder/arbetsformedlingen-mcp-server/blob/b94dd02bcd884c16b26c1adb7feee39775ca98dd/README.md#L113-L119"
+        ],
+        "notes": "The named Claude Desktop setup is paired with an environment table explicitly identifying stdio as the default and HTTP/Streamable HTTP as the alternative."
+      },
+      "license": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/DanielErikssonCoder/arbetsformedlingen-mcp-server/blob/b94dd02bcd884c16b26c1adb7feee39775ca98dd/LICENSE"
+        ],
+        "notes": "The downloaded root LICENSE contains complete MIT terms and the project copyright notice for Daniel Eriksson, rather than merely the README license name."
+      },
+      "limitations": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/DanielErikssonCoder/arbetsformedlingen-mcp-server/blob/b94dd02bcd884c16b26c1adb7feee39775ca98dd/README.md#L44-L47",
+          "https://github.com/DanielErikssonCoder/arbetsformedlingen-mcp-server/blob/b94dd02bcd884c16b26c1adb7feee39775ca98dd/package.json#L1-L4",
+          "https://github.com/DanielErikssonCoder/arbetsformedlingen-mcp-server/blob/b94dd02bcd884c16b26c1adb7feee39775ca98dd/src/index.ts#L24-L30"
+        ],
+        "notes": "Historical search is explicitly limited to archived listings going back to 2006, establishing the earliest documented coverage rather than all historical vacancies. Separately, package version 1.0.2 and source serverInfo 2.0.0 differ; published-package parity is not established by these docs."
+      }
+    }
   }
 }

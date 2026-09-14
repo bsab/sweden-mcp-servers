@@ -28,16 +28,53 @@
   "quality": {
     "rubric_version": 1,
     "reviewed_at": "2026-09-14",
-    "status": "unassessed",
-    "reason": "Source review only; no runtime test or full rubric assessment. Current instructions recommend the local kolada-mcp-server stdio package, with no API key in the standard client. Legacy HTTP/SSE code does not establish a working public deployment. Listed KPI tools are a selection from the larger registry.",
-    "evidence": [
-      "https://github.com/isakskogstad/Kolada-MCP/blob/2bdcc29a019e24fe0d218f8191149701f4637ffd/README.md",
-      "https://github.com/isakskogstad/Kolada-MCP/blob/2bdcc29a019e24fe0d218f8191149701f4637ffd/src/index.ts",
-      "https://github.com/isakskogstad/Kolada-MCP/blob/2bdcc29a019e24fe0d218f8191149701f4637ffd/src/server/handlers.ts",
-      "https://github.com/isakskogstad/Kolada-MCP/blob/2bdcc29a019e24fe0d218f8191149701f4637ffd/src/tools/kpi-tools.ts",
-      "https://github.com/isakskogstad/Kolada-MCP/blob/2bdcc29a019e24fe0d218f8191149701f4637ffd/src/config/constants.ts",
-      "https://github.com/isakskogstad/Kolada-MCP/blob/2bdcc29a019e24fe0d218f8191149701f4637ffd/src/api/client.ts",
-      "https://github.com/isakskogstad/Kolada-MCP/blob/2bdcc29a019e24fe0d218f8191149701f4637ffd/LICENSE"
-    ]
+    "status": "assessed",
+    "criteria": {
+      "installation": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/isakskogstad/Kolada-MCP/blob/2bdcc29a019e24fe0d218f8191149701f4637ffd/README.md#L17-L64"
+        ],
+        "notes": "The README provides npx and global-install/start commands, then named client configurations and a Claude Code registration/check sequence. These constitute a complete documented local package route without depending on the separate source-clone example."
+      },
+      "configuration": {
+        "status": "partial",
+        "evidence": [
+          "https://github.com/isakskogstad/Kolada-MCP/blob/2bdcc29a019e24fe0d218f8191149701f4637ffd/README.md#L17-L32",
+          "https://github.com/isakskogstad/Kolada-MCP/blob/2bdcc29a019e24fe0d218f8191149701f4637ffd/README.md#L249-L263"
+        ],
+        "notes": "Installation and client commands are present and Kolada data terms say access is free and needs no agreement. Runtime/version requirements and an explicit required-credentials/environment statement are missing; command syntax and open-data claims do not fill those documentation gaps."
+      },
+      "tools": {
+        "status": "partial",
+        "evidence": [
+          "https://github.com/isakskogstad/Kolada-MCP/blob/2bdcc29a019e24fe0d218f8191149701f4637ffd/README.md#L131-L177"
+        ],
+        "notes": "The tool tables explain KPI discovery, municipality lookups, comparisons and analysis, including result bounds. They do not include a concrete MCP request or user prompt; a municipality ID mentioned in a description alone is not a usage example."
+      },
+      "compatibility": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/isakskogstad/Kolada-MCP/blob/2bdcc29a019e24fe0d218f8191149701f4637ffd/README.md#L34-L119"
+        ],
+        "notes": "Several named client configurations are given, and the other-clients section explicitly identifies stdio transport. No legacy HTTP/SSE implementation is promoted as a currently available hosted service."
+      },
+      "license": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/isakskogstad/Kolada-MCP/blob/2bdcc29a019e24fe0d218f8191149701f4637ffd/LICENSE",
+          "https://github.com/isakskogstad/Kolada-MCP/blob/2bdcc29a019e24fe0d218f8191149701f4637ffd/README.md#L244-L263"
+        ],
+        "notes": "The pinned LICENSE contains full MIT terms for Isak Skogstad's implementation. Separately documented Kolada attribution and no-official-partnership conditions concern upstream data use, not the code license."
+      },
+      "limitations": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/isakskogstad/Kolada-MCP/blob/2bdcc29a019e24fe0d218f8191149701f4637ffd/README.md#L133-L169",
+          "https://github.com/isakskogstad/Kolada-MCP/blob/2bdcc29a019e24fe0d218f8191149701f4637ffd/README.md#L249-L263"
+        ],
+        "notes": "The README limits get_kpis to 25 items and comparisons to 2-10 municipalities, making batch size constraints explicit. Its data terms also warn that KPI revisions/removals need not be announced, affecting reproducibility of later queries."
+      }
+    }
   }
 }

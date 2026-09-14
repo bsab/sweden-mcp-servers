@@ -26,14 +26,55 @@
   "quality": {
     "rubric_version": 1,
     "reviewed_at": "2026-09-14",
-    "status": "unassessed",
-    "reason": "Source review only; no runtime execution or full rubric assessment. Requires a private integration token/company ID or OAuth. Listed tools are a read-only selection; BOKIO_ALLOW_WRITES enables additional mutating tools. Mock fixtures are not proof of real access. Bank payments need provider approval, and commercial costs are unverified.",
-    "evidence": [
-      "https://github.com/straycatse/bokio-mcp/blob/cd48f56f606c069b9b5ef4c89814e2673af7d8f4/README.md",
-      "https://github.com/straycatse/bokio-mcp/blob/cd48f56f606c069b9b5ef4c89814e2673af7d8f4/src/server.ts",
-      "https://github.com/straycatse/bokio-mcp/blob/cd48f56f606c069b9b5ef4c89814e2673af7d8f4/src/tools/registry.ts",
-      "https://github.com/straycatse/bokio-mcp/blob/cd48f56f606c069b9b5ef4c89814e2673af7d8f4/src/tools/bokio/invoices.ts",
-      "https://github.com/straycatse/bokio-mcp/blob/cd48f56f606c069b9b5ef4c89814e2673af7d8f4/LICENSE"
-    ]
+    "status": "assessed",
+    "criteria": {
+      "installation": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/straycatse/bokio-mcp/blob/cd48f56f606c069b9b5ef4c89814e2673af7d8f4/README.md#L17-L65"
+        ],
+        "notes": "The real-data route explains where to create a private integration token and supplies complete npx MCP launch JSON with company ID. OAuth has a separate login sequence. The account-free BOKIO_MOCK demonstration is explicitly a fixture route, not live Bokio access."
+      },
+      "configuration": {
+        "status": "partial",
+        "evidence": [
+          "https://github.com/straycatse/bokio-mcp/blob/cd48f56f606c069b9b5ef4c89814e2673af7d8f4/README.md#L32-L65",
+          "https://github.com/straycatse/bokio-mcp/blob/cd48f56f606c069b9b5ef4c89814e2673af7d8f4/README.md#L100-L124"
+        ],
+        "notes": "Credentials, company ID, OAuth callback, optional writes and HTTP/token-storage settings are documented. The README does not specify the supported Node runtime/version; no-accounts wording in the introduction must not be read as anonymous access to real company data. Commercial costs remain unverified."
+      },
+      "tools": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/straycatse/bokio-mcp/blob/cd48f56f606c069b9b5ef4c89814e2673af7d8f4/README.md#L1-L15",
+          "https://github.com/straycatse/bokio-mcp/blob/cd48f56f606c069b9b5ef4c89814e2673af7d8f4/README.md#L67-L86"
+        ],
+        "notes": "The README describes accounting capabilities and gives concrete prompts for unpaid invoices and SIE export. It explains that mutating tools are absent from discovery until BOKIO_ALLOW_WRITES is enabled, rather than implying all 85 are always exposed."
+      },
+      "compatibility": {
+        "status": "partial",
+        "evidence": [
+          "https://github.com/straycatse/bokio-mcp/blob/cd48f56f606c069b9b5ef4c89814e2673af7d8f4/README.md#L37-L50",
+          "https://github.com/straycatse/bokio-mcp/blob/cd48f56f606c069b9b5ef4c89814e2673af7d8f4/README.md#L79-L98"
+        ],
+        "notes": "The command table explicitly distinguishes stdio from Streamable HTTP, and generic client JSON is provided. No named MCP client is paired with a connection example, so transport documentation alone does not earn complete compatibility."
+      },
+      "license": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/straycatse/bokio-mcp/blob/cd48f56f606c069b9b5ef4c89814e2673af7d8f4/LICENSE"
+        ],
+        "notes": "The pinned root LICENSE supplies full MIT terms for Simon Solberg's server code. Bokio service access and bank-payment approval are separate provider requirements."
+      },
+      "limitations": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/straycatse/bokio-mcp/blob/cd48f56f606c069b9b5ef4c89814e2673af7d8f4/README.md#L25-L28",
+          "https://github.com/straycatse/bokio-mcp/blob/cd48f56f606c069b9b5ef4c89814e2673af7d8f4/README.md#L67-L77",
+          "https://github.com/straycatse/bokio-mcp/blob/cd48f56f606c069b9b5ef4c89814e2673af7d8f4/README.md#L147-L153"
+        ],
+        "notes": "The README explains one company per instance and running another instance for a second company, plus bank-payment scopes that fail without Bokio approval. Read-only default, opt-in writes and the fake-data nature of BOKIO_MOCK are explicit."
+      }
+    }
   }
 }

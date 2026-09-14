@@ -26,13 +26,55 @@
   "quality": {
     "rubric_version": 1,
     "reviewed_at": "2026-09-14",
-    "status": "unassessed",
-    "reason": "Source review only; not runtime-tested or fully rubric-assessed. Requires a Fortnox account and credentials or remote OAuth. Tools can create and bookkeep invoices. Commercial access costs are unverified; the authenticated hosted endpoint is documented separately, not placed in the anonymous endpoint checker.",
-    "evidence": [
-      "https://github.com/erp-mafia/fortnox-mcp/blob/501ee1368f12ca4dd2e24a24bda8a47378b5c40a/README.md",
-      "https://github.com/erp-mafia/fortnox-mcp/blob/501ee1368f12ca4dd2e24a24bda8a47378b5c40a/src/index.ts",
-      "https://github.com/erp-mafia/fortnox-mcp/blob/501ee1368f12ca4dd2e24a24bda8a47378b5c40a/src/tools/invoices.ts",
-      "https://github.com/erp-mafia/fortnox-mcp/blob/501ee1368f12ca4dd2e24a24bda8a47378b5c40a/LICENSE"
-    ]
+    "status": "assessed",
+    "criteria": {
+      "installation": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/erp-mafia/fortnox-mcp/blob/501ee1368f12ca4dd2e24a24bda8a47378b5c40a/README.md#L14-L83"
+        ],
+        "notes": "The remote quick start provides exact Claude.ai settings and URL/browser-authorization steps. Local users also receive an npx Claude Desktop configuration; source installation is not the only documented route."
+      },
+      "configuration": {
+        "status": "partial",
+        "evidence": [
+          "https://github.com/erp-mafia/fortnox-mcp/blob/501ee1368f12ca4dd2e24a24bda8a47378b5c40a/README.md#L47-L79",
+          "https://github.com/erp-mafia/fortnox-mcp/blob/501ee1368f12ca4dd2e24a24bda8a47378b5c40a/README.md#L181-L216",
+          "https://github.com/erp-mafia/fortnox-mcp/blob/501ee1368f12ca4dd2e24a24bda8a47378b5c40a/README.md#L313-L322"
+        ],
+        "notes": "Local client ID/secret/refresh-token variables, optional HTTP settings and token persistence are explained, but a supported local runtime/version and a concrete initial local OAuth token-acquisition sequence are missing. Remote authorization still requires a Fortnox account; commercial/API-plan costs are not established."
+      },
+      "tools": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/erp-mafia/fortnox-mcp/blob/501ee1368f12ca4dd2e24a24bda8a47378b5c40a/README.md#L87-L158",
+          "https://github.com/erp-mafia/fortnox-mcp/blob/501ee1368f12ca4dd2e24a24bda8a47378b5c40a/README.md#L232-L276"
+        ],
+        "notes": "Capabilities are listed across customers, invoices, vouchers and analytics. Concrete JSON tool examples include unpaid-invoice listing and invoice/voucher creation; these are write-capable accounting tools, not a read-only reporting connection."
+      },
+      "compatibility": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/erp-mafia/fortnox-mcp/blob/501ee1368f12ca4dd2e24a24bda8a47378b5c40a/README.md#L18-L43",
+          "https://github.com/erp-mafia/fortnox-mcp/blob/501ee1368f12ca4dd2e24a24bda8a47378b5c40a/README.md#L185-L194"
+        ],
+        "notes": "Claude.ai and Claude Desktop have connection examples, and the environment table explicitly names stdio as the local default and HTTP as an alternative. This assessment does not certify the advertised hosted endpoint."
+      },
+      "license": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/erp-mafia/fortnox-mcp/blob/501ee1368f12ca4dd2e24a24bda8a47378b5c40a/LICENSE"
+        ],
+        "notes": "The repository LICENSE contains complete MIT terms attributed to Jakob Wennberg. This covers the server code, not a Fortnox account, paid API entitlement or accounting-data access."
+      },
+      "limitations": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/erp-mafia/fortnox-mcp/blob/501ee1368f12ca4dd2e24a24bda8a47378b5c40a/README.md#L278-L280",
+          "https://github.com/erp-mafia/fortnox-mcp/blob/501ee1368f12ca4dd2e24a24bda8a47378b5c40a/README.md#L313-L322"
+        ],
+        "notes": "The README states Fortnox's 25-requests-per-five-seconds ceiling and automatic throttling, and explains why single-use refresh tokens must be persisted across restarts. Both limitations have explicit mitigation."
+      }
+    }
   }
 }
