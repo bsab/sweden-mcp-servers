@@ -13,7 +13,7 @@
   <a href="https://github.com/bsab/sweden-mcp-servers/actions/workflows/link-check.yml"><img src="https://github.com/bsab/sweden-mcp-servers/actions/workflows/link-check.yml/badge.svg" alt="Link check"/></a>
   <a href="https://github.com/bsab/sweden-mcp-servers/actions/workflows/pages.yml"><img src="https://github.com/bsab/sweden-mcp-servers/actions/workflows/pages.yml/badge.svg" alt="GitHub Pages"/></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="MIT License"/></a>
-  <img src="https://img.shields.io/badge/MCP%20servers-18-blue.svg" alt="18 servers"/>
+  <img src="https://img.shields.io/badge/MCP%20servers-26-blue.svg" alt="26 servers"/>
   <img src="https://img.shields.io/badge/categories-9-orange.svg" alt="9 categories"/>
 <!-- END:badges -->
 </p>
@@ -84,12 +84,14 @@ Entries are checked against canonical public documentation and implementation so
 The [verification record](VERIFICATION.md) explains source evidence, credentials,
 licensing and coverage limitations. The separate [runtime smoke report](RUNTIME.md)
 records actual protocol/tool attempts, including failures and blocked paths.
-The **2026-09-14 runtime snapshot** covers all 18 entries: **9 live-data passes**,
-**5 credential blockers**, **1 network/TLS blocker**, **2 tool failures** and
-**1 protocol failure**. A pass covers only the sampled read-only operation and configuration.
+The **2026-09-14 runtime snapshot** covers the 18 entries present before subsequent
+additions: **9 live-data passes**, **5 credential blockers**, **1 network/TLS blocker**,
+**2 tool failures** and **1 protocol failure**. A pass covers only the sampled read-only
+operation and configuration. The [curated-list additions](VERIFICATION.md#curated-list-additions)
+were reviewed from source and documentation only: **no runtime tests were attempted**.
 
 The **🎯 Ready score /100** measures documented readiness, not popularity, security or
-runtime reliability. All 18 current entries were assessed on **2026-09-14** using the
+runtime reliability. Documentation assessments dated **2026-09-14** use the
 [unchanged six-criterion rubric](CONTRIBUTING.md#rubric-v1). A high score can coexist
 with a failed runtime attempt or missing credentials. **Unassessed does not mean zero.**
 Where assessed, scores link to
@@ -120,6 +122,14 @@ entries last. Bold names, if present, are editorial selections, not certificatio
     <td align="center"><a href="https://sweden.mcp.namraks.com/mcp" target="_blank" rel="noopener noreferrer" title="Open MCP endpoint: MCP Sweden"><kbd>Connect</kbd></a></td>
   </tr>
   <tr>
+    <td><a href="https://github.com/isakskogstad/SCB-MCP">SCB MCP</a></td>
+    <td align="right"><a href="servers/scb-mcp.json" title="Documentation review: 2026-09-14; criteria and sources">85/100</a></td>
+    <td align="right">7</td>
+    <td>TS</td>
+    <td>Searches SCB PxWebAPI v2 tables, resolves Swedish region codes and retrieves statistical selections. A dedicated TypeScript alternative to the existing Python SCB integrations.</td>
+    <td align="center">—</td>
+  </tr>
+  <tr>
     <td><a href="https://github.com/isakskogstad/Kolada-MCP">Kolada MCP</a></td>
     <td align="right"><a href="servers/kolada-mcp.json" title="Documentation review: 2026-09-14; criteria and sources">80/100</a></td>
     <td align="right">12</td>
@@ -133,6 +143,14 @@ entries last. Bold names, if present, are editorial selections, not certificatio
     <td align="right">1</td>
     <td>Python</td>
     <td>Exposes Swedish national statistics from SCB through PxWebApi v2. A dedicated local alternative to the SCB v1 integration in MCP Sweden; no API key is configured.</td>
+    <td align="center">—</td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/aerugo/kolada-mcp">Kolada MCP (aerugo)</a></td>
+    <td align="right"><a href="servers/kolada-mcp-python.json" title="Documentation review: 2026-09-14; criteria and sources">72.5/100</a></td>
+    <td align="right">16</td>
+    <td>Python</td>
+    <td>Queries Kolada API v2 municipal indicators with comparison, filtering and Swedish BERT semantic search. A Python alternative that loads KPI data and model embeddings during startup.</td>
     <td align="center">—</td>
   </tr>
   </tbody>
@@ -193,6 +211,14 @@ entries last. Bold names, if present, are editorial selections, not certificatio
     <td>Two local MCP servers monitor Migrationsverket legal-position updates and maintain a searchable watchlist over published Swedish case law.</td>
     <td align="center">—</td>
   </tr>
+  <tr>
+    <td><a href="https://github.com/Ansvar-Systems/Swedish-law-mcp">Swedish Law MCP (archived)</a></td>
+    <td align="right"><a href="servers/swedish-law-mcp.json" title="Documentation review: 2026-09-14; criteria and sources">90/100</a></td>
+    <td align="right">0</td>
+    <td>TS</td>
+    <td>Archived Swedish statute, citation and EU-reference server. Requires a rebuilt local database; case-law coverage depends on the dataset. Hosted access has moved to an account-based gateway.</td>
+    <td align="center">—</td>
+  </tr>
   </tbody>
 </table>
 
@@ -234,6 +260,14 @@ entries last. Bold names, if present, are editorial selections, not certificatio
     <td>Retrieves Swedish foreign-travel daily allowance rates from Skatteverket’s EntryScape data. Supports country searches; local execution requires Bun.</td>
     <td align="center"><a href="https://traktamente.app/mcp" target="_blank" rel="noopener noreferrer" title="Open MCP endpoint: Traktamente MCP"><kbd>Connect</kbd></a></td>
   </tr>
+  <tr>
+    <td><a href="https://github.com/Pomilo-AI/annual_report_mcp_server">Annual Report MCP Server</a></td>
+    <td align="right"><a href="servers/annual-report-mcp-server.json" title="Documentation review: 2026-09-14; criteria and sources">50/100</a></td>
+    <td align="right">2</td>
+    <td>Python</td>
+    <td>Demo for company lookup and questions over digitally filed annual reports via Bolagsverket, Tavily and OpenAI; requires approved API access and writes local indexes.</td>
+    <td align="center">—</td>
+  </tr>
   </tbody>
 </table>
 
@@ -251,6 +285,14 @@ entries last. Bold names, if present, are editorial selections, not certificatio
     </tr>
   </thead>
   <tbody>
+  <tr>
+    <td><a href="https://github.com/vinvuk/apiverket-mcp">Apiverket MCP</a></td>
+    <td align="right"><a href="servers/apiverket-mcp.json" title="Documentation review: 2026-09-14; criteria and sources">100/100</a></td>
+    <td align="right">2</td>
+    <td>TS</td>
+    <td>Discovers and queries a curated Swedish-data endpoint catalog through Apiverket and inspects account quotas. Local stdio; production data needs a live API key, not the default sandbox key.</td>
+    <td align="center">—</td>
+  </tr>
   <tr>
     <td><a href="https://github.com/isakskogstad/Skolverket-MCP">Skolverket MCP</a></td>
     <td align="right"><a href="servers/skolverket-mcp.json" title="Documentation review: 2026-09-14; criteria and sources">85/100</a></td>
@@ -317,6 +359,14 @@ entries last. Bold names, if present, are editorial selections, not certificatio
     </tr>
   </thead>
   <tbody>
+  <tr>
+    <td><a href="https://github.com/henrrrik/sl-mcp-server">Storstockholms Lokaltrafik (SL) MCP Server</a></td>
+    <td align="right"><a href="servers/sl-mcp-server.json" title="Documentation review: 2026-09-14; criteria and sources">100/100</a></td>
+    <td align="right">1</td>
+    <td>Go</td>
+    <td>Read-only Stockholm transit tools for journey planning, departures, disruptions and stop discovery using SL&#x27;s open APIs. No API key; legacy SSE transport, not Streamable HTTP.</td>
+    <td align="center">—</td>
+  </tr>
   <tr>
     <td><a href="https://github.com/hniska/trafikverket-mcp">Trafikverket MCP</a></td>
     <td align="right"><a href="servers/trafikverket-mcp.json" title="Documentation review: 2026-09-14; criteria and sources">95/100</a></td>
@@ -389,6 +439,22 @@ entries last. Bold names, if present, are editorial selections, not certificatio
     <td align="right">2</td>
     <td>Python</td>
     <td>Uses ICA’s unofficial private API for shopping lists, recipes, offers and products. Requires login, can modify lists, and carries service-terms and availability risks.</td>
+    <td align="center">—</td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/ribomation/smhi-weather-forecast-mcp-server">SMHI Weather Forecast MCP Server</a></td>
+    <td align="right"><a href="servers/smhi-weather-forecast-mcp.json" title="Documentation review: 2026-09-14; criteria and sources">85/100</a></td>
+    <td align="right">0</td>
+    <td>TS</td>
+    <td>Experimental local SMHI tools for point forecasts, station observations and station/parameter discovery. The README warns of API retirement; current data availability is unverified.</td>
+    <td align="center">—</td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/bjesus/begagnad-mcp">Begagnad MCP</a></td>
+    <td align="right"><a href="servers/begagnad-mcp.json" title="Documentation review: 2026-09-14; criteria and sources">72.5/100</a></td>
+    <td align="right">8</td>
+    <td>TS</td>
+    <td>Searches Blocket (via blocket-api.se) and Tradera listings. Tradera requires app credentials. Tools retrieve items but do not purchase, bid or track changes.</td>
     <td align="center">—</td>
   </tr>
   </tbody>

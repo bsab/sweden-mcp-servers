@@ -1,0 +1,79 @@
+{
+  "name": "Begagnad MCP",
+  "repository_url": "https://github.com/bjesus/begagnad-mcp",
+  "site_url": "https://github.com/bjesus/begagnad-mcp/blob/cc45e8cb23b5f36e5d4b1ccb831cd561717270b5/README.md",
+  "author": "bjesus",
+  "language": "TypeScript",
+  "license": null,
+  "stars": 8,
+  "category": "design-other",
+  "description": "Searches Blocket (via blocket-api.se) and Tradera listings. Tradera requires app credentials. Tools retrieve items but do not purchase, bid or track changes.",
+  "tags": [
+    "sweden",
+    "second-hand",
+    "marketplace",
+    "blocket",
+    "tradera",
+    "cloudflare"
+  ],
+  "transport": "sse",
+  "last_verified": "2026-09-14",
+  "tools": [
+    "search_blocket",
+    "get_blocket_item",
+    "search_tradera",
+    "get_tradera_item",
+    "search_both"
+  ],
+  "quality": {
+    "rubric_version": 1,
+    "reviewed_at": "2026-09-14",
+    "status": "assessed",
+    "criteria": {
+      "installation": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/bjesus/begagnad-mcp/blob/cc45e8cb23b5f36e5d4b1ccb831cd561717270b5/README.md#L9-L58"
+        ],
+        "notes": "The public-instance route supplies a complete Claude Desktop mcp-remote configuration and restart instruction. Separate npm install, Cloudflare login, deployment and local-start commands are also shown. This is a documentation assessment, not a connection test; the hosted URL is intentionally not added to the automated endpoint checker."
+      },
+      "configuration": {
+        "status": "partial",
+        "evidence": [
+          "https://github.com/bjesus/begagnad-mcp/blob/cc45e8cb23b5f36e5d4b1ccb831cd561717270b5/README.md#L33-L67"
+        ],
+        "notes": "Cloudflare login and the TRADERA_APP_ID/TRADERA_APP_KEY secret names are documented, but runtime prerequisites, credential acquisition and the credentials available to the public instance are not explained. Cloudflare/API account eligibility, pricing and quotas were not verified."
+      },
+      "tools": {
+        "status": "complete",
+        "evidence": [
+          "https://github.com/bjesus/begagnad-mcp/blob/cc45e8cb23b5f36e5d4b1ccb831cd561717270b5/README.md#L69-L101"
+        ],
+        "notes": "Five search/detail tools have parameter summaries and concrete Claude prompts about routers, vehicles and furniture. Source confirms both marketplace paths and the combined search. There are no dedicated price/location filter parameters, purchases, bids, saved searches or change-tracking tools."
+      },
+      "compatibility": {
+        "status": "partial",
+        "evidence": [
+          "https://github.com/bjesus/begagnad-mcp/blob/cc45e8cb23b5f36e5d4b1ccb831cd561717270b5/README.md#L11-L31",
+          "https://github.com/bjesus/begagnad-mcp/blob/cc45e8cb23b5f36e5d4b1ccb831cd561717270b5/README.md#L52-L58"
+        ],
+        "notes": "A named Claude Desktop configuration uses mcp-remote, but the README does not explicitly identify the transport beyond an endpoint ending in /sse. Source code verifies legacy SSE for catalog metadata; source-only transport evidence does not earn complete documentation credit."
+      },
+      "license": {
+        "status": "partial",
+        "evidence": [
+          "https://github.com/bjesus/begagnad-mcp/blob/cc45e8cb23b5f36e5d4b1ccb831cd561717270b5/README.md#L108-L110",
+          "https://github.com/bjesus/begagnad-mcp/blob/cc45e8cb23b5f36e5d4b1ccb831cd561717270b5/package.json"
+        ],
+        "notes": "The README and package manifest say MIT, but no full license text is present in the pinned repository. Applicable terms were not established, so license remains null rather than treating the declaration as a license grant."
+      },
+      "limitations": {
+        "status": "absent",
+        "evidence": [
+          "https://github.com/bjesus/begagnad-mcp/blob/cc45e8cb23b5f36e5d4b1ccb831cd561717270b5/README.md"
+        ],
+        "notes": "The README contains no explicit coverage/reliability caveat, read-only boundary, rate limit or operational workaround. Credential setup alone is not a documented usage limitation. Reconnection throttling and combined-search failure behavior are visible in source but do not raise this documentation score."
+      }
+    }
+  }
+}

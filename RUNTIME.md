@@ -1,10 +1,15 @@
 # Runtime smoke verification — 2026-09-14
 
-This report records **actual, bounded attempts for all 18 catalog entries**. It is
-separate from the [documentation Ready score](CONTRIBUTING.md#rubric-v1): **40–100/100
-is a documentation score range, not a runtime success rate**. In particular, a
-100/100 entry can still require credentials and have no verified provider call.
-Scores below are the documentation-assessment snapshot on this date.
+This report records **actual, bounded attempts for the 18 entries cataloged before
+subsequent additions**. It is separate from the [documentation Ready score](CONTRIBUTING.md#rubric-v1):
+**40–100/100 is the documentation score range of this snapshot, not a runtime success
+rate**. In particular, a 100/100 entry can still require credentials and have no
+verified provider call. Scores below are the documentation-assessment snapshot on this date.
+
+**Scope boundary:** the later [curated-list additions](VERIFICATION.md#curated-list-additions)
+were reviewed from source/documentation only and were **not runtime-tested**. They are
+not included in this report's 18-entry matrix or success/failure totals. No previous
+runtime result is transferred to another implementation using the same data provider.
 
 A **passed** outcome requires initialize, the initialized notification, tools/list,
 and at least one explicitly selected read-only call returning plausible non-error

@@ -1,0 +1,52 @@
+{
+  "name": "SCB MCP",
+  "repository_url": "https://github.com/isakskogstad/SCB-MCP",
+  "site_url": "https://github.com/isakskogstad/SCB-MCP/blob/4f071256ed39ff3b20c820c79ed9fc75aa2888cb/README.md",
+  "author": "isakskogstad",
+  "language": "TypeScript",
+  "license": null,
+  "stars": 7,
+  "category": "data-statistics",
+  "description": "Searches SCB PxWebAPI v2 tables, resolves Swedish region codes and retrieves statistical selections. A dedicated TypeScript alternative to the existing Python SCB integrations.",
+  "tags": ["sweden", "scb", "statistics", "population", "regions", "open-data"],
+  "transport": "stdio",
+  "last_verified": "2026-09-14",
+  "tools": ["scb_search_tables", "scb_get_table_info", "scb_get_table_data", "scb_find_region_code", "scb_get_table_variables", "scb_preview_data"],
+  "quality": {
+    "rubric_version": 1,
+    "reviewed_at": "2026-09-14",
+    "status": "assessed",
+    "criteria": {
+      "installation": {
+        "status": "complete",
+        "evidence": ["https://github.com/isakskogstad/SCB-MCP/blob/4f071256ed39ff3b20c820c79ed9fc75aa2888cb/README.md"],
+        "notes": "The Swedish and English installation sections give clone, npm install and build commands, followed by a concrete node dist/index.js client launch. This documents a local source route without relying on a registry badge or an assumed hosted service."
+      },
+      "configuration": {
+        "status": "partial",
+        "evidence": ["https://github.com/isakskogstad/SCB-MCP/blob/4f071256ed39ff3b20c820c79ed9fc75aa2888cb/README.md", "https://github.com/isakskogstad/SCB-MCP/blob/4f071256ed39ff3b20c820c79ed9fc75aa2888cb/package.json"],
+        "notes": "Client paths and build commands are explained, and package.json declares Node >=18 with dependencies. The user documentation does not explicitly state whether credentials or environment variables are required; the absence of authentication in the reviewed client is source evidence, not complete configuration guidance."
+      },
+      "tools": {
+        "status": "complete",
+        "evidence": ["https://github.com/isakskogstad/SCB-MCP/blob/4f071256ed39ff3b20c820c79ed9fc75aa2888cb/README.md", "https://github.com/isakskogstad/SCB-MCP/blob/4f071256ed39ff3b20c820c79ed9fc75aa2888cb/src/index.ts"],
+        "notes": "The usage guide illustrates table searches, region lookup and a concrete TAB637 selection comparing municipalities and years. These are conceptual function-style examples, not a supplied Python SDK; actual MCP names are the scb_-prefixed registrations recorded in this entry."
+      },
+      "compatibility": {
+        "status": "complete",
+        "evidence": ["https://github.com/isakskogstad/SCB-MCP/blob/4f071256ed39ff3b20c820c79ed9fc75aa2888cb/README.md", "https://github.com/isakskogstad/SCB-MCP/blob/4f071256ed39ff3b20c820c79ed9fc75aa2888cb/MCP_COMPLIANCE.md"],
+        "notes": "Stdio is explicitly documented, with Claude Code registration and a Claude Desktop command/args configuration. Upstream compatibility claims and the additional HTTP source are not treated as independently tested client support."
+      },
+      "license": {
+        "status": "partial",
+        "evidence": ["https://github.com/isakskogstad/SCB-MCP/blob/4f071256ed39ff3b20c820c79ed9fc75aa2888cb/package.json", "https://github.com/isakskogstad/SCB-MCP/tree/4f071256ed39ff3b20c820c79ed9fc75aa2888cb"],
+        "notes": "The package declares MIT, but the pinned repository contains no LICENSE or other applicable full code-license terms. The declaration earns partial documentation credit while the catalog license remains null."
+      },
+      "limitations": {
+        "status": "complete",
+        "evidence": ["https://github.com/isakskogstad/SCB-MCP/blob/4f071256ed39ff3b20c820c79ed9fc75aa2888cb/README.md"],
+        "notes": "The README describes a 30-requests-per-10-seconds limit and advises previewing large selections, limiting time periods with TOP(5), and inspecting table-specific variable codes and units. These are concrete query constraints and workarounds, not an availability guarantee."
+      }
+    }
+  }
+}
