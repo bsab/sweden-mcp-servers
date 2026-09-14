@@ -1,0 +1,34 @@
+{
+  "name": "Swedish Weather MCP",
+  "repository_url": "https://github.com/robobobby/mcp-swedish-weather",
+  "site_url": "https://github.com/robobobby/mcp-swedish-weather/blob/eeb6405964dc682c360151cc8a51a2a2251618bb/README.md",
+  "author": "robobobby",
+  "language": "JavaScript",
+  "license": null,
+  "stars": 0,
+  "category": "public-services",
+  "description": "A small local MCP server returning SMHI forecast-derived current conditions and forecasts for Swedish cities or coordinates.",
+  "tags": [
+    "sweden",
+    "smhi",
+    "weather",
+    "forecasts"
+  ],
+  "transport": "stdio",
+  "last_verified": "2026-09-14",
+  "tools": [
+    "current_weather",
+    "weather_forecast"
+  ],
+  "quality": {
+    "rubric_version": 1,
+    "reviewed_at": "2026-09-14",
+    "status": "unassessed",
+    "reason": "Source and metadata review only; no full rubric assessment or local execution. Current conditions are forecast-derived rather than station observations; dependency setup is incomplete and the MIT declaration lacks an applicable LICENSE file.",
+    "evidence": [
+      "https://github.com/robobobby/mcp-swedish-weather/blob/eeb6405964dc682c360151cc8a51a2a2251618bb/README.md",
+      "https://github.com/robobobby/mcp-swedish-weather/blob/eeb6405964dc682c360151cc8a51a2a2251618bb/src/index.js",
+      "https://github.com/robobobby/mcp-swedish-weather/blob/eeb6405964dc682c360151cc8a51a2a2251618bb/package.json"
+    ]
+  }
+}

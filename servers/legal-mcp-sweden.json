@@ -1,0 +1,53 @@
+{
+  "name": "Sweden Legal MCP (Lifos and Rättspraxis)",
+  "repository_url": "https://github.com/AvoccadoTech/legal-mcp-sweden",
+  "site_url": "https://github.com/AvoccadoTech/legal-mcp-sweden/blob/424f01a096157ab9e4f67c378c83c6bb80a96487/README.md",
+  "author": "AvoccadoTech",
+  "language": "Python",
+  "license": "Apache-2.0",
+  "stars": 0,
+  "category": "legal-tech",
+  "description": "Two local MCP servers monitor Migrationsverket legal-position updates and maintain a searchable watchlist over published Swedish case law.",
+  "tags": [
+    "sweden",
+    "legal",
+    "migrationsverket",
+    "lifos",
+    "domstolsverket",
+    "case-law"
+  ],
+  "transport": "stdio",
+  "last_verified": "2026-09-14",
+  "tools": [
+    "lifos_check_updates",
+    "lifos_recent",
+    "lifos_scan_kb",
+    "lifos_stale_positions",
+    "lifos_track",
+    "lifos_untrack",
+    "lifos_list_tracked",
+    "lifos_get_document",
+    "lifos_list_feeds",
+    "rattspraxis_sync",
+    "rattspraxis_search",
+    "rattspraxis_get",
+    "rattspraxis_add_watch",
+    "rattspraxis_check_watchlist",
+    "rattspraxis_list_watches",
+    "rattspraxis_remove_watch",
+    "rattspraxis_coverage",
+    "rattspraxis_courts"
+  ],
+  "quality": {
+    "rubric_version": 1,
+    "reviewed_at": "2026-09-14",
+    "status": "unassessed",
+    "reason": "Source and metadata review only; no full rubric assessment. This repository contains two separately launched stdio servers. Local mirrors and feeds were not tested; Lifos has a five-item rolling window and some tools write local tracking state.",
+    "evidence": [
+      "https://github.com/AvoccadoTech/legal-mcp-sweden/blob/424f01a096157ab9e4f67c378c83c6bb80a96487/README.md",
+      "https://github.com/AvoccadoTech/legal-mcp-sweden/blob/424f01a096157ab9e4f67c378c83c6bb80a96487/src/sweden_legal_mcp/lifos/server.py",
+      "https://github.com/AvoccadoTech/legal-mcp-sweden/blob/424f01a096157ab9e4f67c378c83c6bb80a96487/src/sweden_legal_mcp/rattspraxis/server.py",
+      "https://github.com/AvoccadoTech/legal-mcp-sweden/blob/424f01a096157ab9e4f67c378c83c6bb80a96487/LICENSE"
+    ]
+  }
+}

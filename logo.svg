@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="300" viewBox="0 0 1000 300" role="img" aria-labelledby="title description">
+  <title id="title">Sweden MCP Servers</title>
+  <desc id="description">Logo for the curated catalog of Swedish Model Context Protocol servers.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1117"/>
+      <stop offset="1" stop-color="#151b23"/>
+    </linearGradient>
+    <linearGradient id="flag" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#006aa7"/>
+      <stop offset="0.42" stop-color="#006aa7"/>
+      <stop offset="0.42" stop-color="#fecc00"/>
+      <stop offset="0.58" stop-color="#fecc00"/>
+      <stop offset="0.58" stop-color="#006aa7"/>
+      <stop offset="1" stop-color="#006aa7"/>
+    </linearGradient>
+    <radialGradient id="blue-glow">
+      <stop offset="0" stop-color="#006aa7" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#006aa7" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="yellow-glow">
+      <stop offset="0" stop-color="#fecc00" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#fecc00" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#ffffff" stroke-opacity="0.035"/>
+    </pattern>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <rect width="1000" height="300" rx="24" fill="url(#background)"/>
+  <rect width="1000" height="300" rx="24" fill="url(#grid)"/>
+  <circle cx="40" cy="20" r="230" fill="url(#blue-glow)"/>
+  <circle cx="970" cy="290" r="240" fill="url(#yellow-glow)"/>
+  <path d="M24 0H976A24 24 0 0 1 1000 24V7H0V24A24 24 0 0 1 24 0Z" fill="url(#flag)"/>
+
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <g transform="translate(52 38)">
+      <rect width="308" height="34" rx="17" fill="#161b22" stroke="#30363d"/>
+      <g transform="translate(12 5)">
+        <rect width="38.4" height="24" fill="#006aa7"/>
+        <path d="M14.4 0v24M0 12h38.4" stroke="#fecc00" stroke-width="4.8"/>
+      </g>
+      <text x="68" y="23" fill="#8c959f" font-size="14" font-weight="600" letter-spacing="1.2">MODEL CONTEXT PROTOCOL</text>
+    </g>
+
+    <text x="52" y="153" fill="#f0f6fc" font-size="66" font-weight="750" letter-spacing="-2">Sweden</text>
+    <text x="305" y="153" fill="#58a6ff" font-size="54" font-weight="750" letter-spacing="-1.5">MCP Servers</text>
+    <text x="55" y="198" fill="#b1bac4" font-size="21">Discover MCP servers for Sweden</text>
+    <text x="55" y="246" fill="#6e7681" font-size="15" letter-spacing="0.5">OPEN DATA &#183; GOVERNMENT &#183; LAW &#183; SERVICES</text>
+  </g>
+
+  <g transform="translate(744 32)" filter="url(#shadow)">
+    <rect width="204" height="236" rx="26" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+    <rect x="1" y="1" width="202" height="44" rx="25" fill="#1c2128"/>
+    <path d="M1 45H203" stroke="#30363d"/>
+    <circle cx="23" cy="23" r="5" fill="#006aa7"/>
+    <circle cx="40" cy="23" r="5" fill="#fecc00"/>
+    <circle cx="57" cy="23" r="5" fill="#006aa7"/>
+
+    <g stroke="#484f58" stroke-width="2.5">
+      <path d="M102 136L52 89"/>
+      <path d="M102 136L152 89"/>
+      <path d="M102 136L53 187"/>
+      <path d="M102 136L151 187"/>
+    </g>
+
+    <circle cx="52" cy="89" r="15" fill="#121d36" stroke="#006aa7" stroke-width="2.5"/>
+    <circle cx="152" cy="89" r="15" fill="#242930" stroke="#f0f6fc" stroke-width="2.5"/>
+    <circle cx="53" cy="187" r="15" fill="#172130" stroke="#58a6ff" stroke-width="2.5"/>
+    <circle cx="151" cy="187" r="15" fill="#292614" stroke="#fecc00" stroke-width="2.5"/>
+
+    <g transform="translate(61 106)">
+      <rect width="82" height="60" rx="17" fill="#0d1117" stroke="#58a6ff" stroke-width="2.5"/>
+      <text x="41" y="39" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="25" font-weight="750" fill="#f0f6fc">MCP</text>
+    </g>
+  </g>
+</svg>

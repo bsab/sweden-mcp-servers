@@ -1,0 +1,47 @@
+{
+  "name": "Arbetsförmedlingen MCP Server",
+  "repository_url": "https://github.com/DanielErikssonCoder/arbetsformedlingen-mcp-server",
+  "site_url": "https://github.com/DanielErikssonCoder/arbetsformedlingen-mcp-server/blob/b94dd02bcd884c16b26c1adb7feee39775ca98dd/README.md",
+  "author": "DanielErikssonCoder",
+  "language": "TypeScript",
+  "license": "MIT",
+  "stars": 1,
+  "category": "employment",
+  "description": "Connects to Arbetsförmedlingen and JobTech APIs for current and historical jobs, job events, occupation taxonomy and education matching.",
+  "tags": [
+    "sweden",
+    "arbetsformedlingen",
+    "jobtech",
+    "jobs",
+    "labour-market"
+  ],
+  "transport": "stdio",
+  "last_verified": "2026-09-14",
+  "tools": [
+    "af_search_jobs",
+    "af_get_job",
+    "af_autocomplete",
+    "af_stream_jobs",
+    "af_search_historical_jobs",
+    "af_enrich_job_text",
+    "af_synonym_dictionary",
+    "af_search_job_links",
+    "af_education_to_occupations",
+    "af_occupation_to_educations",
+    "af_search_taxonomy",
+    "af_get_taxonomy_concept",
+    "af_list_taxonomy_types"
+  ],
+  "quality": {
+    "rubric_version": 1,
+    "reviewed_at": "2026-09-14",
+    "status": "unassessed",
+    "reason": "Source and metadata review only; no full rubric assessment. Local installation and upstream JobTech API families were not exercised. Package version 1.0.2 differs from the source serverInfo version 2.0.0; published-package parity remains unverified.",
+    "evidence": [
+      "https://github.com/DanielErikssonCoder/arbetsformedlingen-mcp-server/blob/b94dd02bcd884c16b26c1adb7feee39775ca98dd/README.md",
+      "https://github.com/DanielErikssonCoder/arbetsformedlingen-mcp-server/blob/b94dd02bcd884c16b26c1adb7feee39775ca98dd/src/index.ts",
+      "https://github.com/DanielErikssonCoder/arbetsformedlingen-mcp-server/blob/b94dd02bcd884c16b26c1adb7feee39775ca98dd/src/services/apiClient.ts",
+      "https://github.com/DanielErikssonCoder/arbetsformedlingen-mcp-server/blob/b94dd02bcd884c16b26c1adb7feee39775ca98dd/LICENSE"
+    ]
+  }
+}

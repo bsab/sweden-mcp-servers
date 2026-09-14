@@ -1,0 +1,40 @@
+{
+  "name": "Lantmäteriet MCP",
+  "repository_url": "https://github.com/furrytailapps/mcp-lantmateriet",
+  "site_url": "https://github.com/furrytailapps/mcp-lantmateriet/blob/22907c5b82978683c57d96d3569c9af2006d49d5/CLAUDE.md",
+  "author": "furrytailapps",
+  "language": "JavaScript",
+  "license": null,
+  "stars": 0,
+  "category": "geospatial",
+  "description": "Provides Lantmäteriet property searches, terrain elevation, map URLs and STAC discovery for Swedish imagery and elevation datasets.",
+  "tags": [
+    "sweden",
+    "lantmateriet",
+    "geodata",
+    "property",
+    "elevation",
+    "stac"
+  ],
+  "transport": "streamable-http",
+  "last_verified": "2026-09-14",
+  "tools": [
+    "lm_property_search",
+    "lm_elevation",
+    "lm_map_url",
+    "lm_stac_search"
+  ],
+  "quality": {
+    "rubric_version": 1,
+    "reviewed_at": "2026-09-14",
+    "status": "unassessed",
+    "reason": "Source and metadata review only; no full rubric assessment. The runtime attempt was blocked by a network-policy page. Property/elevation require upstream credentials; docs disagree on the hosted hostname and no project LICENSE was found.",
+    "evidence": [
+      "https://github.com/furrytailapps/mcp-lantmateriet/blob/22907c5b82978683c57d96d3569c9af2006d49d5/CLAUDE.md",
+      "https://github.com/furrytailapps/mcp-lantmateriet/blob/22907c5b82978683c57d96d3569c9af2006d49d5/src/tools/index.ts",
+      "https://github.com/furrytailapps/mcp-lantmateriet/blob/22907c5b82978683c57d96d3569c9af2006d49d5/src/lib/auth.ts",
+      "https://github.com/furrytailapps/mcp-lantmateriet/blob/22907c5b82978683c57d96d3569c9af2006d49d5/tests/README.md"
+    ]
+  },
+  "mcp_endpoint": "https://mcp-lantmateriet.vercel.app/mcp"
+}

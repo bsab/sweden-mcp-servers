@@ -1,0 +1,39 @@
+{
+  "name": "SMHI MCP",
+  "repository_url": "https://github.com/furrytailapps/mcp-smhi",
+  "site_url": "https://github.com/furrytailapps/mcp-smhi/blob/74bcfe15c314eb502c3b9983eab1dbb68c13e9e8/CLAUDE.md",
+  "author": "furrytailapps",
+  "language": "TypeScript",
+  "license": null,
+  "stars": 0,
+  "category": "public-services",
+  "description": "Exposes SMHI forecasts, weather and hydrological observations, warnings, radar and lightning through a hosted MCP interface.",
+  "tags": [
+    "sweden",
+    "smhi",
+    "weather",
+    "hydrology",
+    "forecasts"
+  ],
+  "transport": "streamable-http",
+  "last_verified": "2026-09-14",
+  "tools": [
+    "smhi_get_forecast",
+    "smhi_get_observations",
+    "smhi_get_current_conditions",
+    "smhi_describe_data"
+  ],
+  "quality": {
+    "rubric_version": 1,
+    "reviewed_at": "2026-09-14",
+    "status": "unassessed",
+    "reason": "Source and metadata review only; no full rubric assessment. The runtime attempt received a network-policy Access Denied page, not an MCP response. No project LICENSE or end-user installation README was found; developer documentation is available.",
+    "evidence": [
+      "https://github.com/furrytailapps/mcp-smhi/blob/74bcfe15c314eb502c3b9983eab1dbb68c13e9e8/CLAUDE.md",
+      "https://github.com/furrytailapps/mcp-smhi/blob/74bcfe15c314eb502c3b9983eab1dbb68c13e9e8/src/app/%5Btransport%5D/route.ts",
+      "https://github.com/furrytailapps/mcp-smhi/blob/74bcfe15c314eb502c3b9983eab1dbb68c13e9e8/src/tools/index.ts",
+      "https://github.com/furrytailapps/mcp-smhi/blob/74bcfe15c314eb502c3b9983eab1dbb68c13e9e8/package.json"
+    ]
+  },
+  "mcp_endpoint": "https://mcp-smhi.vercel.app/mcp"
+}

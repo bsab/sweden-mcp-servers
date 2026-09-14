@@ -1,0 +1,37 @@
+{
+  "name": "MCP Sweden",
+  "repository_url": "https://github.com/Namraks-Labs/mcp-sweden",
+  "site_url": "https://github.com/Namraks-Labs/mcp-sweden/blob/ed10cc3dce260830349c3aab3c3ae0891774e890/README.md",
+  "author": "Namraks-Labs",
+  "language": "Python",
+  "license": "MIT",
+  "stars": 1,
+  "category": "data-statistics",
+  "description": "Combines Swedish data tools for SCB statistics, parliament, municipal indicators, education, radio and Stockholm public transport.",
+  "tags": [
+    "sweden",
+    "scb",
+    "statistics",
+    "riksdagen",
+    "kolada",
+    "public-data"
+  ],
+  "transport": "streamable-http",
+  "last_verified": "2026-09-14",
+  "tools": [
+    "list_features"
+  ],
+  "quality": {
+    "rubric_version": 1,
+    "reviewed_at": "2026-09-14",
+    "status": "unassessed",
+    "reason": "Source and metadata review only; no full rubric assessment. Root tool discovery is namespaced and transformed. The advertised host did not resolve during the local runtime attempt; SCB integration uses the retiring PxWebApi v1.",
+    "evidence": [
+      "https://github.com/Namraks-Labs/mcp-sweden/blob/ed10cc3dce260830349c3aab3c3ae0891774e890/README.md",
+      "https://github.com/Namraks-Labs/mcp-sweden/blob/ed10cc3dce260830349c3aab3c3ae0891774e890/src/mcp_sweden/server.py",
+      "https://github.com/Namraks-Labs/mcp-sweden/blob/ed10cc3dce260830349c3aab3c3ae0891774e890/src/mcp_sweden/data/scb/client.py",
+      "https://github.com/Namraks-Labs/mcp-sweden/blob/ed10cc3dce260830349c3aab3c3ae0891774e890/LICENSE"
+    ]
+  },
+  "mcp_endpoint": "https://sweden.mcp.namraks.com/mcp"
+}

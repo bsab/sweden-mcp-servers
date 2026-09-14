@@ -1,0 +1,44 @@
+{
+  "name": "Trafikverket MCP",
+  "repository_url": "https://github.com/hniska/trafikverket-mcp",
+  "site_url": "https://github.com/hniska/trafikverket-mcp/blob/cade177741af8b5a4b2e924f00549d57a72c0484/README.md",
+  "author": "hniska",
+  "language": "TypeScript",
+  "license": null,
+  "stars": 0,
+  "category": "transport",
+  "description": "Queries Trafikverket road weather, traffic cameras, incidents, traffic flow and road conditions using a locally configured API key.",
+  "tags": [
+    "sweden",
+    "trafikverket",
+    "traffic",
+    "road-weather",
+    "cameras"
+  ],
+  "transport": "stdio",
+  "last_verified": "2026-09-14",
+  "tools": [
+    "get_weather_station",
+    "list_weather_stations",
+    "get_weather_stations_near_location",
+    "get_cameras",
+    "get_cameras_near_location",
+    "get_weather_observations",
+    "get_traffic_situations",
+    "get_traffic_flow",
+    "get_road_conditions",
+    "get_camera_image"
+  ],
+  "quality": {
+    "rubric_version": 1,
+    "reviewed_at": "2026-09-14",
+    "status": "unassessed",
+    "reason": "Source and metadata review only; no full rubric assessment. Ten stdio tools require a Trafikverket API key and were not executed. README/package metadata declares MIT, but no applicable LICENSE file was available to verify its terms.",
+    "evidence": [
+      "https://github.com/hniska/trafikverket-mcp/blob/cade177741af8b5a4b2e924f00549d57a72c0484/README.md",
+      "https://github.com/hniska/trafikverket-mcp/blob/cade177741af8b5a4b2e924f00549d57a72c0484/src/server.ts",
+      "https://github.com/hniska/trafikverket-mcp/blob/cade177741af8b5a4b2e924f00549d57a72c0484/src/index.ts",
+      "https://github.com/hniska/trafikverket-mcp/blob/cade177741af8b5a4b2e924f00549d57a72c0484/package.json"
+    ]
+  }
+}
