@@ -1,0 +1,41 @@
+{
+  "name": "Swemo MCP — Riksbank",
+  "repository_url": "https://github.com/aerugo/swemo-mcp",
+  "site_url": "https://github.com/aerugo/swemo-mcp/blob/602b2c383af97d86f519e0e4894641f895a291ce/README.md",
+  "author": "aerugo",
+  "language": "Python",
+  "license": "Apache-2.0",
+  "stars": 2,
+  "category": "government-public-finance",
+  "description": "Queries Riksbank monetary-policy forecasts and series for inflation, GDP, unemployment and the policy rate. Local stdio integration with dated setup documentation.",
+  "tags": [
+    "sweden",
+    "riksbank",
+    "monetary-policy",
+    "forecasts",
+    "economics"
+  ],
+  "transport": "stdio",
+  "last_verified": "2026-09-14",
+  "tools": [
+    "list_policy_rounds",
+    "list_series_ids",
+    "get_cpi_data",
+    "get_gdp_data",
+    "get_unemployment_data",
+    "get_policy_rate_data"
+  ],
+  "quality": {
+    "rubric_version": 1,
+    "reviewed_at": "2026-09-14",
+    "status": "unassessed",
+    "reason": "Source review only; no runtime test or full rubric assessment. Python 3.12+ and stdio are supported in the inspected source; no API key is configured. Source activity dates to April 2025 and README local examples incorrectly reference kolada-mcp. SWEA/SWESTR and HTTP/SSE claims are not established by the registered monetary-policy tools.",
+    "evidence": [
+      "https://github.com/aerugo/swemo-mcp/blob/602b2c383af97d86f519e0e4894641f895a291ce/README.md",
+      "https://github.com/aerugo/swemo-mcp/blob/602b2c383af97d86f519e0e4894641f895a291ce/src/swemo_mcp/server.py",
+      "https://github.com/aerugo/swemo-mcp/blob/602b2c383af97d86f519e0e4894641f895a291ce/src/swemo_mcp/services/monetary_policy_api.py",
+      "https://github.com/aerugo/swemo-mcp/blob/602b2c383af97d86f519e0e4894641f895a291ce/pyproject.toml",
+      "https://github.com/aerugo/swemo-mcp/blob/602b2c383af97d86f519e0e4894641f895a291ce/LICENSE"
+    ]
+  }
+}

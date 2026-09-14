@@ -1,0 +1,38 @@
+{
+  "name": "Fortnox MCP",
+  "repository_url": "https://github.com/erp-mafia/fortnox-mcp",
+  "site_url": "https://github.com/erp-mafia/fortnox-mcp/blob/501ee1368f12ca4dd2e24a24bda8a47378b5c40a/README.md",
+  "author": "erp-mafia",
+  "language": "TypeScript",
+  "license": "MIT",
+  "stars": 39,
+  "category": "invoicing",
+  "description": "Reads Fortnox accounting data and can create or bookkeep invoices. Requires an authorized Fortnox account; includes write-enabled tools.",
+  "tags": [
+    "sweden",
+    "fortnox",
+    "accounting",
+    "invoices",
+    "writes",
+    "oauth"
+  ],
+  "transport": "stdio",
+  "last_verified": "2026-09-14",
+  "tools": [
+    "fortnox_list_invoices",
+    "fortnox_create_invoice",
+    "fortnox_bookkeep_invoice"
+  ],
+  "quality": {
+    "rubric_version": 1,
+    "reviewed_at": "2026-09-14",
+    "status": "unassessed",
+    "reason": "Source review only; not runtime-tested or fully rubric-assessed. Requires a Fortnox account and credentials or remote OAuth. Tools can create and bookkeep invoices. Commercial access costs are unverified; the authenticated hosted endpoint is documented separately, not placed in the anonymous endpoint checker.",
+    "evidence": [
+      "https://github.com/erp-mafia/fortnox-mcp/blob/501ee1368f12ca4dd2e24a24bda8a47378b5c40a/README.md",
+      "https://github.com/erp-mafia/fortnox-mcp/blob/501ee1368f12ca4dd2e24a24bda8a47378b5c40a/src/index.ts",
+      "https://github.com/erp-mafia/fortnox-mcp/blob/501ee1368f12ca4dd2e24a24bda8a47378b5c40a/src/tools/invoices.ts",
+      "https://github.com/erp-mafia/fortnox-mcp/blob/501ee1368f12ca4dd2e24a24bda8a47378b5c40a/LICENSE"
+    ]
+  }
+}

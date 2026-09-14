@@ -1,0 +1,35 @@
+{
+  "name": "SCB Open Data MCP",
+  "repository_url": "https://github.com/ashwinvis/scb-opendata-mcp",
+  "site_url": "https://github.com/ashwinvis/scb-opendata-mcp/blob/a13e0b5d915322cc0fffc6d77be9ac3f2ef77847/README.md",
+  "author": "ashwinvis",
+  "language": "Python",
+  "license": "MIT",
+  "stars": 1,
+  "category": "data-statistics",
+  "description": "Exposes Swedish national statistics from SCB through PxWebApi v2. A dedicated local alternative to the SCB v1 integration in MCP Sweden; no API key is configured.",
+  "tags": [
+    "sweden",
+    "scb",
+    "statistics",
+    "pxweb",
+    "open-data"
+  ],
+  "transport": "stdio",
+  "last_verified": "2026-09-14",
+  "tools": [
+    "list_tables"
+  ],
+  "quality": {
+    "rubric_version": 1,
+    "reviewed_at": "2026-09-14",
+    "status": "unassessed",
+    "reason": "Source review only; no runtime test or full rubric assessment. Python 3.11+ is required. Select stdio explicitly because the CLI defaults to HTTP; README HTTP URL examples are inconsistent. This is a distinct PxWebApi v2 implementation, overlapping the existing aggregator rather than adding a new data provider.",
+    "evidence": [
+      "https://github.com/ashwinvis/scb-opendata-mcp/blob/a13e0b5d915322cc0fffc6d77be9ac3f2ef77847/README.md",
+      "https://github.com/ashwinvis/scb-opendata-mcp/blob/a13e0b5d915322cc0fffc6d77be9ac3f2ef77847/src/scb_opendata_mcp/server.py",
+      "https://github.com/ashwinvis/scb-opendata-mcp/blob/a13e0b5d915322cc0fffc6d77be9ac3f2ef77847/src/scb_opendata_mcp/__init__.py",
+      "https://github.com/ashwinvis/scb-opendata-mcp/blob/a13e0b5d915322cc0fffc6d77be9ac3f2ef77847/LICENSE"
+    ]
+  }
+}

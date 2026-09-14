@@ -1,0 +1,43 @@
+{
+  "name": "Kolada MCP",
+  "repository_url": "https://github.com/isakskogstad/Kolada-MCP",
+  "site_url": "https://github.com/isakskogstad/Kolada-MCP/blob/2bdcc29a019e24fe0d218f8191149701f4637ffd/README.md",
+  "author": "isakskogstad",
+  "language": "TypeScript",
+  "license": "MIT",
+  "stars": 12,
+  "category": "data-statistics",
+  "description": "Retrieves and compares municipality and regional indicators through Kolada API v3. A dedicated stdio alternative to MCP Sweden’s Kolada v2 integration.",
+  "tags": [
+    "sweden",
+    "kolada",
+    "municipalities",
+    "regions",
+    "statistics",
+    "indicators"
+  ],
+  "transport": "stdio",
+  "last_verified": "2026-09-14",
+  "tools": [
+    "search_kpis",
+    "get_kpi",
+    "get_kpis",
+    "get_kpi_groups",
+    "get_kpi_group"
+  ],
+  "quality": {
+    "rubric_version": 1,
+    "reviewed_at": "2026-09-14",
+    "status": "unassessed",
+    "reason": "Source review only; no runtime test or full rubric assessment. Current instructions recommend the local kolada-mcp-server stdio package, with no API key in the standard client. Legacy HTTP/SSE code does not establish a working public deployment. Listed KPI tools are a selection from the larger registry.",
+    "evidence": [
+      "https://github.com/isakskogstad/Kolada-MCP/blob/2bdcc29a019e24fe0d218f8191149701f4637ffd/README.md",
+      "https://github.com/isakskogstad/Kolada-MCP/blob/2bdcc29a019e24fe0d218f8191149701f4637ffd/src/index.ts",
+      "https://github.com/isakskogstad/Kolada-MCP/blob/2bdcc29a019e24fe0d218f8191149701f4637ffd/src/server/handlers.ts",
+      "https://github.com/isakskogstad/Kolada-MCP/blob/2bdcc29a019e24fe0d218f8191149701f4637ffd/src/tools/kpi-tools.ts",
+      "https://github.com/isakskogstad/Kolada-MCP/blob/2bdcc29a019e24fe0d218f8191149701f4637ffd/src/config/constants.ts",
+      "https://github.com/isakskogstad/Kolada-MCP/blob/2bdcc29a019e24fe0d218f8191149701f4637ffd/src/api/client.ts",
+      "https://github.com/isakskogstad/Kolada-MCP/blob/2bdcc29a019e24fe0d218f8191149701f4637ffd/LICENSE"
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "name": "Traktamente MCP",
+  "repository_url": "https://github.com/johnie/traktamente-mcp",
+  "site_url": "https://github.com/johnie/traktamente-mcp/blob/63a283b52fd47e6d43290f31a5307b0b53f5ca96/README.md",
+  "author": "johnie",
+  "language": "TypeScript",
+  "license": null,
+  "stars": 1,
+  "category": "government-public-finance",
+  "description": "Retrieves Swedish foreign-travel daily allowance rates from Skatteverket’s EntryScape data. Supports country searches; local execution requires Bun.",
+  "tags": [
+    "sweden",
+    "skatteverket",
+    "tax",
+    "travel-allowances",
+    "bun"
+  ],
+  "transport": "streamable-http",
+  "last_verified": "2026-09-14",
+  "tools": [
+    "traktamente_get_rates",
+    "traktamente_list_countries",
+    "traktamente_search"
+  ],
+  "quality": {
+    "rubric_version": 1,
+    "reviewed_at": "2026-09-14",
+    "status": "unassessed",
+    "reason": "Source review only; no runtime test or full rubric assessment. Hosted Streamable HTTP is documented but untested. Local stdio requires Bun despite npx examples. No API key is configured. README and manifest declare MIT, but the referenced LICENSE file is absent, so license is null rather than verified MIT.",
+    "evidence": [
+      "https://github.com/johnie/traktamente-mcp/blob/63a283b52fd47e6d43290f31a5307b0b53f5ca96/README.md",
+      "https://github.com/johnie/traktamente-mcp/blob/63a283b52fd47e6d43290f31a5307b0b53f5ca96/src/server.ts",
+      "https://github.com/johnie/traktamente-mcp/blob/63a283b52fd47e6d43290f31a5307b0b53f5ca96/src/constants.ts",
+      "https://github.com/johnie/traktamente-mcp/blob/63a283b52fd47e6d43290f31a5307b0b53f5ca96/src/transports/stdio.ts",
+      "https://github.com/johnie/traktamente-mcp/blob/63a283b52fd47e6d43290f31a5307b0b53f5ca96/src/utils/hono-app.ts",
+      "https://github.com/johnie/traktamente-mcp/blob/63a283b52fd47e6d43290f31a5307b0b53f5ca96/package.json",
+      "https://github.com/johnie/traktamente-mcp/tree/63a283b52fd47e6d43290f31a5307b0b53f5ca96"
+    ]
+  },
+  "mcp_endpoint": "https://traktamente.app/mcp"
+}

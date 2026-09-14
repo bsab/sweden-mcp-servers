@@ -1,0 +1,40 @@
+{
+  "name": "Skolverket MCP",
+  "repository_url": "https://github.com/isakskogstad/Skolverket-MCP",
+  "site_url": "https://github.com/isakskogstad/Skolverket-MCP/blob/5631a7fc7bc6cd0b0e2084981d6ac3886a5cb40e/README.md",
+  "author": "isakskogstad",
+  "language": "TypeScript",
+  "license": "MIT",
+  "stars": 10,
+  "category": "public-services",
+  "description": "Queries Swedish schools, curricula, subjects and education through Skolverket APIs. Runs locally from source; the former hosted service and npm package are unavailable.",
+  "tags": [
+    "sweden",
+    "skolverket",
+    "schools",
+    "education",
+    "curricula",
+    "source-install"
+  ],
+  "transport": "stdio",
+  "last_verified": "2026-09-14",
+  "tools": [
+    "search_subjects",
+    "search_courses",
+    "search_school_units",
+    "get_school_unit_details"
+  ],
+  "quality": {
+    "rubric_version": 1,
+    "reviewed_at": "2026-09-14",
+    "status": "unassessed",
+    "reason": "Source review only; no runtime test or full rubric assessment. Build locally from source and run dist/index.js with node. The current README removes the retired remote service and unpublished npm package, so neither is advertised here. Standard configuration needs no key; SKOLVERKET_API_KEY is optional. Coverage overlaps MCP Sweden.",
+    "evidence": [
+      "https://github.com/isakskogstad/Skolverket-MCP/blob/5631a7fc7bc6cd0b0e2084981d6ac3886a5cb40e/README.md",
+      "https://github.com/isakskogstad/Skolverket-MCP/blob/5631a7fc7bc6cd0b0e2084981d6ac3886a5cb40e/src/index.ts",
+      "https://github.com/isakskogstad/Skolverket-MCP/blob/5631a7fc7bc6cd0b0e2084981d6ac3886a5cb40e/src/config.ts",
+      "https://github.com/isakskogstad/Skolverket-MCP/blob/5631a7fc7bc6cd0b0e2084981d6ac3886a5cb40e/src/tools/school-units/search.ts",
+      "https://github.com/isakskogstad/Skolverket-MCP/blob/5631a7fc7bc6cd0b0e2084981d6ac3886a5cb40e/LICENSE"
+    ]
+  }
+}

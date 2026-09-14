@@ -1,0 +1,45 @@
+{
+  "name": "Naturvårdsverket MCP",
+  "repository_url": "https://github.com/furrytailapps/mcp-nvv",
+  "site_url": "https://github.com/furrytailapps/mcp-nvv/blob/c67d45670db96aa1b5f5d8d716a06f34210d43d8/README.md",
+  "author": "furrytailapps",
+  "language": "TypeScript",
+  "license": null,
+  "stars": 0,
+  "category": "geospatial",
+  "description": "Searches Swedish nature reserves, national parks, Natura 2000 and Ramsar areas through Naturvårdsverket geodata. The documented hosted endpoint has not been runtime-tested.",
+  "tags": [
+    "sweden",
+    "naturvardsverket",
+    "nature-reserves",
+    "national-parks",
+    "natura-2000",
+    "geodata"
+  ],
+  "transport": "streamable-http",
+  "last_verified": "2026-09-14",
+  "tools": [
+    "nvv_lookup",
+    "nvv_search",
+    "nvv_detail",
+    "nvv_extent"
+  ],
+  "quality": {
+    "rubric_version": 1,
+    "reviewed_at": "2026-09-14",
+    "status": "unassessed",
+    "reason": "Source review only; no runtime test or full rubric assessment. No LICENSE was found, so license terms remain unverified. The documented HTTP endpoint was not contacted. No key is configured; a local extent-calculation workaround is present for an upstream issue, but current behavior was not exercised.",
+    "evidence": [
+      "https://github.com/furrytailapps/mcp-nvv/blob/c67d45670db96aa1b5f5d8d716a06f34210d43d8/README.md",
+      "https://github.com/furrytailapps/mcp-nvv/blob/c67d45670db96aa1b5f5d8d716a06f34210d43d8/src/app/%5Btransport%5D/route.ts",
+      "https://github.com/furrytailapps/mcp-nvv/blob/c67d45670db96aa1b5f5d8d716a06f34210d43d8/src/tools/index.ts",
+      "https://github.com/furrytailapps/mcp-nvv/blob/c67d45670db96aa1b5f5d8d716a06f34210d43d8/src/tools/lookup.ts",
+      "https://github.com/furrytailapps/mcp-nvv/blob/c67d45670db96aa1b5f5d8d716a06f34210d43d8/src/tools/search.ts",
+      "https://github.com/furrytailapps/mcp-nvv/blob/c67d45670db96aa1b5f5d8d716a06f34210d43d8/src/tools/detail.ts",
+      "https://github.com/furrytailapps/mcp-nvv/blob/c67d45670db96aa1b5f5d8d716a06f34210d43d8/src/tools/extent.ts",
+      "https://github.com/furrytailapps/mcp-nvv/blob/c67d45670db96aa1b5f5d8d716a06f34210d43d8/src/clients/nvv-client.ts",
+      "https://github.com/furrytailapps/mcp-nvv/tree/c67d45670db96aa1b5f5d8d716a06f34210d43d8"
+    ]
+  },
+  "mcp_endpoint": "https://mcp-nvv.vercel.app/mcp"
+}

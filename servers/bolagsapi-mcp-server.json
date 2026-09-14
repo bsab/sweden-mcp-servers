@@ -1,0 +1,37 @@
+{
+  "name": "BolagsAPI MCP Server",
+  "repository_url": "https://github.com/HugoAndFriends/BolagsAPI-mcp-server",
+  "site_url": "https://github.com/HugoAndFriends/BolagsAPI-mcp-server/blob/f7e21bd14e3c3917045db6de8374641d839e9ec0/README.md",
+  "author": "HugoAndFriends",
+  "language": "TypeScript",
+  "license": "MIT",
+  "stars": 0,
+  "category": "design-other",
+  "description": "Looks up Swedish companies, financial statements and company history through BolagsAPI. Requires a provider API key; not an official Bolagsverket server.",
+  "tags": [
+    "sweden",
+    "bolagsapi",
+    "companies",
+    "financial-statements",
+    "api-key"
+  ],
+  "transport": "stdio",
+  "last_verified": "2026-09-14",
+  "tools": [
+    "lookup_company",
+    "search_companies"
+  ],
+  "quality": {
+    "rubric_version": 1,
+    "reviewed_at": "2026-09-14",
+    "status": "unassessed",
+    "reason": "Source review only; no runtime test or full rubric assessment. BOLAGSAPI_KEY is required, with prices and quotas unverified. The project identifies as an official BolagsAPI integration, not an official Bolagsverket service. Stdio is cataloged; authenticated Streamable HTTP is also implemented.",
+    "evidence": [
+      "https://github.com/HugoAndFriends/BolagsAPI-mcp-server/blob/f7e21bd14e3c3917045db6de8374641d839e9ec0/README.md",
+      "https://github.com/HugoAndFriends/BolagsAPI-mcp-server/blob/f7e21bd14e3c3917045db6de8374641d839e9ec0/src/server.ts",
+      "https://github.com/HugoAndFriends/BolagsAPI-mcp-server/blob/f7e21bd14e3c3917045db6de8374641d839e9ec0/src/tools/company.ts",
+      "https://github.com/HugoAndFriends/BolagsAPI-mcp-server/blob/f7e21bd14e3c3917045db6de8374641d839e9ec0/src/api-client.ts",
+      "https://github.com/HugoAndFriends/BolagsAPI-mcp-server/blob/f7e21bd14e3c3917045db6de8374641d839e9ec0/LICENSE"
+    ]
+  }
+}

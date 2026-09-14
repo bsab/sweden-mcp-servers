@@ -1,8 +1,8 @@
 # Verification record
 
 **Review date: 2026-09-14.** This is a dated evidence record, not a certificate of
-availability, safety, accuracy or maintenance. There are **eight catalog entries in
-seven categories**, each backed by a public implementation. One entry (Sweden Legal
+availability, safety, accuracy or maintenance. There are **18 catalog entries in
+nine categories**, each backed by a public implementation. One entry (Sweden Legal
 MCP) contains two separately launched servers; the catalog count is a count of entries,
 not processes, tools or upstream APIs.
 
@@ -14,6 +14,9 @@ not processes, tools or upstream APIs.
 - Pinned documentation and source links in each entry's `quality.evidence`.
 - Three documented remote endpoints were attempted without credentials. **None completed
   initialization from the review environment; no `tools/list` or `tools/call` succeeded.**
+- The ten additions reviewed later on the same date were **source/documentation-only**:
+  no endpoint requests, initialization, login or tool calls were attempted for them.
+  Historical failures below apply only to the three original endpoints, not the additions.
 - No third-party package was installed or launched, and no local MCP server was executed.
   Repository build/test results concern this catalog, not the listed implementations.
 
@@ -140,6 +143,175 @@ they can change independently of the pinned source commit.
   identifier lacks a LICENSE file; no license terms or local runtime were verified.
   An old SMHI documentation link returned 404, which does not prove the data API is down.
 
+## Additional source-only entries
+
+The following **ten additions** were reviewed on **2026-09-14**, without installing
+packages, connecting MCP clients, contacting hosted endpoints or accessing accounts.
+All ten repositories were public, non-forks and non-archived in the metadata snapshot.
+Each entry links its pinned documentation, actual MCP registrations and license evidence.
+Tool arrays are representative source-confirmed names, not exhaustive live inventories.
+None has received a complete rubric assessment or a runtime success designation.
+
+### Fortnox MCP — accounting with write-enabled tools
+
+- Repository snapshot: [erp-mafia/fortnox-mcp at `501ee13`](https://github.com/erp-mafia/fortnox-mcp/tree/501ee1368f12ca4dd2e24a24bda8a47378b5c40a).
+  TypeScript, MIT, 39 stars. [Entry and pinned evidence](servers/fortnox-mcp.json).
+- Documented local command: `npx -y fortnox-mcp-server`, using **stdio**. Source also
+  implements Streamable HTTP. The advertised remote endpoint is
+  `https://fortnox-mcp.vercel.app/mcp`, **not tested** in this review.
+- Requires a Fortnox account and an application configured with `FORTNOX_CLIENT_ID`,
+  `FORTNOX_CLIENT_SECRET` and `FORTNOX_REFRESH_TOKEN`, or remote OAuth authorization.
+  Remote browser authorization is not anonymous access to another company's accounts.
+- **Write-enabled:** registered tools include `fortnox_create_invoice` and
+  `fortnox_bookkeep_invoice`, alongside `fortnox_list_invoices`. These can change
+  accounting records, not merely retrieve data. No operation was executed.
+- The required commercial plan/API access and its cost were not verified. Stdio is
+  cataloged and the authenticated hosted endpoint is deliberately documented here
+  rather than put in `mcp_endpoint`, which feeds the unauthenticated scheduled checker.
+
+### Bokio MCP — one-company accounting, read-only by default
+
+- Repository snapshot: [straycatse/bokio-mcp at `cd48f56`](https://github.com/straycatse/bokio-mcp/tree/cd48f56f606c069b9b5ef4c89814e2673af7d8f4).
+  TypeScript, MIT, 0 stars. [Entry and pinned evidence](servers/bokio-mcp.json).
+- Documented `npx -y bokio-mcp` starts **stdio**. `bokio-mcp serve --http` supports
+  self-hosted Streamable HTTP; no public hosted service is asserted.
+- Requires a Bokio company and `BOKIO_INTEGRATION_TOKEN` plus `BOKIO_COMPANY_ID`, or
+  OAuth using `BOKIO_CLIENT_ID` and `BOKIO_CLIENT_SECRET`. One company per instance.
+  Real-account prerequisites differ from the README's account-free mock demonstration.
+- **Read-only by default:** the source omits mutating tools unless
+  `BOKIO_ALLOW_WRITES` is enabled. The catalog lists only sample read tools:
+  `bokio_list_invoices`, `bokio_get_invoice` and `bokio_download_invoice`.
+- `BOKIO_MOCK=true` serves fixtures, not live Bokio data. Bank-payment access requires
+  additional provider approval/scopes. No tokens, payments or mock tests were run;
+  the required commercial plan/API costs remain unverified.
+
+### BolagsAPI MCP Server — company data from a distinct provider
+
+- Repository snapshot: [HugoAndFriends/BolagsAPI-mcp-server at `f7e21bd`](https://github.com/HugoAndFriends/BolagsAPI-mcp-server/tree/f7e21bd14e3c3917045db6de8374641d839e9ec0).
+  TypeScript, MIT, 0 stars. [Entry and pinned evidence](servers/bolagsapi-mcp-server.json).
+- Node 18+; documented `npx -y @bolagsapi/mcp-server` uses **stdio**. Source also
+  supports Streamable HTTP through `npm run start:http`, with bearer authentication.
+- `BOLAGSAPI_KEY` is required. `lookup_company` and `search_companies` use the
+  BolagsAPI provider's backend; financial statements and company history are also
+  documented. Prices, quotas and availability of a free tier were not verified.
+- The project's claim to be official refers to **BolagsAPI, not Bolagsverket**.
+  No official government affiliation, account access or live results are certified.
+  Company services use the existing `design-other` category, not a new taxonomy.
+
+### SCB Open Data MCP — dedicated PxWebApi v2 alternative
+
+- Repository snapshot: [ashwinvis/scb-opendata-mcp at `a13e0b5`](https://github.com/ashwinvis/scb-opendata-mcp/tree/a13e0b5d915322cc0fffc6d77be9ac3f2ef77847).
+  Python, MIT, 1 star. [Entry and pinned evidence](servers/scb-opendata-mcp.json).
+- Python 3.11+; documented installation is `pip install scb-opendata-mcp`, or use
+  `uvx scb_opendata_mcp`. **Select `--transport stdio` explicitly** for an MCP client:
+  the inspected CLI defaults to HTTP on port 6767 and host `0.0.0.0`.
+- The catalog records stdio, not a guessed remote URL. HTTP examples in the README
+  are inconsistent; binding, package installation and connectivity were not tested.
+- `list_tables` is an actual registered tool, not an ordinary HTTP API relabeled MCP.
+  The source targets SCB **PxWebApi v2**, with no key configured in the client.
+  This overlaps MCP Sweden's statistics coverage but avoids assuming its v1 client
+  has already migrated. Neither implementation's current data results were exercised.
+
+### Kolada MCP — dedicated municipal and regional indicators
+
+- Repository snapshot: [isakskogstad/Kolada-MCP at `2bdcc29`](https://github.com/isakskogstad/Kolada-MCP/tree/2bdcc29a019e24fe0d218f8191149701f4637ffd).
+  TypeScript, MIT, 12 stars. [Entry and pinned evidence](servers/kolada-mcp.json).
+- Current documentation recommends `npx -y kolada-mcp-server`, using **stdio**.
+  The client targets **Kolada API v3** with no key in its standard configuration.
+- Registered tools span KPI metadata, municipalities, organizational units, data and
+  comparisons. The catalog's five KPI names are only a source-confirmed selection.
+- Legacy HTTP/SSE code exists, but it is not evidence of a current public deployment;
+  no remote endpoint is advertised here. This is a distinct alternative to the
+  existing aggregator's Kolada v2 integration, not a newly discovered data provider.
+
+### Skolverket MCP — source installation, not the retired service
+
+- Repository snapshot: [isakskogstad/Skolverket-MCP at `5631a7f`](https://github.com/isakskogstad/Skolverket-MCP/tree/5631a7fc7bc6cd0b0e2084981d6ac3886a5cb40e).
+  TypeScript, MIT, 10 stars. [Entry and pinned evidence](servers/skolverket-mcp.json).
+- **Clone and build locally:** documented steps are `npm install`, `npm run build`,
+  then configure the MCP client to launch `node` with the absolute path to
+  `dist/index.js`. This is a **stdio** integration; no installation was performed.
+- The inspected README removes a **retired hosted service and unpublished npm
+  package**. Do not reuse old remote URLs or `npx` instructions from other directories.
+- Standard requests do not require a key; `SKOLVERKET_API_KEY` is optional in the source.
+  Actual registrations include `search_subjects`, `search_courses`,
+  `search_school_units` and `get_school_unit_details`. This is an independent
+  implementation of education coverage that also exists in MCP Sweden.
+
+### Naturvårdsverket MCP — protected-area geodata
+
+- Repository snapshot: [furrytailapps/mcp-nvv at `c67d456`](https://github.com/furrytailapps/mcp-nvv/tree/c67d45670db96aa1b5f5d8d716a06f34210d43d8).
+  TypeScript, license not verified, 0 stars. [Entry and pinned evidence](servers/mcp-nvv.json).
+- Next.js `mcp-handler` route and four registrations: `nvv_lookup`, `nvv_search`,
+  `nvv_detail` and `nvv_extent`. Coverage includes Swedish reserves, national parks,
+  Natura 2000 and Ramsar areas through Naturvårdsverket geodata sources.
+- Documented **Streamable HTTP** endpoint: `https://mcp-nvv.vercel.app/mcp`;
+  **not contacted or tested**. Local instructions use `npm install` and `npm run dev`.
+  No stdio launch or API key requirement is documented in the inspected configuration.
+- No LICENSE exists in the inspected tree: do not infer MIT from neighboring projects.
+  A source-level workaround calculates extents locally after an upstream extent API
+  problem; it does not prove present-day operation or failure of the full server.
+
+### Traktamente MCP — Swedish foreign-travel allowance rates
+
+- Repository snapshot: [johnie/traktamente-mcp at `63a283b`](https://github.com/johnie/traktamente-mcp/tree/63a283b52fd47e6d43290f31a5307b0b53f5ca96).
+  TypeScript, license not verified, 1 star. [Entry and pinned evidence](servers/traktamente-mcp.json).
+- `traktamente_get_rates`, `traktamente_list_countries` and `traktamente_search`
+  retrieve Skatteverket's EntryScape data about **Swedish allowances for foreign
+  business travel**, not generic travel recommendations or complete tax advice.
+- Documented **Streamable HTTP** endpoint: `https://traktamente.app/mcp`;
+  **not contacted or tested**. Local stdio requires **Bun**, even though the README
+  includes `npx traktamente-mcp` examples. Node alone is not established as sufficient.
+- No key/account is configured in the data client. README and manifest declare MIT,
+  but the LICENSE file listed in the manifest is absent from the inspected tree.
+  Consequently `license` is `null`, not verified MIT. Rates and applicable tax rules
+  should be confirmed with the authority before expense reporting.
+
+### Swemo MCP — Riksbank monetary-policy data, dated instructions
+
+- Repository snapshot: [aerugo/swemo-mcp at `602b2c3`](https://github.com/aerugo/swemo-mcp/tree/602b2c383af97d86f519e0e4894641f895a291ce).
+  Python, Apache-2.0, 2 stars. [Entry and pinned evidence](servers/swemo-mcp.json).
+- Python 3.12+; documented `uvx swemo-mcp`, with **stdio** confirmed in the entry point.
+  No key is configured in the monetary-policy API client.
+- Registers policy-round and series discovery plus inflation, GDP, unemployment and
+  policy-rate tools, backed by Riksbank's monetary-policy forecast API. The catalog
+  uses six representative names rather than claiming an exhaustive live inventory.
+- Last source activity found in the review was April 2025. The README's local example
+  incorrectly names `kolada-mcp`; it is not copied as a valid setup instruction.
+  Package-description references to **SWEA/SWESTR** and diagram references to HTTP/SSE
+  do not establish those features in the inspected registrations. Runtime, installation
+  and current upstream compatibility remain unverified.
+
+### ICA MCP — unofficial private API, personal data and writes
+
+- Repository snapshot: [kanylbullen/ica-mcp at `1d9b99`](https://github.com/kanylbullen/ica-mcp/tree/1d9b9940890eabce348e30539c5d6a2ec7ecd80f).
+  Python, MIT, 2 stars. [Entry and pinned evidence](servers/ica-mcp.json).
+- Python 3.10+; project instructions describe `uv tool install ica-mcp`, an initial
+  `ica-mcp login`, then **stdio** with `ica-mcp serve`. These commands are documentation,
+  **not steps performed in this review**. No login or personal-data access was attempted.
+- **Unofficial, undocumented private ICA API.** The README warns that using it may
+  conflict with ICA service terms. It requires an ICA account with **personnummer and
+  password**; BankID-only accounts are unsupported. The project also requires a Swedish
+  egress IP. That restriction was not tested or bypassed.
+- Authentication tokens are cached in a per-user state directory. Tools can read
+  personal lists, recipes, offers and products, and **modify or delete shopping lists**.
+  Source-confirmed examples include `list_shopping_lists`, `get_offers`, `add_items`
+  and `remove_item`. No credentials, sessions or account contents are published here.
+- MIT covers the project code, **not permission to use ICA's private service**.
+  Confirm service terms and account-data handling yourself; inclusion is not an
+  endorsement, official integration claim or guarantee of availability.
+
+### Overlaps and selection boundaries
+
+Ten added entries do **not** mean ten entirely new Swedish data providers. The pinned
+MCP Sweden aggregator already contains [SCB v1](https://github.com/Namraks-Labs/mcp-sweden/blob/ed10cc3dce260830349c3aab3c3ae0891774e890/src/mcp_sweden/data/scb/__init__.py),
+[Kolada v2](https://github.com/Namraks-Labs/mcp-sweden/blob/ed10cc3dce260830349c3aab3c3ae0891774e890/src/mcp_sweden/data/kolada/__init__.py)
+and [Skolverket](https://github.com/Namraks-Labs/mcp-sweden/blob/ed10cc3dce260830349c3aab3c3ae0891774e890/src/mcp_sweden/data/skolverket/__init__.py)
+modules. The new dedicated implementations provide alternatives, including SCB v2 and
+Kolada v3. BolagsAPI partly overlaps the company-information domain of the aggregator's
+[Bolagsverket client](https://github.com/Namraks-Labs/mcp-sweden/blob/ed10cc3dce260830349c3aab3c3ae0891774e890/src/mcp_sweden/data/bolagsverket/client.py),
+but is a **different provider/API**, not an official Bolagsverket MCP server.
+
 ## Remote runtime attempts
 
 Tests were made on **2026-09-14 at approximately 09:58 UTC**, using Python's standard
@@ -201,14 +373,24 @@ health fields or fabricated runtime scores are stored in entry JSON.
   archived at review time. Current docs direct users to an OAuth gateway and do not
   redistribute the prebuilt corpus; an old deployment URL was not treated as anonymous
   working access. Exclusion is not a claim that the underlying implementation is fake.
-- Business/company sources and other categories remain incomplete. Roadmap references
-  to Bolagsverket, Riksdagen or Lantmäteriet in other projects were not counted as
-  implemented integrations. This is a useful initial selection, not exhaustive coverage.
+- Business/company coverage now includes BolagsAPI, with the provider distinction
+  explained above. Coverage remains incomplete: roadmap-only references in other
+  projects were not counted as implemented integrations. This is a curated selection,
+  not an exhaustive list or a claim of official agency affiliation.
+- [Leopaexd/stockholm-public-transport-mcp](https://github.com/Leopaexd/stockholm-public-transport-mcp)
+  remains excluded from this expansion: the reviewed implementation passes dictionary
+  parameters into an `lru_cache`-decorated function, which requires hashable arguments.
+- [wirn/mcp-elpris](https://github.com/wirn/mcp-elpris) remains deferred because setup
+  documentation is insufficient and stdout logging complicates its transport setup;
+  no LICENSE was established. Neither excluded project was runtime-tested here.
 
 ## Licensing boundaries
 
-Catalog infrastructure and original descriptions are MIT-licensed. Four entries have
-verified code-license files; four use `null` because applicable terms were not established.
+Catalog infrastructure and original descriptions are MIT-licensed. **Twelve entries have
+verified code-license files; six use `null`** because applicable terms were not established.
+The expansion adds eight verified licenses (seven MIT and one Apache-2.0) and two
+unverified licenses (Naturvårdsverket MCP and Traktamente MCP), preserving the original
+eight entries and their license status.
 A README/package license declaration is noted above but is not silently converted into
 verified terms. GitHub's automatic repository license detection is not decisive: for
 Riksdag & Regering the relevant license is in the `mcp` subdirectory.

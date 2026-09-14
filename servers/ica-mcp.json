@@ -1,0 +1,43 @@
+{
+  "name": "ICA MCP (unofficial)",
+  "repository_url": "https://github.com/kanylbullen/ica-mcp",
+  "site_url": "https://github.com/kanylbullen/ica-mcp/blob/1d9b9940890eabce348e30539c5d6a2ec7ecd80f/README.md",
+  "author": "kanylbullen",
+  "language": "Python",
+  "license": "MIT",
+  "stars": 2,
+  "category": "design-other",
+  "description": "Uses ICA’s unofficial private API for shopping lists, recipes, offers and products. Requires login, can modify lists, and carries service-terms and availability risks.",
+  "tags": [
+    "sweden",
+    "ica",
+    "shopping",
+    "recipes",
+    "private-api",
+    "login-required",
+    "writes"
+  ],
+  "transport": "stdio",
+  "last_verified": "2026-09-14",
+  "tools": [
+    "list_shopping_lists",
+    "view_shopping_list",
+    "add_items",
+    "remove_item",
+    "get_recipe",
+    "get_offers",
+    "get_product"
+  ],
+  "quality": {
+    "rubric_version": 1,
+    "reviewed_at": "2026-09-14",
+    "status": "unassessed",
+    "reason": "Source review only; no runtime test or full rubric assessment. Unofficial private API; README warns of possible conflicts with ICA terms. Requires personnummer/password login and Swedish egress according to the project; BankID-only accounts are unsupported. Tokens are cached locally and tools can modify personal lists. No login, personal data access or write operation was attempted.",
+    "evidence": [
+      "https://github.com/kanylbullen/ica-mcp/blob/1d9b9940890eabce348e30539c5d6a2ec7ecd80f/README.md",
+      "https://github.com/kanylbullen/ica-mcp/blob/1d9b9940890eabce348e30539c5d6a2ec7ecd80f/ica_mcp/server.py",
+      "https://github.com/kanylbullen/ica-mcp/blob/1d9b9940890eabce348e30539c5d6a2ec7ecd80f/pyproject.toml",
+      "https://github.com/kanylbullen/ica-mcp/blob/1d9b9940890eabce348e30539c5d6a2ec7ecd80f/LICENSE"
+    ]
+  }
+}
