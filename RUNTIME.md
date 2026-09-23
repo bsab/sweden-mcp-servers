@@ -28,7 +28,7 @@ components, but is counted once. All dates/times are UTC.
 
 | Server | Documentation /100 | Runtime outcome | Observed phases/result |
 |---|---:|---|---|
-| [Arbetsförmedlingen MCP Server](#arbetsformedlingen-mcp-server) | 90 | `passed` | 13 tools; public autocomplete returned 10 live occupation/skill suggestions. |
+| [Arbetsförmedlingen MCP Server](#arbetsformedlingen-mcp-server) | 100 | `passed` | 13 tools; public autocomplete returned 10 live occupation/skill suggestions. |
 | [Bokio MCP](#bokio-mcp) | 82.5 | `blocked_missing_credentials` | Initialized; 40 tools; local ping=pong only, no provider data. |
 | [BolagsAPI MCP Server](#bolagsapi-mcp-server) | 100 | `blocked_missing_credentials` | Launch guard: BOLAGSAPI_KEY required; no initialize response. |
 | [Fortnox MCP](#fortnox-mcp) | 90 | `blocked_missing_credentials` | Launch guard: Fortnox client credentials required; no initialize response. |
@@ -161,7 +161,7 @@ remain separately recorded in the original verification report.
 - **Non-secret configuration:** `{"NODE_USE_SYSTEM_CA": "1", "NODE_USE_ENV_PROXY": "1"}`.
 - **Phases:** initialize `passed`; initialized notification `sent`; tools/list `passed`; 13 tools discovered.
 - **Selected call:** `af_autocomplete` with `{"q": "sjuksk"}`.
-- **Reviewed outcome: `passed`.** The first attempt returned isError=true / fetch failed. With the standard Node NODE_USE_SYSTEM_CA=1 and NODE_USE_ENV_PROXY=1 settings, the unchanged source returned 10 public suggestions for sjuksk, including sjukskoterska (1,980 listings) and occupation/skill categories. This tested aggregate public autocomplete only: no job/contact records or private account data were accessed. TLS verification and normal proxy policy remained enabled.
+- **Reviewed outcome: `passed`.** The first attempt returned isError=true / fetch failed. With the standard Node NODE_USE_SYSTEM_CA=1 and NODE_USE_ENV_PROXY=1 settings, the unchanged source returned 10 public suggestions for sjuksk, including sjukskoterska (1,980 listings) and occupation/skill categories. The initial failure was treated as a test-environment trust/proxy requirement, not a server defect. This tested aggregate public autocomplete only: no job/contact records or private account data were accessed. TLS verification and normal proxy policy remained enabled.
 
 <a id="bokio-mcp"></a>
 
