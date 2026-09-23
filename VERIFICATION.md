@@ -105,6 +105,9 @@ authentication and scope caveats below continue to apply.
 
 - Repository: [DanielErikssonCoder/arbetsformedlingen-mcp-server](https://github.com/DanielErikssonCoder/arbetsformedlingen-mcp-server).
 - Inspected commit: [`b94dd02bcd884c16b26c1adb7feee39775ca98dd`](https://github.com/DanielErikssonCoder/arbetsformedlingen-mcp-server/tree/b94dd02bcd884c16b26c1adb7feee39775ca98dd).
+- Documentation follow-up: [`920a470f9c209354aed4dcf62fb60568cf1be7cf`](https://github.com/DanielErikssonCoder/arbetsformedlingen-mcp-server/commit/920a470f9c209354aed4dcf62fb60568cf1be7cf)
+  adds the Node.js 18+ prerequisite and confirms that no API key is required. The
+  configuration criterion was reassessed as complete on 2026-09-23.
 - TypeScript, MIT, 1 star. [Entry and evidence](servers/arbetsformedlingen-mcp-server.json).
 - Node 18+; documented MCP command is `npx -y arbetsformedlingen-mcp-server`. Defaults
   to stdio, which is the cataloged transport. Optional `TRANSPORT=http` exposes local

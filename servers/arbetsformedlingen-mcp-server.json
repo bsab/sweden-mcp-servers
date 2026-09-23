@@ -1,7 +1,7 @@
 {
   "name": "Arbetsförmedlingen MCP Server",
   "repository_url": "https://github.com/DanielErikssonCoder/arbetsformedlingen-mcp-server",
-  "site_url": "https://github.com/DanielErikssonCoder/arbetsformedlingen-mcp-server/blob/b94dd02bcd884c16b26c1adb7feee39775ca98dd/README.md",
+  "site_url": "https://github.com/DanielErikssonCoder/arbetsformedlingen-mcp-server/blob/920a470f9c209354aed4dcf62fb60568cf1be7cf/README.md",
   "author": "DanielErikssonCoder",
   "language": "TypeScript",
   "license": "MIT",
@@ -16,7 +16,7 @@
     "labour-market"
   ],
   "transport": "stdio",
-  "last_verified": "2026-09-14",
+  "last_verified": "2026-09-23",
   "tools": [
     "af_search_jobs",
     "af_get_job",
@@ -34,7 +34,7 @@
   ],
   "quality": {
     "rubric_version": 1,
-    "reviewed_at": "2026-09-14",
+    "reviewed_at": "2026-09-23",
     "status": "assessed",
     "criteria": {
       "installation": {
@@ -46,13 +46,13 @@
         "notes": "The quick start gives an npx-based Claude Desktop configuration and restart step, with direct/global installation alternatives and an HTTP startup command."
       },
       "configuration": {
-        "status": "partial",
+        "status": "complete",
         "evidence": [
-          "https://github.com/DanielErikssonCoder/arbetsformedlingen-mcp-server/blob/b94dd02bcd884c16b26c1adb7feee39775ca98dd/README.md#L1-L7",
-          "https://github.com/DanielErikssonCoder/arbetsformedlingen-mcp-server/blob/b94dd02bcd884c16b26c1adb7feee39775ca98dd/README.md#L113-L119",
-          "https://github.com/DanielErikssonCoder/arbetsformedlingen-mcp-server/blob/b94dd02bcd884c16b26c1adb7feee39775ca98dd/package.json#L43-L45"
+          "https://github.com/DanielErikssonCoder/arbetsformedlingen-mcp-server/blob/920a470f9c209354aed4dcf62fb60568cf1be7cf/README.md#L11-L15",
+          "https://github.com/DanielErikssonCoder/arbetsformedlingen-mcp-server/blob/920a470f9c209354aed4dcf62fb60568cf1be7cf/README.md#L115-L121",
+          "https://github.com/DanielErikssonCoder/arbetsformedlingen-mcp-server/blob/920a470f9c209354aed4dcf62fb60568cf1be7cf/package.json#L43-L45"
         ],
-        "notes": "No API key is explicitly required, and TRANSPORT/PORT defaults are documented. The README omits runtime prerequisites; Node >=18 appears only in package metadata, which does not earn complete documentation credit."
+        "notes": "The Quick start documents Node.js 18 or later, explains that npx is included with Node, and explicitly states that no API key is required. TRANSPORT and PORT defaults are also documented."
       },
       "tools": {
         "status": "complete",

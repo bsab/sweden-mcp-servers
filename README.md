@@ -336,7 +336,7 @@ entries last. Bold names, if present, are editorial selections, not certificatio
   <tbody>
   <tr>
     <td><a href="https://github.com/DanielErikssonCoder/arbetsformedlingen-mcp-server">Arbetsförmedlingen MCP Server</a></td>
-    <td align="right"><a href="servers/arbetsformedlingen-mcp-server.json" title="Documentation review: 2026-09-14; criteria and sources">90/100</a></td>
+    <td align="right"><a href="servers/arbetsformedlingen-mcp-server.json" title="Documentation review: 2026-09-23; criteria and sources">100/100</a></td>
     <td align="right">1</td>
     <td>TS</td>
     <td>Connects to Arbetsförmedlingen and JobTech APIs for current and historical jobs, job events, occupation taxonomy and education matching.</td>
