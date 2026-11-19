@@ -13,7 +13,7 @@
   <a href="https://github.com/bsab/sweden-mcp-servers/actions/workflows/link-check.yml"><img src="https://github.com/bsab/sweden-mcp-servers/actions/workflows/link-check.yml/badge.svg" alt="Link check"/></a>
   <a href="https://github.com/bsab/sweden-mcp-servers/actions/workflows/pages.yml"><img src="https://github.com/bsab/sweden-mcp-servers/actions/workflows/pages.yml/badge.svg" alt="GitHub Pages"/></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="MIT License"/></a>
-  <img src="https://img.shields.io/badge/MCP%20servers-26-blue.svg" alt="26 servers"/>
+  <img src="https://img.shields.io/badge/MCP%20servers-27-blue.svg" alt="27 servers"/>
   <img src="https://img.shields.io/badge/categories-9-orange.svg" alt="9 categories"/>
 <!-- END:badges -->
 </p>
@@ -455,6 +455,14 @@ entries last. Bold names, if present, are editorial selections, not certificatio
     <td align="right">8</td>
     <td>TS</td>
     <td>Searches Blocket (via blocket-api.se) and Tradera listings. Tradera requires app credentials. Tools retrieve items but do not purchase, bid or track changes.</td>
+    <td align="center">—</td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/gradientvibe/bolagskvarnen-examples">Bolagskvarnen</a></td>
+    <td align="right">Unassessed</td>
+    <td align="right">0</td>
+    <td>JS</td>
+    <td>Hosted MCP server and REST API for Swedish company data: search, profile, board and signatories, history, financial statements. OAuth 2.1 or API key; free test key for a sandbox.</td>
     <td align="center">—</td>
   </tr>
   </tbody>
