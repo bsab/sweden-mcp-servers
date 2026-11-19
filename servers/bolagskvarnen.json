@@ -1,0 +1,31 @@
+{
+  "name": "Bolagskvarnen",
+  "repository_url": "https://github.com/gradientvibe/bolagskvarnen-examples",
+  "site_url": "https://github.com/gradientvibe/bolagskvarnen-examples/blob/fac214da2211ad98d34cd53c998cae50b02c2c09/README.md",
+  "author": "gradientvibe",
+  "language": "JavaScript",
+  "license": "MIT",
+  "stars": 0,
+  "category": "design-other",
+  "description": "Hosted MCP server and REST API for Swedish company data: search, profile, board and signatories, history, financial statements. OAuth 2.1 or API key; free test key for a sandbox.",
+  "tags": [
+    "sweden",
+    "bolagskvarnen",
+    "companies",
+    "bolagsverket",
+    "scb",
+    "financial-statements",
+    "api-key"
+  ],
+  "transport": "streamable-http",
+  "last_verified": "2026-11-19",
+  "tools": [
+    "gb_search_companies",
+    "gb_get_company",
+    "gb_get_company_roles",
+    "gb_get_company_history",
+    "gb_get_financials",
+    "gb_get_person_engagements",
+    "gb_get_account"
+  ]
+}

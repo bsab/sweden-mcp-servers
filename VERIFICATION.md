@@ -524,6 +524,25 @@ existing entries and do not inherit runtime passes from another implementation.
 - **License null:** README/manifest say MIT, without full applicable license terms.
   No deployment, login, endpoint connection or marketplace query was performed.
 
+### Bolagskvarnen — hosted company data, credential-gated endpoint
+
+- Vendor repository: [gradientvibe/bolagskvarnen-examples at `fac214d`](https://github.com/gradientvibe/bolagskvarnen-examples/tree/fac214da2211ad98d34cd53c998cae50b02c2c09),
+  MIT, 0 stars. It holds client examples and the `bolagskvarnen-mcp` npm package, a small
+  JavaScript stdio bridge to the hosted server; it is not the source of the hosted server.
+  [Entry](servers/bolagskvarnen.json).
+- Hosted server: `https://app.bolagskvarnen.se/mcp` (Streamable HTTP), documented in the
+  vendor's [server card](https://app.bolagskvarnen.se/.well-known/mcp.json) and
+  [llms.txt](https://bolagskvarnen.se/llms.txt). Sign-in is OAuth 2.1 or an API key; a free
+  test key (`gb_test_...`) gives a sandbox with fictional companies. Because the endpoint
+  needs credentials, it is **not** listed as `mcp_endpoint`, in line with the contribution rules.
+- Seven tools are named in the entry; source is the vendor's own documentation. Data is
+  Swedish company data from Bolagsverket and SCB, for internal use under the vendor's terms;
+  real data was announced as opening later. Prices were not verified.
+- Listed in the official MCP Registry as `se.bolagskvarnen/bolagskvarnen`. This record is
+  documentation-reviewed only: no install, sign-in, `tools/list` or tool call was run for
+  this entry. `quality` is omitted (unassessed). Category `design-other`, as for BolagsAPI.
+- Submitted by the vendor.
+
 ## Remote runtime attempts (historical initial pass)
 
 Tests were made on **2026-09-14 at approximately 09:58 UTC**, using Python's standard
